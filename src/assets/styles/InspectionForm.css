@@ -1,0 +1,42 @@
+/* src/assets/styles/InspectionForm.css */
+.inspection-form-page {
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 10px;
+  }
+  
+  .inspection-form-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .inspection-form-content {
+    background-color: #e6f2ff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .info-box {
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control,
+  .form-control-file,
+  .form-control select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  .btn {
+    margin-right: 10px;
+  }
+  

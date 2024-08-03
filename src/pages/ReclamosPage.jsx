@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/ReclamosPage.css';
+import InspectionForm from './InspectionForm'; // Importar el componente existente
+import InspectionSinForm from './InspectionSinForm'; // Importar el nuevo componente
 
 // Función para calcular la fecha de un mes a partir de hoy
 const getExpiryDate = () => {
@@ -11,6 +13,7 @@ const getExpiryDate = () => {
 
 const ReclamosPage = () => {
     const [view, setView] = useState('main'); // Estado para controlar la vista
+    const [showForm, setShowForm] = useState(null); // Estado para controlar la visibilidad de los formularios
     const navigate = useNavigate();
     const expiryDate = getExpiryDate();
 
@@ -21,6 +24,22 @@ const ReclamosPage = () => {
     const handleQuejasClick = () => {
         setView('quejas'); // Cambiar a la vista de quejas
     };
+
+    const handleFormClick = (formType) => {
+        setShowForm(formType); // Mostrar el formulario correspondiente
+    };
+
+    const handleCloseForm = () => {
+        setShowForm(null); // Cerrar el formulario
+    };
+
+    if (showForm === 'conInforme') {
+        return <InspectionForm onClose={handleCloseForm} />;
+    }
+
+    if (showForm === 'sinInforme') {
+        return <InspectionSinForm onClose={handleCloseForm} />;
+    }
 
     if (view === 'main') {
         return (
@@ -48,8 +67,8 @@ const ReclamosPage = () => {
                     <div className="info-box">
                         <p>Por favor elige una opción para ingresar tu reclamo...</p>
                     </div>
-                    <button className="form-button-green">Formulario para informe de inspección</button>
-                    <button className="form-button-red">Formulario sin informe de inspección</button>
+                    <button className="form-button-green" onClick={() => handleFormClick('conInforme')}>Formulario para informe de inspección</button>
+                    <button className="form-button-red" onClick={() => handleFormClick('sinInforme')}>Formulario sin informe de inspección</button>
                     <div className="info-box">
                         <p>Recuerda: Toda reclamo fuera del período de garantía será atendida como oferta de reparación.</p>
                     </div>
