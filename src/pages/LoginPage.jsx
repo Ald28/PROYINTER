@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Input from '../components/common/Input';
 import logo from '../assets/images/Logo_proyinter.png';
 import derecha from '../assets/images/login_derecha.png';
@@ -8,11 +8,19 @@ import '../assets/styles/login.css';
 const LoginPage = () => {
     const [correo, setCorreo] = useState('');
     const [contraseña, setContraseña] = useState('');
+    const navigate = useNavigate();
 
     const manejarLogin = (e) => {
         e.preventDefault();
-        console.log('Correo:', correo);
-        console.log('Contraseña:', contraseña);
+
+        // Simula la autenticación
+        if (correo && contraseña) {
+            // Guarda el correo del cliente en el almacenamiento local
+            localStorage.setItem('cliente', correo);
+            navigate('/cliente');
+        } else {
+            alert('Por favor ingresa tu correo y contraseña');
+        }
     };
 
     return (
@@ -36,8 +44,8 @@ const LoginPage = () => {
                         />
                         <button type="submit" className="btn btn-primary w-100">Iniciar Sesión</button>
                     </form>
-                    <p className="mt-3"><Link to="#">¿Olvidaste tu contraseña?</Link></p>
-                    <p>¿No tienes una cuenta? <Link to="#">Regístrate</Link></p>
+                    <p className="mt-3"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
                 </div>
                 <div className="login-image">
                     <img src={derecha} alt="Login" className="w-100 h-100" />

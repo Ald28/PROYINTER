@@ -1,0 +1,50 @@
+.installed-base {
+    padding: 20px;
+}
+
+.offer-details {
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.offer-info p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.offer-links a {
+    display: block;
+    margin: 5px 0;
+    color: #007bff;
+}
+
+.offer-links a:hover {
+    text-decoration: underline;
+}
+
+.operation-update {
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.operation-update .form-group {
+    margin-bottom: 15px;
+}
+
+.operation-update .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.operation-update .form-group input,
+.operation-update .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
