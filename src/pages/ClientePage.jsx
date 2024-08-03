@@ -55,7 +55,7 @@ const ClientePage = () => {
                         <Link to="/cliente/solicitar-cotizacion"><button className="btn btn-link">Solicitar Cotización</button></Link>
                         <Link to="/cliente/ver-base-instalada"><button className="btn btn-link">Ver base instalada</button></Link>
                         <Link to="/cliente/soporte-tecnico"><button className="btn btn-link">Soporte técnico</button></Link>
-                        <Link to="/cliente/reclamos"><button className="btn btn-link">Reclamos</button></Link>
+                        <Link to="/cliente/reclamos"><button className="btn btn-link">Reclamos</button></Link> {/* Enlace a Reclamos */}
                         <Link to="/cliente/mantenimiento"><button className="btn btn-link">Mantenimiento</button></Link>
                         <Link to="/cliente/notificaciones"><button className="btn btn-link">Notificaciones</button></Link>
                     </nav>
