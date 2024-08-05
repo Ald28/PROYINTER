@@ -1,15 +1,28 @@
 import React from 'react';
 
+const documentos = [
+    { id: 1, nombre: '20601436036-09-EG07-7.pdf', url: '/files/20601436036-09-EG07-7.pdf' },
+    { id: 2, nombre: '20601436036-09-EG07-6.pdf', url: '/files/20601436036-09-EG07-6.pdf' },
+];
+
 const GuiaRemision = () => {
     return (
         <div className="installed-base">
             <h2>Guía de Remisión</h2>
             <div className="info-section">
-                <a href="/path/to/20601436036-09-EG07-7.pdf" target="_blank">20601436036-09-EG07-7.pdf</a>
-                <a href="/path/to/20601436036-09-EG07-6.pdf" target="_blank">20601436036-09-EG07-6.pdf</a>
+                {documentos.map(doc => (
+                    <a 
+                        key={doc.id} 
+                        href={doc.url} 
+                        download
+                    >
+                        {doc.nombre}
+                    </a>
+                ))}
             </div>
         </div>
     );
 };
 
 export default GuiaRemision;
+
