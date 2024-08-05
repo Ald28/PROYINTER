@@ -8,13 +8,13 @@ const OrdenDeCompra = () => {
             id: 1,
             title: 'Orden de Compra 2023312569',
             date: '15.12.2023',
-            link: '/mnt/data/OC_2023312569_Tanques en fibra de vidrio (1).pdf'
+            link: '/files/OC_2023312569_Tanques en fibra de vidrio.pdf'
         },
         {
             id: 2,
             title: 'Orden de Compra 2023312421',
             date: '11.12.2023',
-            link: '/mnt/data/OC_2023312421_Tanques en fibra de vidrio (1).pdf'
+            link: '/files/OC_2023312421_Tanques en fibra de vidrio.pdf'
         }
     ];
 
@@ -26,7 +26,7 @@ const OrdenDeCompra = () => {
                     <div className="info-item" key={order.id}>
                         <h3>{order.title}</h3>
                         <p>Fecha: {order.date}</p>
-                        <a href={order.link} target="_blank" rel="noopener noreferrer">Descargar</a>
+                        <a href={order.link} download>Descargar</a>
                     </div>
                 ))}
             </div>
