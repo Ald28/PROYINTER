@@ -4,6 +4,8 @@ import Input from '../components/common/Input';
 import logo from '../assets/images/Logo_proyinter.png';
 import derecha from '../assets/images/login_derecha.png';
 import '../assets/styles/login.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
     const [correo, setCorreo] = useState('');
@@ -13,13 +15,14 @@ const LoginPage = () => {
     const manejarLogin = (e) => {
         e.preventDefault();
 
-        // Simula la autenticación
+
         if (correo && contraseña) {
-            // Guarda el correo del cliente en el almacenamiento local
+            
             localStorage.setItem('cliente', correo);
             navigate('/cliente');
         } else {
-            alert('Por favor ingresa tu correo y contraseña');
+            toast.error('Por favor ingresa tu correo y contraseña', {
+            });
         }
     };
 
@@ -51,6 +54,7 @@ const LoginPage = () => {
                     <img src={derecha} alt="Login" className="w-100 h-100" />
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };
