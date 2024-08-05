@@ -30,6 +30,7 @@
     top: 80px;
     left: 0;
     z-index: 1000;
+    overflow-x: hidden; /* Quita la barra de desplazamiento horizontal */
 }
 
 .sidebar-hidden {
@@ -59,8 +60,7 @@
 
 .submenu .btn-link {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Alinea los íconos con el texto */
     width: 100%;
     font-weight: normal;
     color: #007bff;
