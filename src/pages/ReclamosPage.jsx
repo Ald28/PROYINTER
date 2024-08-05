@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/ReclamosPage.css';
-import InspectionForm from './InspectionForm'; // Importar el componente existente
+import InspectionForm from './InspectionForm'; 
 import InspectionSinForm from './InspectionSinForm'; // Importar el nuevo componente
 
-// Función para calcular la fecha de un mes a partir de hoy
+
 const getExpiryDate = () => {
     const currentDate = new Date();
     const expiryDate = new Date(currentDate.setMonth(currentDate.getMonth() + 1));
@@ -12,9 +12,8 @@ const getExpiryDate = () => {
 };
 
 const ReclamosPage = () => {
-    const [view, setView] = useState('main'); // Estado para controlar la vista
-    const [showForm, setShowForm] = useState(null); // Estado para controlar la visibilidad de los formularios
-    const navigate = useNavigate();
+    const [view, setView] = useState('main'); 
+    const [showForm, setShowForm] = useState(null);
     const expiryDate = getExpiryDate();
 
     const handleVolverClick = () => {
@@ -22,15 +21,15 @@ const ReclamosPage = () => {
     };
 
     const handleQuejasClick = () => {
-        setView('quejas'); // Cambiar a la vista de quejas
+        setView('quejas'); 
     };
 
     const handleFormClick = (formType) => {
-        setShowForm(formType); // Mostrar el formulario correspondiente
+        setShowForm(formType);
     };
 
     const handleCloseForm = () => {
-        setShowForm(null); // Cerrar el formulario
+        setShowForm(null); 
     };
 
     if (showForm === 'conInforme') {

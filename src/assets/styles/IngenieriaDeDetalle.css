@@ -1,0 +1,25 @@
+.detalle-page {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.document-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.document-item {
+    margin-bottom: 10px;
+}
+
+.document-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.document-item a:hover {
+    text-decoration: underline;
+}
