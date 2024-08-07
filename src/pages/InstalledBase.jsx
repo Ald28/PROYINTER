@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles/InstalledBase.css';
 
@@ -20,7 +20,7 @@ const InstalledBase = () => {
                 </ol>
             </nav>
             <h2>Base Instalada</h2>
-            <table>
+            <table id="myTable" className="display">
                 <thead>
                     <tr>
                         <th>N°</th>

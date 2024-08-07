@@ -20,6 +20,13 @@ const LoginPage = () => {
             navigate('/cliente');
         } else {
             toast.error('Por favor ingresa tu correo y contraseña', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
             });
         }
     };

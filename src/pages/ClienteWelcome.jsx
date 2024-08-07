@@ -10,7 +10,7 @@ const ClienteWelcome = () => {
 
     return (
         <div className="cliente-welcome">
-            <h2>Bienvenido, Aldo</h2><br />
+            <h2>Bienvenido, {localStorage.getItem('cliente').split('@')[0]}</h2><br />
             <div className="button-grid">
                 <button className="grid-button" onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
                     Solicitar Cotización
