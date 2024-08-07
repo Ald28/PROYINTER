@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FaUserCircle, FaBars } from 'react-icons/fa';
+import { IoNotifications } from "react-icons/io5";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import { BiHome, BiMessageAltDetail, BiStoreAlt, BiSupport, BiBell, BiWrench } from 'react-icons/bi';
+import { BiHome, BiMessageAltDetail, BiStoreAlt, BiSupport, BiBell, BiWrench, BiUser, BiCog } from 'react-icons/bi';
 import logo from '../assets/images/Logo_proyinter.png';
 import '../assets/styles/ClientePage.css';
 
 const ClientePage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(true);
-    const [subMenuOpen, setSubMenuOpen] = useState(false);
     const [cliente, setCliente] = useState('');
     const navigate = useNavigate();
 
@@ -28,15 +28,11 @@ const ClientePage = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
-    const toggleSubMenu = () => {
-        setSubMenuOpen(!subMenuOpen);
-    };
-
     const handleLinkClick = (path) => {
         if (window.innerWidth <= 768) {
-            setSidebarOpen(false); // Cierra el sidebar solo en vista móvil
+            setSidebarOpen(false);
         }
-        navigate(path); // Navega a la página deseada
+        navigate(path);
     };
 
     return (
@@ -48,7 +44,10 @@ const ClientePage = () => {
                     </button>
                     <img src={logo} alt="Proyinter Logo" className="logo me-2" />
                 </div>
-                <div className="position-relative">
+                <div className="position-relative d-flex align-items-center">
+                    <button className='btn btn-link'>
+                        <IoNotifications size={30} />
+                    </button>
                     <button className="btn btn-link" onClick={toggleMenu}>
                         <FaUserCircle size={30} />
                     </button>
@@ -63,59 +62,35 @@ const ClientePage = () => {
             </header>
             <div className="d-flex">
                 <nav className={`sidebar p-3 ${!sidebarOpen && 'sidebar-hidden'}`}>
-                    <h1 className="h4 mb-3">Cliente</h1>
                     <button className="btn btn-link" onClick={() => handleLinkClick('/cliente')}>
                         <BiHome size={20} /> Inicio
                     </button>
+                    <h2 className="sidebar-title">Cliente</h2>
                     <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
                         <BiMessageAltDetail size={20} /> Solicitar Cotización
                     </button>
-                    <div className="submenu">
-                        <button className="btn btn-link" onClick={toggleSubMenu}>
-                            <BiStoreAlt size={20} /> Ver Base Instalada {subMenuOpen ? '▲' : '▼'}
-                        </button>
-                        {subMenuOpen && (
-                            <div className="submenu-links">
-                                <button className="btn btn-link submenu-item" onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>
-                                    Vista Principal
-                                </button>
-                                <button className="btn btn-link submenu-item" onClick={() => handleLinkClick('/cliente/orden-de-compra')}>
-                                    Orden de Compra
-                                </button>
-                                <button className="btn btn-link submenu-item" onClick={() => handleLinkClick('/cliente/oferta-de-venta')}>
-                                    Oferta de Venta
-                                </button>
-                                <button className="btn btn-link submenu-item" onClick={() => handleLinkClick('/cliente/informacion-tecnica-equipos')}>
-                                    Información Técnica de los Equipos
-                                </button>
-                                <button className="btn btn-link submenu-item" onClick={() => handleLinkClick('/cliente/ingenieria-de-detalle')}>
-                                    Ingeniería de Detalle
-                                </button>
-                                <button className="btn btn-link submenu-item" onClick={() => handleLinkClick('/cliente/despacho')}>
-                                    Despacho
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                    <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>
+                        <BiStoreAlt size={20} /> Ver Base Instalada
+                    </button>
                     <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/soporte-tecnico')}>
                         <BiSupport size={20} /> Soporte Técnico
                     </button>
                     <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/reclamos')}>
                         <BiWrench size={20} /> Reclamos
                     </button>
-                    <div className="help-section">
-                        <h2 className="h5 mb-3">Ayuda</h2>
-                        <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/mantenimiento')}>
-                            <BiWrench size={20} /> Mantenimiento
-                        </button>
-                        <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/notificaciones')}>
-                            <BiBell size={20} /> Notificaciones
-                        </button>
-                    </div>
+                    <h2 className="sidebar-title">Usuario</h2>
+                    <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/editar-perfil')}>
+                        <BiUser size={20} /> Editar perfil
+                    </button>
+                    <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/notificaciones')}>
+                        <BiBell size={20} /> Notificaciones
+                    </button>
+                    <button className="btn btn-link" onClick={() => handleLinkClick('/cliente/ayuda')}>
+                        <BiCog size={20} /> Ayuda
+                    </button>
                 </nav>
                 <main className={`main-content flex-grow-1 p-4 ${!sidebarOpen && 'expanded'}`}>
                     <div className="content">
-                        <h2>Bienvenido, {cliente}</h2><br />
                         <Outlet />
                     </div>
                 </main>

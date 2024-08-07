@@ -1,12 +1,46 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../assets/styles/InstalledBase.css';
 
 const InstalledBase = () => {
+    const navigate = useNavigate();
+
+    const handleLinkClick = (path) => {
+        navigate(path);
+    };
+
     return (
         <div className="installed-base">
-            <h2>Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos</h2>
-            <Outlet />
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                        <button className="btn btn-link p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">Base Instalada</li>
+                </ol>
+            </nav>
+            <h2>Base Instalada</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>N°</th>
+                        <th>Tipo de Servicio</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Servicio de Procura</td>
+                        <td>Fabricación de Tanques</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Servicio de Procura</td>
+                        <td>Fabricación de Tanques</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     );
 };

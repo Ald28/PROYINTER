@@ -1,98 +1,41 @@
 .installed-base {
-    padding: 20px;
-}
-
-.info-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #dee2e6;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-.info-item {
-    width: 100%;
     text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    margin: 10px 0;
 }
 
-.info-item h3, .info-item a {
-    font-size: 16px;
+.installed-base h2 {
+    margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
-    .info-section {
-        flex-direction: row;
-    }
-
-    .info-item {
-        flex: 1;
-        margin: 0 10px;
-    }
+.installed-base table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
 }
 
-.installed-base {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.installed-base th, .installed-base td {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
-.certificado-content {
-    margin-top: 20px;
+.installed-base th {
+    background-color: #007bff;
+    color: white;
 }
 
-.certificado-content p {
-    margin-bottom: 10px;
+.installed-base td {
+    background-color: #f8f9fa;
 }
 
-.certificado-content ul {
-    list-style-type: disc;
-    margin-left: 20px;
+.installed-base tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-.back-link {
-    margin-top: 20px;
+.installed-base tr:hover {
+    background-color: #ddd;
 }
 
-.back-link a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
+.installed-base th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
 }
-
-.back-link a:hover {
-    text-decoration: underline;
-}
-
-.download-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #007BFF;
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.download-button:hover {
-    background-color: #0056b3;
-}
-
-.download-button svg {
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
-}
-
