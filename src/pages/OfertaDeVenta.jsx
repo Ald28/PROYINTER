@@ -12,7 +12,17 @@ const OfertaDeVenta = () => {
 
     return (
         <div className="offer-page">
-            <h2>Oferta de Venta</h2>
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                        <button className="btn btn-link p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">Base Instalada</li>
+                    <li className="breadcrumb-item active" aria-current="page">Servicio</li>
+                    <li className="breadcrumb-item active" aria-current="page">Oferta de Venta</li>
+                </ol>
+            </nav>
+            <h4>Oferta de Venta</h4>
             <div className="info-section">
                 {offers.map(offer => (
                     <div className="info-item" key={offer.id}>

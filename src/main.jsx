@@ -8,6 +8,8 @@ import ReclamosPage from './pages/ReclamosPage';
 import InstalledBase from './pages/InstalledBase';
 import ClienteWelcome from './pages/ClienteWelcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Servicio from './pages/Servicio';
+import OfertaDeVenta from './pages/OfertaDeVenta';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,6 +20,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route index element={<ClienteWelcome />} /> {/* Página principal del cliente */}
           <Route path="ver-base-instalada" element={<InstalledBase />} />
           <Route path="reclamos" element={<ReclamosPage />} />
+          <Route path="servicio" element={<Servicio />} />
+          <Route path="ofertaDeVenta" element={<OfertaDeVenta />}/>
         </Route>
       </Routes>
     </Router>

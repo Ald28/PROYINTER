@@ -31,7 +31,7 @@ const InstalledBase = () => {
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Servicio de Procura</td>
+                        <td  onClick={() => handleLinkClick('/cliente/servicio')}>Servicio de Procura</td>
                         <td>Fabricación de Tanques</td>
                     </tr>
                     <tr>
