@@ -26,7 +26,7 @@ const Servicio = () => {
             <p>Servicio de Procura de tanques de fibra de vidrio para cianuro y sulfatos</p>
             <div className="button-container mt-5">
                 <div className="button-group mb-3">
-                    <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('#')}>Orden de Compra</button>
+                    <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('/cliente/ordenDeCompra')}>Orden de Compra</button>
                 </div>
                 <div className="button-group mb-3">
                     <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('/cliente/ofertaDeVenta')}>Oferta de Venta</button>

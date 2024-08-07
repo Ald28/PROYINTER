@@ -10,6 +10,7 @@ import ClienteWelcome from './pages/ClienteWelcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Servicio from './pages/Servicio';
 import OfertaDeVenta from './pages/OfertaDeVenta';
+import OrdenDeCompra from './pages/OrdenDeCompra';  // Importa el nuevo componente
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="reclamos" element={<ReclamosPage />} />
           <Route path="servicio" element={<Servicio />} />
           <Route path="ofertaDeVenta" element={<OfertaDeVenta />}/>
+          <Route path="ordenDeCompra" element={<OrdenDeCompra />} /> {/* Nueva ruta */}
         </Route>
       </Routes>
     </Router>

@@ -1,40 +1,78 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../assets/styles/InstalledBase.css';
+import React, { useEffect } from 'react';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
+import $ from 'jquery';
+import DataTable from 'datatables.net-dt';
 
 const OrdenDeCompra = () => {
     const orders = [
         {
             id: 1,
-            title: 'Orden de Compra 2023312569',
-            date: '15.12.2023',
-            link: '/files/OC_2023312569_Tanques en fibra de vidrio.pdf'
+            title: '20601436036-09-EG07-6.pdf',
+            link: '/files/20601436036-09-EG07-6.pdf',
+            fecha: '2024-08-01'
         },
         {
             id: 2,
-            title: 'Orden de Compra 2023312421',
-            date: '11.12.2023',
-            link: '/files/OC_2023312421_Tanques en fibra de vidrio.pdf'
+            title: '20601436036-09-EG07-7.pdf',
+            link: '/files/20601436036-09-EG07-7.pdf',
+            fecha: '2024-08-01'
         }
     ];
 
+    useEffect(() => {
+        $('#orderTable').DataTable();
+    }, []);
+
+    const handleLinkClick = (path) => {
+        window.location.href = path;
+    };
+
     return (
-        <div className="installed-base">
-            <h2>Orden de Compra</h2>
-            <div className="info-section">
-                {orders.map(order => (
-                    <div className="info-item" key={order.id}>
-                        <h3>{order.title}</h3>
-                        <p>Fecha: {order.date}</p>
-                        <a className="download-button" href={order.link} download>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1M12 12v7m-3-3l3 3 3-3m0-9H9m12 3v1a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h2m4 0h6"/>
-                            </svg>
-                            Descargar
-                        </a>
-                    </div>
-                ))}
-            </div>
+        <div className="order-page">
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                        <button className="btn btn-link p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">Base Instalada</li>
+                    <li className="breadcrumb-item active" aria-current="page">Servicio</li>
+                    <li className="breadcrumb-item active" aria-current="page">Orden de Compra</li>
+                </ol>
+            </nav>
+            <h4>Orden de Compra</h4>
+            <table id="orderTable" className="display">
+                <thead>
+                    <tr>
+                        <th>Orden</th>
+                        <th>Fechas</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {orders.map(order => (
+                        <tr key={order.id}>
+                            <td>
+                                <div className="info-section">
+                                    <div className="info-item">
+                                        <a href={order.link} download target="_blank" rel="noopener noreferrer">
+                                            {order.title}
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{order.fecha}</td>
+                            <td>
+                                <a href={order.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm mr-2">
+                                    Previsualizar
+                                </a>
+                                <a href={order.link} download className="btn btn-secondary btn-sm">
+                                    Descargar
+                                </a>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
