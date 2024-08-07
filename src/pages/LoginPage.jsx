@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../components/common/Input';
 import logo from '../assets/images/Logo_proyinter.png';
-import derecha from '../assets/images/login_derecha.png';
+import derecha from '../assets/images/login.png';
 import '../assets/styles/login.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,9 +15,7 @@ const LoginPage = () => {
     const manejarLogin = (e) => {
         e.preventDefault();
 
-
         if (correo && contraseña) {
-            
             localStorage.setItem('cliente', correo);
             navigate('/cliente');
         } else {
@@ -30,9 +28,9 @@ const LoginPage = () => {
         <div className="login-page">
             <div className="login-container">
                 <div className="login-form">
-                    <img src={logo} alt="Proyinter Logo" className="login-logo mb-4" />
-                    <h1 className="text-center mb-4">ACCESO AL PORTAL DEL CLIENTE</h1>
-                    <form onSubmit={manejarLogin} className="w-75">
+                    <img src={logo} alt="Proyinter Logo" className="login-logo" />
+                    <h1>ACCESO AL PORTAL DEL CLIENTE</h1>
+                    <form onSubmit={manejarLogin}>
                         <Input
                             type="email"
                             placeholder="Correo electrónico"
@@ -45,13 +43,13 @@ const LoginPage = () => {
                             value={contraseña}
                             onChange={(e) => setContraseña(e.target.value)}
                         />
-                        <button type="submit" className="btn btn-primary w-100">Iniciar Sesión</button>
+                        <button type="submit">Iniciar Sesión</button>
                     </form>
-                    <p className="mt-3"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p><a href="#">¿Olvidaste tu contraseña?</a></p>
                     <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
                 </div>
                 <div className="login-image">
-                    <img src={derecha} alt="Login" className="w-100 h-100" />
+                    <img src={derecha} alt="Login" />
                 </div>
             </div>
             <ToastContainer />
