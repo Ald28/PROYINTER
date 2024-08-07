@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
+import $ from 'jquery';
+import DataTable from 'datatables.net-dt';
 import '../assets/styles/OfertaDeVenta.css';
 
 const OfertaDeVenta = () => {
@@ -9,6 +12,10 @@ const OfertaDeVenta = () => {
             link: '/files/Cot. 20240020 - Servicio de suministro de tanques en fibra de vidrio_Bateas.pdf'
         }
     ];
+
+    useEffect(() => {
+        $('#myTable').DataTable();
+    }, []);
 
     return (
         <div className="offer-page">
@@ -32,6 +39,28 @@ const OfertaDeVenta = () => {
                     </div>
                 ))}
             </div>
+            <table id="myTable" className="display">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Título</th>
+                        <th>Enlace</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {offers.map(offer => (
+                        <tr key={offer.id}>
+                            <td>{offer.id}</td>
+                            <td>{offer.title}</td>
+                            <td>
+                                <a href={offer.link} download target="_blank" rel="noopener noreferrer">
+                                    Descargar
+                                </a>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
