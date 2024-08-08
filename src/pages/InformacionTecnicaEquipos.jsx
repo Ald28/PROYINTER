@@ -11,7 +11,7 @@ const InformacionTecnicaEquipos = () => {
                     <Link to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                 </div>
                 <div className="info-item">
-                    <Link to="#">Dossier</Link>
+                    <Link to="/cliente/informacion-tecnica-equipos/Dossier-de-Calidad">Dossier</Link>
                 </div>
                 <div className="info-item">
                     <Link to="/cliente/informacion-tecnica-equipos/certificado-garantia">Certificado de Garantía</Link>

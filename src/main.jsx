@@ -15,6 +15,11 @@ import Shipping from './pages/Shipping';
 import Despacho from './pages/Despacho';
 import GuiaRemision from './pages/GuiaRemision';
 import PackingList from './pages/PackingList';
+import InformacionTecnicaEquipos from './pages/InformacionTecnicaEquipos';
+import Equipos from './pages/Equipos';
+import DossierdeCalidad from './pages/DossierdeCalidad';
+import CertificadoGarantia from './pages/CertificadoGarantia';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -28,6 +33,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="servicio" element={<Servicio />} />
           <Route path="ofertaDeVenta" element={<OfertaDeVenta />} />
           <Route path="ordenDeCompra" element={<OrdenDeCompra />} />
+          <Route path="informacionTec" element={<InformacionTecnicaEquipos />} />
+          <Route path="informacion-tecnica-equipos/equipos" element={<Equipos />} />
+          <Route path="informacion-tecnica-equipos/dossier" element={<DossierdeCalidad />} />
+          <Route path="informacion-tecnica-equipos/certificado-garantia" element={<CertificadoGarantia />} />
           <Route path="shipping" element={<Shipping />} />
           <Route path="despacho" element={<Despacho />} />
           <Route path="despacho/guia-remision" element={<GuiaRemision />} />

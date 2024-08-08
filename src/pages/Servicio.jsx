@@ -34,7 +34,7 @@ const Servicio = () => {
                     <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('/cliente/ofertaDeVenta')}>Oferta de Venta</button>
                 </div>
                 <div className="button-group mb-3">
-                    <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('#')}>Información técnica de equipos</button>
+                    <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('/cliente/InformacionTec')}>Información técnica de equipos</button>
                 </div>
                 <div className="button-group mb-3">
                     <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('#')}>Ingenieria de detalle</button>
