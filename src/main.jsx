@@ -12,8 +12,9 @@ import Servicio from './pages/Servicio';
 import OfertaDeVenta from './pages/OfertaDeVenta';
 import OrdenDeCompra from './pages/OrdenDeCompra';
 import Shipping from './pages/Shipping';
-import RemissionGuide from './pages/RemissionGuide';
-import ItemList from './pages/ItemList';
+import Despacho from './pages/Despacho';
+import GuiaRemision from './pages/GuiaRemision';
+import PackingList from './pages/PackingList';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -28,11 +29,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="ofertaDeVenta" element={<OfertaDeVenta />} />
           <Route path="ordenDeCompra" element={<OrdenDeCompra />} />
           <Route path="shipping" element={<Shipping />} />
-          <Route path="guia-remision" element={<RemissionGuide />} />
-          <Route path="packing-list" element={<ItemList />} />
+          <Route path="despacho" element={<Despacho />} />
+          <Route path="despacho/guia-remision" element={<GuiaRemision />} />
+          <Route path="despacho/packing-list" element={<PackingList />} />
         </Route>
       </Routes>
     </Router>
   </React.StrictMode>
 );
-

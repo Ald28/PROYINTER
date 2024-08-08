@@ -1,4 +1,6 @@
+// src/pages/GuiaRemision.jsx
 import React from 'react';
+import '../assets/styles/InstalledBase.css';
 
 const documentos = [
     { id: 1, nombre: '20601436036-09-EG07-7.pdf', url: '/files/20601436036-09-EG07-7.pdf' },
@@ -25,4 +27,3 @@ const GuiaRemision = () => {
 };
 
 export default GuiaRemision;
-

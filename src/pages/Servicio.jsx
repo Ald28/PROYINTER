@@ -19,7 +19,9 @@ const Servicio = () => {
                     <li className="breadcrumb-item">
                         <button className="btn btn-link p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Base Instalada</li>
+                    <li className="breadcrumb-item">
+                        <button className="btn btn-link p-0" onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>Base Instalada</button>
+                    </li>
                     <li className="breadcrumb-item active" aria-current="page">Servicio</li>
                 </ol>
             </nav>
@@ -38,7 +40,7 @@ const Servicio = () => {
                     <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('#')}>Ingenieria de detalle</button>
                 </div>
                 <div className="button-group mb-3">
-                    <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('#')}>Despacho</button>
+                    <button className="btn btn-primary custom-btn" onClick={() => handleLinkClick('/cliente/despacho')}>Despacho</button>
                 </div>
             </div>
             
