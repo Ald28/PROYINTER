@@ -1,0 +1,28 @@
+.shipping-container {
+    text-align: center;
+  }
+  
+  .shipping-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .shipping-button .icon {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  
+  .shipping-button:hover {
+    background-color: #00aaff;
+  }
+  

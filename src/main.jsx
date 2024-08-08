@@ -10,7 +10,10 @@ import ClienteWelcome from './pages/ClienteWelcome';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Servicio from './pages/Servicio';
 import OfertaDeVenta from './pages/OfertaDeVenta';
-import OrdenDeCompra from './pages/OrdenDeCompra';  // Importa el nuevo componente
+import OrdenDeCompra from './pages/OrdenDeCompra';
+import Shipping from './pages/Shipping';
+import RemissionGuide from './pages/RemissionGuide';
+import ItemList from './pages/ItemList';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,14 +21,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/cliente" element={<ClientePage />}>
-          <Route index element={<ClienteWelcome />} /> {/* Página principal del cliente */}
+          <Route index element={<ClienteWelcome />} />
           <Route path="ver-base-instalada" element={<InstalledBase />} />
           <Route path="reclamos" element={<ReclamosPage />} />
           <Route path="servicio" element={<Servicio />} />
-          <Route path="ofertaDeVenta" element={<OfertaDeVenta />}/>
-          <Route path="ordenDeCompra" element={<OrdenDeCompra />} /> {/* Nueva ruta */}
+          <Route path="ofertaDeVenta" element={<OfertaDeVenta />} />
+          <Route path="ordenDeCompra" element={<OrdenDeCompra />} />
+          <Route path="shipping" element={<Shipping />} />
+          <Route path="guia-remision" element={<RemissionGuide />} />
+          <Route path="packing-list" element={<ItemList />} />
         </Route>
       </Routes>
     </Router>
   </React.StrictMode>
 );
+
