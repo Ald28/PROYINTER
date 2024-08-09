@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import $ from 'jquery';
-import DataTable from 'datatables.net-dt';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const OrdenDeCompra = () => {
     const orders = [
@@ -19,23 +21,40 @@ const OrdenDeCompra = () => {
         }
     ];
 
+    const [showModal, setShowModal] = useState(false);
+    const [pdfLink, setPdfLink] = useState('');
+
     useEffect(() => {
-        $('#orderTable').DataTable();
+        $('#orderTable').DataTable({
+            paging: false, // Desactiva la paginación
+            searching: false, // Desactiva la búsqueda
+            info: false // Desactiva la información
+        });
     }, []);
 
-    const handleLinkClick = (path) => {
-        window.location.href = path;
+    const handleShowModal = (link) => {
+        setPdfLink(link);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setPdfLink(''); // Limpia el enlace PDF cuando se cierra el modal
     };
 
     return (
-        <div className="order-page">
+        <div className="installed-base">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <button className="btn btn-link p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
+                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Base Instalada</li>
-                    <li className="breadcrumb-item active" aria-current="page">Servicio</li>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                    </li>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                    </li>
                     <li className="breadcrumb-item active" aria-current="page">Orden de Compra</li>
                 </ol>
             </nav>
@@ -62,17 +81,33 @@ const OrdenDeCompra = () => {
                             </td>
                             <td>{order.fecha}</td>
                             <td>
-                                <a href={order.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm mr-2">
-                                    Previsualizar
-                                </a>
-                                <a href={order.link} download className="btn btn-secondary btn-sm">
-                                    Descargar
+                                <Link className="custom-button" onClick={() => handleShowModal(order.link)}>
+                                    <i className="fas fa-eye"></i> Visualizar
+                                </Link>
+                                <a className="custom-button mx-3" href={order.link} download target="_blank" rel="noopener noreferrer">
+                                    <i className="fas fa-download"></i> Descargar
                                 </a>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+
+            {/* Modal para la vista previa del PDF */}
+            <Modal show={showModal} onHide={handleCloseModal} size="lg">
+                <Modal.Header closeButton>
+                    <Modal.Title>Vista previa del documento</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <iframe
+                        src={pdfLink}
+                        width="100%"
+                        height="500px"
+                        frameBorder="0"
+                        title="Vista previa del documento"
+                    ></iframe>
+                </Modal.Body>
+            </Modal>
         </div>
     );
 };

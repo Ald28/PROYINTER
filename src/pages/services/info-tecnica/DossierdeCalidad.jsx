@@ -1,18 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal, Button } from 'react-bootstrap';
 
 const DossierdeCalidad = () => {
     const dossierList = [
         { id: 1, name: 'MB_QC_PRUEB ACEPT TALLER_001', fecha: '11 jul. 2024', link: '/files/MB_QC_PRUEB ACEPT TALLER_001.pdf' },
     ];
 
+    const [showModal, setShowModal] = useState(false);
+    const [pdfLink, setPdfLink] = useState('');
+
     useEffect(() => {
         $(document).ready(function() {
-            $('#dossierTable').DataTable();
+            $('#dossierTable').DataTable({
+                paging: false, // Desactiva la paginación
+                searching: false, // Desactiva la búsqueda
+                info: false // Desactiva la información
+            });
         });
     }, []);
+
+    const handleShowModal = (link) => {
+        setPdfLink(link);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setPdfLink('');
+    };
 
     return (
         <div className="installed-base">
@@ -55,11 +74,12 @@ const DossierdeCalidad = () => {
                                 </td>
                                 <td>{dossier.fecha}</td>
                                 <td>
-                                    <a href={dossier.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm mr-2">
-                                        Previsualizar
-                                    </a>
-                                    <a href={dossier.link} download className="btn btn-secondary btn-sm">
-                                        Descargar
+                                    <Link className="custom-button" onClick={() => handleShowModal(dossier.link)}>
+                                        <i className="fas fa-eye" ></i>
+                                        Visualizar                                  
+                                    </Link>
+                                    <a className="custom-button mx-3" href={dossier.link} download target="_blank" rel="noopener noreferrer">
+                                        <i className="fas fa-download"></i> Descargar
                                     </a>
                                 </td>
                             </tr>
@@ -67,6 +87,20 @@ const DossierdeCalidad = () => {
                     </tbody>
                 </table>
             </nav>
+
+            <Modal show={showModal} onHide={handleCloseModal} size="lg">
+                <Modal.Header closeButton>
+                    <Modal.Title>Vista previa del documento</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <iframe
+                        src={pdfLink}
+                        width="100%"
+                        height="500px"
+                        frameBorder="0"
+                    ></iframe>
+                </Modal.Body>
+            </Modal>
         </div>
     );
 };
