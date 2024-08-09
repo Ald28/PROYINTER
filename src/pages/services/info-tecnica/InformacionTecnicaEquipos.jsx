@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css';
+import '../info-tecnica/Informacion.css';
 
 const InformacionTecnicaEquipos = () => {
     return (

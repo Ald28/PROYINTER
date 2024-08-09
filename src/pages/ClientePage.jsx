@@ -35,6 +35,14 @@ const ClientePage = () => {
         navigate(path);
     };
 
+    const handleLogout = () => {
+        // Eliminar el correo almacenado en localStorage
+        localStorage.removeItem('cliente');
+
+        // Redirigir al usuario a la página de inicio de sesión
+        navigate('/');
+    };
+
     return (
         <div className={`cliente-page ${sidebarOpen ? 'sidebar-open' : ''}`}>
             <header className="header d-flex align-items-center justify-content-between px-4 py-2">
@@ -54,10 +62,11 @@ const ClientePage = () => {
                     {menuOpen && (
                         <div className="dropdown-menu dropdown-menu-end show">
                             <button className="dropdown-item">Ver mi perfil</button>
-                            <Link to="/"><button className="dropdown-item text-danger">Cerrar sesión</button></Link>
+                            <button className="dropdown-item text-danger" onClick={handleLogout}>Cerrar sesión</button>
                             <button className="dropdown-item">Editar mi perfil</button>
                         </div>
                     )}
+
                 </div>
             </header>
             <div className="d-flex">

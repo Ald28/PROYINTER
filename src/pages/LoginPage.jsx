@@ -15,13 +15,23 @@ const LoginPage = () => {
     const manejarLogin = (e) => {
         e.preventDefault();
 
-        if (correo && contraseña) {
+        // Verificar las credenciales
+        if (correo === 'proyinter@gmail.com' && contraseña === '123') {
             localStorage.setItem('cliente', correo);
-            navigate('/cliente');
-        } else {
-            toast.error('Por favor ingresa tu correo y contraseña', {
+            toast.success('Bienvenido', {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 600,  // Aumenta la duración a 2 segundos
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                onClose: () => navigate('/cliente')  // Redirigir después de la alerta
+            });
+        } else {
+            toast.error('Correo o contraseña incorrectos', {
+                position: "top-right",
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,

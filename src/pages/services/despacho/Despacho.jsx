@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../assets/styles/InstalledBase.css';
+import '../InstalledBase.css'
 
 const Despacho = () => {
     const navigate = useNavigate();
