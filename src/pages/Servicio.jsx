@@ -27,7 +27,7 @@ const Servicio = () => {
                     <Link className="btn btn-primary custom-btn" to='/cliente/InformacionTec'>Información técnica de equipos</Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn btn-primary custom-btn" to='#'>Ingenieria de detalle</Link>
+                    <Link className="btn btn-primary custom-btn" to='/cliente/IngieneriaDeDetalle'>Ingenieria de detalle</Link>
                 </div>
                 <div className="info-item">
                     <Link className="btn btn-primary custom-btn" to='/cliente/despacho'>Despacho</Link>

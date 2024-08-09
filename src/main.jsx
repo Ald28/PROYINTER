@@ -14,6 +14,7 @@ import Despacho from './pages/services/despacho/Despacho';
 import GuiaRemision from './pages/services/despacho/GuiaRemision';
 import PackingList from './pages/services/despacho/PackingList';
 import InformacionTecnicaEquipos from './pages/services/info-tecnica/InformacionTecnicaEquipos';
+import IngieneriaDetalle from './pages/services/IngieneriaDetalle';
 import Equipos from './pages/services/info-tecnica/Equipos';
 import DossierdeCalidad from './pages/services/info-tecnica/DossierdeCalidad';
 import CertificadoGarantia from './pages/services/info-tecnica/CertificadoGarantia';
@@ -44,6 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="despacho" element={<Despacho />} />
           <Route path="despacho/guia-remision" element={<GuiaRemision />} />
           <Route path="despacho/packing-list" element={<PackingList />} />
+          <Route path="ingieneriaDeDetalle" element={<IngieneriaDetalle />} />
         </Route>
       </Routes>
     </Router>
