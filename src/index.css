@@ -74,3 +74,10 @@
   background-color: transparent;
   border: 0;
 }
+.custom-btn {
+  margin: 10px 0;
+  width: 100%; /* Esto hace que los botones ocupen todo el ancho del contenedor */
+  text-align: center;
+}
+
+

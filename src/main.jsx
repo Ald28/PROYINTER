@@ -35,7 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="ordenDeCompra" element={<OrdenDeCompra />} />
           <Route path="informacionTec" element={<InformacionTecnicaEquipos />} />
           <Route path="informacion-tecnica-equipos/equipos" element={<Equipos />} />
-          <Route path="informacion-tecnica-equipos/dossier" element={<DossierdeCalidad />} />
+          <Route path="informacion-tecnica-equipos/dossier-de-calidad" element={<DossierdeCalidad />} />
           <Route path="informacion-tecnica-equipos/certificado-garantia" element={<CertificadoGarantia />} />
           <Route path="shipping" element={<Shipping />} />
           <Route path="despacho" element={<Despacho />} />
