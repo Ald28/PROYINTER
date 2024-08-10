@@ -5,17 +5,13 @@
 }
 
 .header {
-    background-color: #fff;
+    background-color: #d50b0b;
     border-bottom: 1px solid #dee2e6;
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-}
-
-.logo {
-    width: 120px;
 }
 
 .sidebar {
@@ -36,18 +32,18 @@
 .sidebar-hidden {
     transform: translateX(-100%);
 }
-
-.sidebar-title {
+/* color de los subtitulos del sidebar */
+.sidebar-title { 
     margin-bottom: 15px;
     font-size: 18px;
     font-weight: bold;
-    color: #007bff;
+    color: black;
 }
 
 .sidebar button {
     width: 100%;
     text-align: left;
-    color: #007bff;
+    color: #ff4400;
     padding: 10px;
     border: 2px solid #007bff;
     border-radius: 25px;
@@ -69,7 +65,7 @@
     margin-top: 10px;
     padding-left: 15px;
     border-left: 2px solid #007bff;
-    background-color: #f8f9fa;
+    background-color: #f8faf8;
     border-radius: 0 25px 25px 0;
     padding: 10px 0;
 }
@@ -78,7 +74,7 @@
     display: block;
     width: 100%;
     text-align: left;
-    color: #007bff;
+    color: #006aff;
     padding: 10px;
     border: none;
     border-radius: 25px;
@@ -204,3 +200,36 @@
     color: #fff;
     text-decoration: none;
 }
+
+
+
+.sidebar button.borde {
+  border: 2px solid #004B70; /* Personaliza el borde */
+}
+.sidebar button.color{
+  color: #004B70;
+}
+.sidebar button.inicio{
+  background: #009FE3;
+  color: white;
+}
+/* degradado */
+.degradado{
+  border:solid 1px black;
+  background-size:cover;
+  background: linear-gradient(to bottom, rgb(0,159,235,40%), rgb(0,159,227,100%), rgb(62, 36, 56,80%));
+}
+.hamburguesa {
+  color: #004B70;
+}
+.icon-gray {
+  color: gray;
+}
+/* notificaciones */
+.notificaciones {
+  color: white;
+  background: #009FE3;
+  border-radius: 25px;
+  padding: 5px;
+}
+

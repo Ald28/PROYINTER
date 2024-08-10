@@ -45,10 +45,13 @@
 
 /* Estilo de la imagen dentro del botón */
 .action-icon {
-  width: 24px; /* Ajusta el tamaño de la imagen */
-  height: 24px; /* Ajusta el tamaño de la imagen */
+  width: 34px; /* Ajusta el tamaño de la imagen */
+  height: 34px; /* Ajusta el tamaño de la imagen */
   display: block;
   margin: 0 auto 5px; /* Centrando la imagen y añadiendo margen inferior */
+  border: solid rgb(13, 110, 253);
+  border-radius: 25px;
+  padding: 5px;
 }
 
 /* Estilo del breadcrumb */

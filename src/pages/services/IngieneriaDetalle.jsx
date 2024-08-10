@@ -25,13 +25,14 @@ const IngieneriaDetalle = () => {
     ];
 
     useEffect(() => {
-        $(document).ready(function () {
+        // Verifica si la tabla ya ha sido inicializada
+        if (!$.fn.DataTable.isDataTable('#orderTable')) {
             $('#orderTable').DataTable({
                 paging: false,
                 searching: false,
                 info: false,
             });
-        });
+        }
     }, []);
 
     return (
