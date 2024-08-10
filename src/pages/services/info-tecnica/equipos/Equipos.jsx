@@ -56,9 +56,7 @@ const Equipos = () => {
                         <tr key={equipo.id}>
                             <td className='text-center'>{equipo.id}</td>
                             <td>
-                                <Link to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
-                                    {equipo.name}
-                                </Link>
+                            {equipo.name}
                             </td>
                             <td>
                                 <Link className="custom-button" to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
