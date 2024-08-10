@@ -77,4 +77,5 @@ const OpcionesCianuro = () => {
     );
 };
 
+
 export default OpcionesCianuro;
