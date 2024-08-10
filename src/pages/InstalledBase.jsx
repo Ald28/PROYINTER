@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileLines } from '@fortawesome/free-regular-svg-icons';
 import '../assets/styles/InstalledBase.css';
 
 const InstalledBase = () => {
