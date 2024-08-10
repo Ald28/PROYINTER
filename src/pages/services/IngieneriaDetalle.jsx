@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import 'datatables.net-dt/css/dataTables.dataTables.css';
-import '../services/IngieneriaDetalle.css';
+import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
 import 'datatables.net-dt';
-import eyeIcon from '../services/eye.png'; // Icono del ojo
-import downloadIcon from '../services/downloads.png'; // Icono de descargar
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Modal } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import '../services/IngieneriaDetalle.css';
 
 const IngieneriaDetalle = () => {
     const orders = [
@@ -24,25 +25,43 @@ const IngieneriaDetalle = () => {
         }
     ];
 
+    const [showModal, setShowModal] = useState(false);
+    const [pdfLink, setPdfLink] = useState('');
+
     useEffect(() => {
-        // Verifica si la tabla ya ha sido inicializada
-        if (!$.fn.DataTable.isDataTable('#orderTable')) {
+        $(document).ready(() => {
             $('#orderTable').DataTable({
                 paging: false,
                 searching: false,
-                info: false,
+                info: false
             });
-        }
+        });
     }, []);
 
+    const handleShowModal = (link) => {
+        setPdfLink(link);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setPdfLink('');
+    };
+
     return (
-        <div className="order-page">
+        <div className="installed-base">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item " aria-current="page">Cliente</li>
-                    <li className="breadcrumb-item " aria-current="page">Servicios Adquiridos</li>
-                    <li className="breadcrumb-item " aria-current="page">Procura Tanque Fibra</li>
-                    <li className="breadcrumb-item activate" aria-current="page">Ingeniería de Detalle</li>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                    </li>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-link p-0" to="/cliente/servicios-adquiridos">Servicios Adquiridos</Link>
+                    </li>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-link p-0" to="/cliente/procura-tanque-fibra">Procura Tanque Fibra</Link>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">Ingeniería de Detalle</li>
                 </ol>
             </nav>
             <h4 className="text-center"><b>Planos y Documentos</b></h4>
@@ -62,19 +81,33 @@ const IngieneriaDetalle = () => {
                             <td>{order.descripcion}</td>
                             <td>{order.fecha}</td>
                             <td>
-                                <a href={order.link} target="_blank" rel="noopener noreferrer" className="btn btn-link text-dark custom-button">
-                                    <img src={eyeIcon} alt="Eye Icon" className="action-icon" />
-                                    Ver
-                                </a>
-                                <a href={order.link} target="_blank" rel="noopener noreferrer" className="btn btn-link text-dark custom-button">
-                                    <img src={downloadIcon} alt="Eye Icon" className="action-icon" />
-                                    Descargar
+                                <Link className="custom-button" onClick={() => handleShowModal(order.link)}>
+                                    <i className="fas fa-eye"></i> Visualizar
+                                </Link>
+                                <a className="custom-button mx-3" href={order.link} download target="_blank" rel="noopener noreferrer">
+                                    <i className="fas fa-download"></i> Descargar
                                 </a>
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+
+            {/* Modal para la vista previa del PDF */}
+            <Modal show={showModal} onHide={handleCloseModal} size="lg">
+                <Modal.Header closeButton>
+                    <Modal.Title>Vista previa del documento</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <iframe
+                        src={pdfLink}
+                        width="100%"
+                        height="500px"
+                        frameBorder="0"
+                        title="Vista previa del documento"
+                    ></iframe>
+                </Modal.Body>
+            </Modal>
         </div>
     );
 };

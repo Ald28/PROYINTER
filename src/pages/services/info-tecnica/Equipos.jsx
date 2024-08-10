@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import $ from 'jquery';
+import '../info-tecnica/Equipo.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Equipos = () => {
     const equiposList = [
@@ -12,9 +14,12 @@ const Equipos = () => {
     ];
 
     useEffect(() => {
-        // Inicializar DataTables después de que el componente haya montado
         $(document).ready(function() {
-            $('#equiposTable').DataTable();
+            $('#equiposTable').DataTable({
+                paging: false, // Desactiva la paginación
+                searching: false, // Desactiva la búsqueda
+                info: false // Desactiva la información
+            });
         });
     }, []);
 
@@ -43,15 +48,22 @@ const Equipos = () => {
                     <tr>
                         <th>ID</th>
                         <th>Nombre del Equipo</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     {equiposList.map(equipo => (
                         <tr key={equipo.id}>
-                            <td>{equipo.id}</td>
+                            <td className='text-center'>{equipo.id}</td>
                             <td>
                                 <Link to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
                                     {equipo.name}
+                                </Link>
+                            </td>
+                            <td>
+                                <Link className="custom-button" to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
+                                    <i className="fas fa-file-lines"></i>
+                                    Abrir                                
                                 </Link>
                             </td>
                         </tr>
