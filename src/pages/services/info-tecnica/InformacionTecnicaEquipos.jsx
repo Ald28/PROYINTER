@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../info-tecnica/Informacion.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMedal, faFileLines, faGear } from '@fortawesome/free-solid-svg-icons';
 
 const InformacionTecnicaEquipos = () => {
     return (
@@ -22,17 +24,20 @@ const InformacionTecnicaEquipos = () => {
             <h2>Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos</h2>
             <div className="info-section">
                 <div className="info-item">
-                    <Link to="/cliente/informacion-tecnica-equipos/equipos" className="btn btn-primary custom-btn">
+                    <Link to="/cliente/informacion-tecnica-equipos/equipos" className="btn degradado">
+                        <FontAwesomeIcon icon={faGear} />
                         Equipos
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link to="/cliente/informacion-tecnica-equipos/dossier-de-calidad" className="btn btn-primary custom-btn">
+                    <Link to="/cliente/informacion-tecnica-equipos/dossier-de-calidad" className="btn degradado">
+                        <FontAwesomeIcon icon={faFileLines} />
                         Dossier
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link to="/cliente/informacion-tecnica-equipos/certificado-garantia" className="btn btn-primary custom-btn">
+                    <Link to="/cliente/informacion-tecnica-equipos/certificado-garantia" className="btn degradado">
+                        <FontAwesomeIcon icon={faMedal} />
                         Certificado de Garantía
                     </Link>
                 </div>

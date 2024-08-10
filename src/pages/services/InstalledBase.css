@@ -20,10 +20,12 @@
 .installed-base th {
     background-color: #007bff;
     color: white;
+    text-align: center;
 }
 
 .installed-base td {
     background-color: #f8f9fa;
+    text-align: center;
 }
 
 .installed-base tr:nth-child(even) {
@@ -37,5 +39,5 @@
 .installed-base th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
 }

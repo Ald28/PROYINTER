@@ -8,8 +8,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const Equipos = () => {
     const equiposList = [
         { id: 1, name: 'Tanque de almacenamiento de 0.5m3' },
-        { id: 2, name: 'Tanque de preparación de 1.7m3' },
-        { id: 3, name: 'Agitador para tanque de preparación de 1.7m3' },
+        { id: 2, name: 'Tanque de preparación de 2m3' },
+        { id: 3, name: 'Agitador para tanque de preparación de 2m3' },
         { id: 4, name: 'Boya para tanque de almacenamiento de 0.5m3' },
     ];
 
@@ -46,9 +46,9 @@ const Equipos = () => {
             <table id="equiposTable" className="display">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre del Equipo</th>
-                        <th>Acciones</th>
+                        <th className='text-center'>ID</th>
+                        <th className='text-center'>Nombre del Equipo</th>
+                        <th className='text-center'>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>

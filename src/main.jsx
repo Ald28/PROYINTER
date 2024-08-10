@@ -57,8 +57,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="informacion-tecnica-equipos/equipos/1" element={<TanqueAlmacenamiento />} />
           <Route path="informacion-tecnica-equipos/equipos/2" element={<TanquePreparacion />} />
           <Route path="informacion-tecnica-equipos/equipos/3" element={<AgitadorTanque />} />
-          {/* Puedes agregar más rutas para otros IDs si es necesario */}
-
         </Route>
       </Routes>
     </Router>
