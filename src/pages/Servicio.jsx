@@ -1,5 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart, faFileInvoice, faInfoCircle, faCog, faBox,faFileCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import './Servicio.css'; // Asegúrate de crear e importar el archivo CSS
 
 const Servicio = () => {
     return (
@@ -18,19 +21,29 @@ const Servicio = () => {
             <p>Servicio de Procura de tanques de fibra de vidrio para cianuro y sulfatos</p>
             <div className="info-section">
                 <div className="info-item">
-                    <Link className="btn btn-primary custom-btn" to='/cliente/ordenDeCompra'>Orden de Compra</Link>
+                    <Link className="btn degradado" to='/cliente/ordenDeCompra'>
+                        <FontAwesomeIcon icon={faFileCircleCheck} /> Orden de Compra
+                    </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn btn-primary custom-btn" to='/cliente/ofertaDeVenta'>Oferta de Venta</Link>
+                    <Link className="btn degradado" to='/cliente/ofertaDeVenta'>
+                        <FontAwesomeIcon icon={faFileInvoice} /> Oferta de Venta
+                    </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn btn-primary custom-btn" to='/cliente/InformacionTec'>Información técnica de equipos</Link>
+                    <Link className="btn degradado" to='/cliente/InformacionTec'>
+                        <FontAwesomeIcon icon={faInfoCircle} /> Información técnica de equipos
+                    </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn btn-primary custom-btn" to='/cliente/IngieneriaDeDetalle'>Ingenieria de detalle</Link>
+                    <Link className="btn degradado" to='/cliente/IngieneriaDeDetalle'>
+                        <FontAwesomeIcon icon={faCog} /> Ingenieria de detalle
+                    </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn btn-primary custom-btn" to='/cliente/despacho'>Despacho</Link>
+                    <Link className="btn degradado" to='/cliente/despacho'>
+                        <FontAwesomeIcon icon={faBox} /> Despacho
+                    </Link>
                 </div>
             </div>
         </div>
