@@ -32,27 +32,27 @@ const AgitadorTanque = () => {
             <p>Agitador para el tanque de Preparación de 2m³</p>
             <div className="info-section">
                 <div className="info-item">
-                    <Link className="btn degradado" to='/cliente/ordenDeCompra'>
+                    <Link className="btn degradado">
                         <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado" to='/cliente/ofertaDeVenta'>
+                    <Link className="btn degradado">
                         <FontAwesomeIcon icon={faBook} /> Manual
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado" to='/cliente/InformacionTec'>
+                    <Link className="btn degradado">
                         <FontAwesomeIcon icon={faMap} /> Planos
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado" to='/cliente/IngieneriaDeDetalle'>
+                    <Link className="btn degradado" >
                         <FontAwesomeIcon icon={faHandHoldingDollar} /> Solicitar Oferta
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado" to='/cliente/despacho'>
+                    <Link className="btn degradado" >
                         <FontAwesomeIcon icon={faScrewdriverWrench} /> Mantenimiento
                     </Link>
                 </div>
