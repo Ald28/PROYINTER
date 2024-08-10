@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
-import '../../../../../assets/styles/Servicio.css'; // Asegúrate de crear e importar el archivo CSS
+import '../../../../../assets/styles/Servicio.css';
 
 const AgitadorTanque = () => {
+    const [isPlanosHovered, setIsPlanosHovered] = useState(false);
+
     return (
         <div className="servicio">
             <nav aria-label="breadcrumb">
@@ -42,17 +44,28 @@ const AgitadorTanque = () => {
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faMap} /> Planos
-                    </Link>
+                    <div className="secondary-container">
+                        <Link
+                            className="btn degradado secondary-btn"
+                            onMouseEnter={() => setIsPlanosHovered(true)}
+                            onMouseLeave={() => setIsPlanosHovered(false)}
+                        >
+                            <FontAwesomeIcon icon={faMap} /> Planos
+                        </Link>
+                        {isPlanosHovered && (
+                            <div className="message">
+                                No se cuenta con planos
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado" >
+                    <Link className="btn degradado">
                         <FontAwesomeIcon icon={faHandHoldingDollar} /> Solicitar Oferta
                     </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado" >
+                    <Link className="btn degradado">
                         <FontAwesomeIcon icon={faScrewdriverWrench} /> Mantenimiento
                     </Link>
                 </div>
