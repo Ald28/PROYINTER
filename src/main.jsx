@@ -21,6 +21,11 @@ import DossierdeCalidad from './pages/services/info-tecnica/DossierdeCalidad';
 import CertificadoGarantia from './pages/services/info-tecnica/CertificadoGarantia';
 import ProtectedRoute from './Routes/PrivateRoute';
 
+// Importar los componentes específicos para cada equipo
+import AgitadorTanque from './pages/services/info-tecnica/equipos/AgitadorTanque';
+import TanqueAlmacenamiento from './pages/services/info-tecnica/equipos/TanqueAlmacenamiento';
+import TanquePreparacion from './pages/services/info-tecnica/equipos/TanquePreparacion';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
@@ -47,6 +52,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="despacho/guia-remision" element={<GuiaRemision />} />
           <Route path="despacho/packing-list" element={<PackingList />} />
           <Route path="ingieneriaDeDetalle" element={<IngieneriaDetalle />} />
+
+          {/* Rutas para los componentes específicos de cada equipo */}
+          <Route path="informacion-tecnica-equipos/equipos/1" element={<TanqueAlmacenamiento />} />
+          <Route path="informacion-tecnica-equipos/equipos/2" element={<TanquePreparacion />} />
+          <Route path="informacion-tecnica-equipos/equipos/3" element={<AgitadorTanque />} />
+          {/* Puedes agregar más rutas para otros IDs si es necesario */}
+
         </Route>
       </Routes>
     </Router>
