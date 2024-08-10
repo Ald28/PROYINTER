@@ -16,7 +16,7 @@ import GuiaRemision from './pages/services/despacho/GuiaRemision';
 import PackingList from './pages/services/despacho/PackingList';
 import InformacionTecnicaEquipos from './pages/services/info-tecnica/InformacionTecnicaEquipos';
 import IngieneriaDetalle from './pages/services/IngieneriaDetalle';
-import Equipos from './pages/services/info-tecnica/Equipos';
+import Equipos from './pages/services/info-tecnica/equipos/Equipos';
 import DossierdeCalidad from './pages/services/info-tecnica/DossierdeCalidad';
 import CertificadoGarantia from './pages/services/info-tecnica/CertificadoGarantia';
 import ProtectedRoute from './Routes/PrivateRoute';
