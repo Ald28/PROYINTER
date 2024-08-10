@@ -29,13 +29,18 @@ const IngieneriaDetalle = () => {
     const [pdfLink, setPdfLink] = useState('');
 
     useEffect(() => {
-        $(document).ready(() => {
-            $('#orderTable').DataTable({
-                paging: false,
-                searching: false,
-                info: false
-            });
+        const table = $('#orderTable').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
+
+        return () => {
+            // Destruye la instancia de DataTable cuando el componente se desmonte
+            if ($.fn.dataTable.isDataTable('#orderTable')) {
+                table.destroy();
+            }
+        };
     }, []);
 
     const handleShowModal = (link) => {

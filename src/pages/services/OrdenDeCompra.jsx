@@ -25,11 +25,18 @@ const OrdenDeCompra = () => {
     const [pdfLink, setPdfLink] = useState('');
 
     useEffect(() => {
-        $('#orderTable').DataTable({
-            paging: false, // Desactiva la paginación
-            searching: false, // Desactiva la búsqueda
-            info: false // Desactiva la información
+        const table = $('#orderTable').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
+
+        return () => {
+            // Destruye la instancia de DataTable cuando el componente se desmonte
+            if ($.fn.dataTable.isDataTable('#orderTable')) {
+                table.destroy();
+            }
+        };
     }, []);
 
     const handleShowModal = (link) => {

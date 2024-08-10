@@ -19,11 +19,18 @@ const OfertaDeVenta = () => {
     const [pdfLink, setPdfLink] = useState('');
 
     useEffect(() => {
-        $('#myTable').DataTable({
+        const table = $('#myTable').DataTable({
             paging: false, // Desactiva la paginación
             searching: false, // Desactiva la búsqueda
             info: false // Desactiva la información
         });
+
+        return () => {
+            // Destruye la instancia de DataTable cuando el componente se desmonte
+            if ($.fn.dataTable.isDataTable('#myTable')) {
+                table.destroy();
+            }
+        };
     }, []);
 
     const handleShowModal = (link) => {
@@ -74,7 +81,6 @@ const OfertaDeVenta = () => {
                                 </div>
                             </td>
                             <td>{offer.fecha}</td>
-                            
                             <td>
                                 <Link className="custom-button" onClick={() => handleShowModal(offer.link)}>
                                     <i className="fas fa-eye"></i>
