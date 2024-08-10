@@ -1,6 +1,6 @@
 // src/pages/PackingList.jsx
 import React from 'react';
-import '../InstalledBase.css'
+import '../../../assets/styles/InstalledBase.css';
 
 const documentos = [
     { id: 1, nombre: 'MB_DC_PACKING LIST TANK FIB. VIDR._001.pdf', url: '/files/MB_DC_PACKING LIST TANK FIB. VIDR._001.pdf' },

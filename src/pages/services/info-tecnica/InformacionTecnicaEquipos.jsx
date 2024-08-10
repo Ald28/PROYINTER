@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../info-tecnica/Informacion.css';
+import '../../../assets/styles/Informacion.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMedal, faFileLines, faGear } from '@fortawesome/free-solid-svg-icons';
 

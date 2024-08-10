@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faFileInvoice, faInfoCircle, faCog, faBox,faFileCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import './Servicio.css'; // Asegúrate de crear e importar el archivo CSS
+import '../assets/styles/Servicio.css';
 
 const Servicio = () => {
     return (

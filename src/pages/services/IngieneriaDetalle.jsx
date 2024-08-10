@@ -5,7 +5,7 @@ import 'datatables.net-dt';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import '../services/IngieneriaDetalle.css';
+import '../../assets/styles/IngieneriaDetalle.css';
 
 const IngieneriaDetalle = () => {
     const orders = [

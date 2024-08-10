@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
-import '../../../../../pages/Servicio.css'; // Asegúrate de crear e importar el archivo CSS
+import '../../../../../assets/styles/Servicio.css'; // Asegúrate de crear e importar el archivo CSS
 
 const AgitadorTanque = () => {
     return (
