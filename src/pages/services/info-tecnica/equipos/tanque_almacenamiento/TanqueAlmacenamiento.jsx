@@ -13,14 +13,18 @@ const TanqueAlmacenamiento = () => {
     ];
 
     useEffect(() => {
-        $(document).ready(function() {
-            $('#tanqueAlmacenamiento').DataTable({
-                paging: false, // Desactiva la paginación
-                searching: false, // Desactiva la búsqueda
-                info: false // Desactiva la información
-            });
+        const table = $('#tanqueAlmacenamiento').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
-    }, []);
+    
+        return () => {
+            if ($.fn.dataTable.isDataTable('#tanqueAlmacenamiento')) {
+                table.destroy();
+            }
+        };
+    }, []); 
 
     return (
         <div className="installed-base">
@@ -66,7 +70,7 @@ const TanqueAlmacenamiento = () => {
                                 </p>
                             </td>
                             <td>
-                                <Link className="custom-button">
+                                <Link className="custom-button" to={`/cliente/informacion-tecnica-equipos/equipos/1/${certificado.id}`}>
                                     <i className="fas fa-file-lines"></i>
                                     Abrir                                
                                 </Link>
@@ -80,4 +84,4 @@ const TanqueAlmacenamiento = () => {
     );
 };
 
-export default TanqueAlmacenamiento; // Asegúrate de exportar por defecto
+export default TanqueAlmacenamiento;

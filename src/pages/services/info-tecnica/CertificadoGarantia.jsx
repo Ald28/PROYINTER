@@ -14,14 +14,18 @@ const CertificadoGarantia = () => {
     const [pdfLink, setPdfLink] = useState('');
 
     useEffect(() => {
-        $(document).ready(function() {
-            $('#certificadoTable').DataTable({
-                paging: false, // Desactiva la paginación
-                searching: false, // Desactiva la búsqueda
-                info: false // Desactiva la información
-            });
+        const table = $('#certificadoTable').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
-    }, []);
+    
+        return () => {
+            if ($.fn.dataTable.isDataTable('#certificadoTable')) {
+                table.destroy();
+            }
+        };
+    }, []);   
 
     const handleShowModal = (link) => {
         setPdfLink(link);

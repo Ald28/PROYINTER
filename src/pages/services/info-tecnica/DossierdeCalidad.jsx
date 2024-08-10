@@ -14,14 +14,18 @@ const DossierdeCalidad = () => {
     const [pdfLink, setPdfLink] = useState('');
 
     useEffect(() => {
-        $(document).ready(function() {
-            $('#dossierTable').DataTable({
-                paging: false, // Desactiva la paginación
-                searching: false, // Desactiva la búsqueda
-                info: false // Desactiva la información
-            });
+        const table = $('#dossierTable').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
-    }, []);
+    
+        return () => {
+            if ($.fn.dataTable.isDataTable('#dossierTable')) {
+                table.destroy();
+            }
+        };
+    }, []);   
 
     const handleShowModal = (link) => {
         setPdfLink(link);

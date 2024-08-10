@@ -14,14 +14,18 @@ const Equipos = () => {
     ];
 
     useEffect(() => {
-        $(document).ready(function() {
-            $('#equiposTable').DataTable({
-                paging: false, // Desactiva la paginación
-                searching: false, // Desactiva la búsqueda
-                info: false // Desactiva la información
-            });
+        const table = $('#equiposTable').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
-    }, []);
+    
+        return () => {
+            if ($.fn.dataTable.isDataTable('#equiposTable')) {
+                table.destroy();
+            }
+        };
+    }, []);    
 
     return (
         <div className="installed-base">

@@ -13,14 +13,18 @@ const TanquePreparacion = () => {
     ];
 
     useEffect(() => {
-        $(document).ready(function() {
-            $('#tanquePreparacion').DataTable({
-                paging: false, // Desactiva la paginación
-                searching: false, // Desactiva la búsqueda
-                info: false // Desactiva la información
-            });
+        const table = $('#tanquePreparacion').DataTable({
+            paging: false,
+            searching: false,
+            info: false
         });
-    }, []);
+    
+        return () => {
+            if ($.fn.dataTable.isDataTable('#tanquePreparacion')) {
+                table.destroy();
+            }
+        };
+    }, []);   
 
     return (
         <div className="installed-base">
@@ -66,7 +70,7 @@ const TanquePreparacion = () => {
                                 </p>
                             </td>
                             <td>
-                                <Link className="custom-button">
+                                <Link className="custom-button" to={`/cliente/informacion-tecnica-equipos/equipos/2/${certificado.id}`}>
                                     <i className="fas fa-file-lines"></i>
                                     Abrir                                
                                 </Link>

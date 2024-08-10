@@ -22,9 +22,14 @@ import CertificadoGarantia from './pages/services/info-tecnica/CertificadoGarant
 import ProtectedRoute from './Routes/PrivateRoute';
 
 // Importar los componentes específicos para cada equipo
-import AgitadorTanque from './pages/services/info-tecnica/equipos/AgitadorTanque';
-import TanqueAlmacenamiento from './pages/services/info-tecnica/equipos/TanqueAlmacenamiento';
-import TanquePreparacion from './pages/services/info-tecnica/equipos/TanquePreparacion';
+import AgitadorTanque from './pages/services/info-tecnica/equipos/agitador/AgitadorTanque';
+import TanqueAlmacenamiento from './pages/services/info-tecnica/equipos/tanque_almacenamiento/TanqueAlmacenamiento';
+import Cianuro from './pages/services/info-tecnica/equipos/tanque_almacenamiento/opciones_cianuro';
+import Sulfatos from './pages/services/info-tecnica/equipos/tanque_almacenamiento/opciones_sulfatos';
+import TanquePreparacion from './pages/services/info-tecnica/equipos/tanque_preparacion/TanquePreparacion';
+import CianuroP from './pages/services/info-tecnica/equipos/tanque_preparacion/opciones_cianuro';
+import SulfatosP from './pages/services/info-tecnica/equipos/tanque_preparacion/opciones_sulfatos';
+import Datasheet from './pages/services/info-tecnica/equipos/agitador/datasheet';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -57,6 +62,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="informacion-tecnica-equipos/equipos/1" element={<TanqueAlmacenamiento />} />
           <Route path="informacion-tecnica-equipos/equipos/2" element={<TanquePreparacion />} />
           <Route path="informacion-tecnica-equipos/equipos/3" element={<AgitadorTanque />} />
+
+          <Route path="informacion-tecnica-equipos/equipos/1/1" element={<Cianuro />} />
+          <Route path="informacion-tecnica-equipos/equipos/1/2" element={<Sulfatos />} />
+
+          <Route path="informacion-tecnica-equipos/equipos/2/1" element={<CianuroP />} />
+          <Route path="informacion-tecnica-equipos/equipos/2/2" element={<SulfatosP />} />
+
+          <Route path="informacion-tecnica-equipos/equipos/3/datasheet" element={<Datasheet />} />
+
         </Route>
       </Routes>
     </Router>

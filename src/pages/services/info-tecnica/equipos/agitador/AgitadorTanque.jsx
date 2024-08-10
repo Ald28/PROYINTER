@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
-import '../../../Servicio.css'; // Asegúrate de crear e importar el archivo CSS
+import '../../../../../pages/Servicio.css'; // Asegúrate de crear e importar el archivo CSS
 
 const AgitadorTanque = () => {
     return (
@@ -25,14 +25,14 @@ const AgitadorTanque = () => {
                         <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        Tanque de 2m³
+                        Agitador para el tanque
                     </li>
                 </ol>
             </nav>
             <p>Agitador para el tanque de Preparación de 2m³</p>
             <div className="info-section">
                 <div className="info-item">
-                    <Link className="btn degradado">
+                    <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/3/datasheet'>
                         <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
                     </Link>
                 </div>
