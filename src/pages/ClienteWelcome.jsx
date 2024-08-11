@@ -15,21 +15,21 @@ const ClienteWelcome = () => {
       <div className="cliente-welcome text-start ">
       <h2>Bienvenido, {localStorage.getItem('cliente').split('@')[0]}</h2><br />
       <div className="button-grid">
-          <button className="grid-button fw-bold degradado " onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
+          <button className="grid-button fw-bold degradado espacio " onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
               <FaChartLine className='icon-size' size={40} />
               {/* <BiEdit className='icon-size' size={40} /> */}
               {/* <i class="fa-regular fa-calendar"></i> */}
               Solicitar <br /> Cotización
           </button>
-          <button className="grid-button fw-bold degradado" onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>
+          <button className="grid-button fw-bold degradado espacio" onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>
               <FaCalendarCheck className='icon-size' size={33} />
               Servicios <br /> Adquiridos
           </button>
-          <button className="grid-button fw-bold degradado" onClick={() => handleLinkClick('/cliente/soporte-tecnico')}>
+          <button className="grid-button fw-bold degradado espacio" onClick={() => handleLinkClick('/cliente/soporte-tecnico')}>
           <FaUserCog className='icon-size' size={40} />
               Soporte <br /> Técnico
           </button>
-          <button className="grid-button fw-bold degradado" onClick={() => handleLinkClick('/cliente/reclamos')}>
+          <button className="grid-button fw-bold degradado espacio" onClick={() => handleLinkClick('/cliente/reclamos')}>
           <FaBook className='icon-size' size={33} />
               Reclamos
           </button>

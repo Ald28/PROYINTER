@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FaUserCircle, FaBars } from 'react-icons/fa';
 import { IoNotifications } from "react-icons/io5";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import { BiHome, BiMessageAltDetail, BiStoreAlt, BiSupport, BiBell, BiWrench, BiUser, BiCog } from 'react-icons/bi';
+import { BiHome, BiBell, BiCog } from 'react-icons/bi';
+import { FaChartLine, FaCalendarCheck, FaUserCog, FaBook } from 'react-icons/fa';
 import logo from '../assets/images/Logo_proyinter_final-03 1.png';
 import '../assets/styles/ClientePage.css';
 
@@ -65,27 +66,27 @@ const ClientePage = () => {
                     )}
                 </div>
             </header>
-            <div className="d-flex">
+             <div className="d-flex">
                 <nav className={`sidebar p-3 ${!sidebarOpen && 'sidebar-hidden'}`}>
-                    <button className="btn btn-link inicio" onClick={() => handleLinkClick('/cliente')}>
+                    <button className="btn btn-link color boton-activo" onClick={() => handleLinkClick('/cliente')}>
                         <BiHome size={20} /> Inicio
                     </button>
                     <h2 className="sidebar-title ">Cliente</h2>
                     <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
-                        <BiMessageAltDetail size={20} /> Solicitar Cotización
+                        <FaChartLine size={20} /> Solicitar Cotización
                     </button>
                     <button className="btn btn-link color borde border-2 " onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>
-                        <BiStoreAlt size={20} /> Servicios Adquiridos
+                        <FaCalendarCheck size={20} /> Servicios Adquiridos
                     </button>
                     <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/soporte-tecnico')}>
-                        <BiSupport size={20} /> Soporte Técnico
+                        <FaUserCog size={20} /> Soporte Técnico
                     </button>
                     <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/reclamos')}>
-                        <BiWrench size={20} /> Reclamos
+                        <FaBook size={20} /> Reclamos
                     </button>
                     <h2 className="sidebar-title ">Usuario</h2>
                     <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/editar-perfil')}>
-                        <BiUser size={20} /> Editar perfil
+                        <FaUserCircle size={20} /> Editar perfil
                     </button>
                     <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/notificaciones')}>
                         <BiBell size={20} /> Notificaciones

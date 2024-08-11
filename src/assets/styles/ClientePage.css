@@ -209,9 +209,10 @@ border: 2px solid #004B70; /* Personaliza el borde */
 .sidebar button.color{
 color: #004B70;
 }
-.sidebar button.inicio{
+.sidebar button.boton-activo{
 background: #009FE3;
 color: white;
+border: none;
 }
 /* degradado */
 .degradado{
@@ -234,5 +235,8 @@ padding: 5px;
 /* iconos ClientePage */
 .icon-size{
 margin-right: 4vw;
+}
+.espacio{
+  padding: 3vw  !important;
 }
 

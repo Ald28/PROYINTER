@@ -37,3 +37,7 @@
     color: red;
     font-size: 20px;
 }
+/* para que opción donde se está navegando tenga un color diferente */
+.activate {
+  color: #009FE3;
+}

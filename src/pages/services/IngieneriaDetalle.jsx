@@ -55,18 +55,18 @@ const IngieneriaDetalle = () => {
 
     return (
         <div className="installed-base">
-            <nav aria-label="breadcrumb">
+             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicios-adquiridos">Servicios Adquiridos</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/servicios-adquiridos">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/procura-tanque-fibra">Procura Tanque Fibra</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/procura-tanque-fibra">Procura Tanque Fibra</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Ingeniería de Detalle</li>
+                    <li className="breadcrumb-item activate" aria-current="page">Ingeniería de Detalle</li>
                 </ol>
             </nav>
             <h4 className="text-center"><b>Planos y Documentos</b></h4>
@@ -86,10 +86,10 @@ const IngieneriaDetalle = () => {
                             <td>{order.descripcion}</td>
                             <td>{order.fecha}</td>
                             <td>
-                                <Link className="custom-button" onClick={() => handleShowModal(order.link)}>
+                                <Link className="custom-button color" onClick={() => handleShowModal(order.link)}>
                                     <i className="fas fa-eye"></i> Visualizar
                                 </Link>
-                                <a className="custom-button mx-3" href={order.link} download target="_blank" rel="noopener noreferrer">
+                                <a className="custom-button color mx-3" href={order.link} download target="_blank" rel="noopener noreferrer">
                                     <i className="fas fa-download"></i> Descargar
                                 </a>
                             </td>
