@@ -1,0 +1,16 @@
+table.display thead th {
+    background-color: #009FE3; /* Color de fondo de la primera fila */
+    color: #ffffff; /* Color de texto blanco */
+    text-align: center; /* Centrar texto en los encabezados */
+    font-weight: bold; /* Negrita en los encabezados */
+}
+
+table.display td {
+    text-align: center; /* Centrar texto en las celdas */
+}
+
+.custom-button {
+    color: #009FE3; /* Color de texto para el botón personalizado */
+}
+
+

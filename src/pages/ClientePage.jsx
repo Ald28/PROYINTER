@@ -4,7 +4,7 @@ import { IoNotifications } from "react-icons/io5";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { BiHome, BiBell, BiCog } from 'react-icons/bi';
 import { FaChartLine, FaCalendarCheck, FaUserCog, FaBook } from 'react-icons/fa';
-import logo from '../assets/images/Logo_proyinter_final-03 1.png';
+import logo from '../assets/images/Logo_proyinter_final-03.png';
 import '../assets/styles/ClientePage.css';
 
 const ClientePage = () => {
@@ -45,7 +45,7 @@ const ClientePage = () => {
         <div className={`cliente-page ${sidebarOpen ? 'sidebar-open' : ''}`}>
             <header className="header d-flex align-items-center justify-content-between px-4 py-2">
                 <div className="d-flex align-items-center">
-                    <img src={logo} alt="Proyinter Logo" />
+                    <img src={logo} alt="Proyinter Logo" width="170"/>
                     <button className="btn btn-link ms-2" onClick={toggleSidebar} style={{ paddingLeft: '5px' }}>
                         <FaBars className='hamburguesa' size={30} />
                     </button>

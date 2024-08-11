@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileLines } from '@fortawesome/free-regular-svg-icons';
+import $ from 'jquery';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../assets/styles/InstalledBase.css';
+import  '../assets/styles/global-tablas.css';
 
 const InstalledBase = () => {
     const navigate = useNavigate();
+    const tableRef = useRef(null);
     const [searchTerm, setSearchTerm] = useState('');
     const [filter, setFilter] = useState('Todos los servicios');
 
@@ -21,15 +24,26 @@ const InstalledBase = () => {
         setFilter(event.target.value);
     };
 
-    const filteredData = [
-        { id: 1, serviceType: 'Servicio de Procura', description: 'Fabricación de Tanques' },
-        { id: 2, serviceType: 'Servicio de Procura', description: 'Fabricación de Tanques' },
-    ].filter(item => {
-        return (
-            item.serviceType.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.description.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    });
+    const adquiridoList = [
+        { id: 1, tipo_servicio: 'Servicio de Procura', descripcion: 'Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos' },
+    ];
+
+    useEffect(() => {
+        const table = $(tableRef.current).DataTable({
+            paging: false,
+            searching: false,
+            info: false
+        });
+
+        // Filter table data based on search term and filter
+        table.search(searchTerm).draw();
+
+        return () => {
+            if ($.fn.dataTable.isDataTable(tableRef.current)) {
+                table.destroy();
+            }
+        };
+    }, [searchTerm, filter]);
 
     return (
         <div className="installed-base">
@@ -38,7 +52,7 @@ const InstalledBase = () => {
                     <li className="breadcrumb-item">
                         <button className="btn btn-black fw-bold p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
                     </li>
-                    <li className="breadcrumb-item activate" aria-current="page">Servicios Adquiridos</li>
+                    <li className="breadcrumb-item active" aria-current="page">Servicios Adquiridos</li>
                 </ol>
             </nav>
 
@@ -66,24 +80,24 @@ const InstalledBase = () => {
 
             <h3>Servicios atendidos o en curso de atención</h3>
 
-            <table id="myTable" className="display">
+            <table ref={tableRef} id="myTable" className="display">
                 <thead>
                     <tr>
                         <th>N°</th>
                         <th>Tipo de Servicio</th>
                         <th>Descripción</th>
-                        <th>Acción</th> {/* Nueva columna para Acción */}
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredData.map(item => (
+                    {adquiridoList.map(item => (
                         <tr key={item.id}>
                             <td>{item.id}</td>
-                            <td onClick={() => handleLinkClick('/cliente/servicio')}>{item.serviceType}</td>
-                            <td>{item.description}</td>
+                            <td>{item.tipo_servicio}</td>
+                            <td>{item.descripcion}</td>
                             <td className="text-center">
                                 <button className="btn btn-link text-decoration-none custom-button" onClick={() => handleLinkClick('/cliente/servicio')}>
-                                <i className="fas fa-file-lines"></i>
+                                    <i className="fas fa-file-lines"></i>
                                     <br />
                                     Abrir
                                 </button>
@@ -97,3 +111,4 @@ const InstalledBase = () => {
 };
 
 export default InstalledBase;
+
