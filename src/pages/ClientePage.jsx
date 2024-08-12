@@ -6,11 +6,13 @@ import { BiHome, BiBell, BiCog } from 'react-icons/bi';
 import { FaChartLine, FaCalendarCheck, FaUserCog, FaBook } from 'react-icons/fa';
 import logo from '../assets/images/Logo_proyinter_final-03.png';
 import '../assets/styles/ClientePage.css';
+import ClienteWelcome from './ClienteWelcome';
 
 const ClientePage = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const [cliente, setCliente] = useState('');
+    const [selectedButton, setSelectedButton] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -29,10 +31,11 @@ const ClientePage = () => {
         setSidebarOpen(!sidebarOpen);
     };
 
-    const handleLinkClick = (path) => {
+    const handleLinkClick = (path, buttonName) => {
         if (window.innerWidth <= 768) {
             setSidebarOpen(false);
         }
+        setSelectedButton(buttonName);
         navigate(path);
     };
 
@@ -55,7 +58,7 @@ const ClientePage = () => {
                         <BiBell size={35} className='notificaciones' />
                     </button>
                     <button className="btn btn-link" onClick={toggleMenu}>
-                         <FaUserCircle size={35} className="icon-gray" />
+                        <FaUserCircle size={35} className="icon-gray"/>
                     </button>
                     {menuOpen && (
                         <div className="dropdown-menu dropdown-menu-end show">
@@ -66,32 +69,50 @@ const ClientePage = () => {
                     )}
                 </div>
             </header>
-             <div className="d-flex">
+            <div className="d-flex">
                 <nav className={`sidebar p-3 ${!sidebarOpen && 'sidebar-hidden'}`}>
-                    <button className="btn btn-link color boton-activo" onClick={() => handleLinkClick('/cliente')}>
+                    <button
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'inicio' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente', 'inicio')}
+                    >
                         <BiHome size={20} /> Inicio
                     </button>
                     <h2 className="sidebar-title ">Cliente</h2>
-                    <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
+                    <button 
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'cotizacion' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/solicitar-cotizacion', 'cotizacion')}>
                         <FaChartLine size={20} /> Solicitar Cotización
                     </button>
-                    <button className="btn btn-link color borde border-2 " onClick={() => handleLinkClick('/cliente/ver-base-instalada')}>
+                    <button
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'servicios' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/ver-base-instalada', 'servicios')}
+                    >
                         <FaCalendarCheck size={20} /> Servicios Adquiridos
                     </button>
-                    <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/soporte-tecnico')}>
+                    <button 
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'soporte' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/soporte-tecnico', 'soporte')}>
                         <FaUserCog size={20} /> Soporte Técnico
                     </button>
-                    <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/reclamos')}>
-                        <FaBook size={20} /> Reclamos
+                    <button 
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'garantias' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/reclamos','garantias')}>
+                        <FaBook size={20} /> Garantías y Reclamos
                     </button>
                     <h2 className="sidebar-title ">Usuario</h2>
-                    <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/editar-perfil')}>
+                    <button 
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'editar' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/editar-perfil','editar')}>
                         <FaUserCircle size={20} /> Editar perfil
                     </button>
-                    <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/notificaciones')}>
+                    <button 
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'notificaciones' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/notificaciones','notificaciones')}>
                         <BiBell size={20} /> Notificaciones
                     </button>
-                    <button className="btn btn-link color borde border-2" onClick={() => handleLinkClick('/cliente/ayuda')}>
+                    <button 
+                        className={`btn btn-link color borde border-2 ${selectedButton === 'ayuda' && 'boton-activo'}`}
+                        onClick={() => handleLinkClick('/cliente/ayuda','ayuda')}>
                         <BiCog size={20} /> Ayuda
                     </button>
                 </nav>
