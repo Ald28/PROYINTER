@@ -54,15 +54,15 @@ const OrdenDeCompra = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/servicio">Servicio</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Orden de Compra</li>
+                    <li className="breadcrumb-item text text-primary" aria-current="page">Orden de Compra</li>
                 </ol>
             </nav>
             <h4>Orden de Compra</h4>
@@ -80,18 +80,17 @@ const OrdenDeCompra = () => {
                             <td>
                                 <div className="info-section">
                                     <div className="info-item">
-                                        <a href={order.link} download target="_blank" rel="noopener noreferrer">
-                                            {order.title}
-                                        </a>
+                                        {/* Mostrar el título como texto plano */}
+                                        {order.title}
                                     </div>
                                 </div>
                             </td>
                             <td>{order.fecha}</td>
                             <td>
-                                <Link className="custom-button" onClick={() => handleShowModal(order.link)}>
+                                <Link className="custom-button fw-normal" onClick={() => handleShowModal(order.link)}>
                                     <i className="fas fa-eye"></i> Visualizar
                                 </Link>
-                                <a className="custom-button mx-3" href={order.link} download target="_blank" rel="noopener noreferrer">
+                                <a className="custom-button mx-3 fw-normal" href={order.link} download target="_blank" rel="noopener noreferrer">
                                     <i className="fas fa-download"></i> Descargar
                                 </a>
                             </td>

@@ -42,18 +42,18 @@ const DossierdeCalidad = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/servicio">Servicio</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Dossier de Calidad</li>
+                    <li className="breadcrumb-item active text-primary" aria-current="page">Dossier de Calidad</li>
                 </ol>
                 <h3>Dossier de Calidad</h3>
                 <table id="dossierTable" className="display">
@@ -70,19 +70,17 @@ const DossierdeCalidad = () => {
                                 <td>
                                     <div className="info-section">
                                         <div className="info-item">
-                                            <a href={dossier.link} download target="_blank" rel="noopener noreferrer">
-                                                {dossier.name}
-                                            </a>
+                                            {/* Mostrar el nombre del dossier como texto plano */}
+                                            {dossier.name}
                                         </div>
                                     </div>
                                 </td>
                                 <td>{dossier.fecha}</td>
                                 <td>
-                                    <Link className="custom-button" onClick={() => handleShowModal(dossier.link)}>
-                                        <i className="fas fa-eye" ></i>
-                                        Visualizar                                  
+                                    <Link className="custom-button fw-normal" onClick={() => handleShowModal(dossier.link)}>
+                                        <i className="fas fa-eye"></i> Visualizar
                                     </Link>
-                                    <a className="custom-button mx-3" href={dossier.link} download target="_blank" rel="noopener noreferrer">
+                                    <a className="custom-button mx-3 fw-normal" href={dossier.link} download target="_blank" rel="noopener noreferrer">
                                         <i className="fas fa-download"></i> Descargar
                                     </a>
                                 </td>

@@ -42,18 +42,18 @@ const CertificadoGarantia = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                        <Link className="btn fw-bold p-0 " to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn fw-bold p-0 " to="/cliente/ver-base-instalada">Base Instalada</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn fw-bold p-0 " to="/cliente/servicio">Servicio</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
+                        <Link className="btn fw-bold p-0 " to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Certificado de Garantia</li>
+                    <li className="breadcrumb-item active text-primary" aria-current="page">Certificado de Garantia</li>
                 </ol>
             </nav>
             <h3>Certificado de Garantia</h3>
@@ -71,21 +71,18 @@ const CertificadoGarantia = () => {
                             <td>
                                 <div className="info-section">
                                     <div className="info-item">
-                                        <a href={certificado.link} download target="_blank" rel="noopener noreferrer">
-                                            {certificado.name}
-                                        </a>
+                                        {/* Mostrar el nombre del certificado como texto plano */}
+                                        {certificado.name}
                                     </div>
                                 </div>
                             </td>
                             <td>{certificado.fecha}</td>
                             <td>
-                                <Link className="custom-button" onClick={() => handleShowModal(certificado.link)}>
-                                    <i className="fas fa-eye"></i>
-                                    Visualizar                                  
+                                <Link className="custom-button fw-normal" onClick={() => handleShowModal(certificado.link)}>
+                                    <i className="fas fa-eye"></i> Visualizar                                  
                                 </Link>
-                                <a className="custom-button mx-3" href={certificado.link} download target="_blank" rel="noopener noreferrer">
-                                    <i className="fas fa-download"></i>
-                                    Descargar                                
+                                <a className="custom-button mx-3 fw-normal" href={certificado.link} download target="_blank" rel="noopener noreferrer ">
+                                    <i className="fas fa-download"></i> Descargar                                
                                 </a>
                             </td>
                         </tr>

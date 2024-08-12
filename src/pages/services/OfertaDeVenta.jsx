@@ -20,13 +20,12 @@ const OfertaDeVenta = () => {
 
     useEffect(() => {
         const table = $('#myTable').DataTable({
-            paging: false, // Desactiva la paginación
-            searching: false, // Desactiva la búsqueda
-            info: false // Desactiva la información
+            paging: false,
+            searching: false,
+            info: false
         });
 
         return () => {
-            // Destruye la instancia de DataTable cuando el componente se desmonte
             if ($.fn.dataTable.isDataTable('#myTable')) {
                 table.destroy();
             }
@@ -40,7 +39,7 @@ const OfertaDeVenta = () => {
 
     const handleCloseModal = () => {
         setShowModal(false);
-        setPdfLink(''); // Limpia el enlace PDF cuando se cierra el modal
+        setPdfLink('');
     };
 
     return (
@@ -48,15 +47,15 @@ const OfertaDeVenta = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <button className="btn btn-link p-0" onClick={() => window.location.href = '/cliente'}>Cliente</button>
+                        <button className="btn p-0 fw-bold" onClick={() => window.location.href = '/cliente'}>Cliente</button>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn p-0 fw-bold" to="/cliente/ver-base-instalada">Base Instalada</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn p-0 fw-bold" to="/cliente/servicio">Servicio</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Oferta de Venta</li>
+                    <li className="breadcrumb-item active text text-primary" aria-current="page">Oferta de Venta</li>
                 </ol>
             </nav>
             <h4>Oferta de Venta</h4>
@@ -74,21 +73,18 @@ const OfertaDeVenta = () => {
                             <td>
                                 <div className="info-section">
                                     <div className="info-item">
-                                        <a href={offer.link} download target="_blank" rel="noopener noreferrer">
-                                            {offer.title}
-                                        </a>
+                                        {/* Mostrar el título como texto plano */}
+                                        {offer.title}
                                     </div>
                                 </div>
                             </td>
                             <td>{offer.fecha}</td>
                             <td>
-                                <Link className="custom-button" onClick={() => handleShowModal(offer.link)}>
-                                    <i className="fas fa-eye"></i>
-                                    Visualizar                                  
+                                <Link className="custom-button fw-normal" onClick={() => handleShowModal(offer.link)}>
+                                    <i className="fas fa-eye"></i> Visualizar
                                 </Link>
-                                <a className="custom-button mx-3" href={offer.link} download target="_blank" rel="noopener noreferrer">
-                                    <i className="fas fa-download"></i>
-                                    Descargar                                
+                                <a className="custom-button mx-3 fw-normal" href={offer.link} download target="_blank" rel="noopener noreferrer">
+                                    <i className="fas fa-download"></i> Descargar
                                 </a>
                             </td>
                         </tr>

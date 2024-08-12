@@ -52,7 +52,7 @@ const InstalledBase = () => {
                     <li className="breadcrumb-item">
                         <button className="btn btn-black fw-bold p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Servicios Adquiridos</li>
+                    <li className="breadcrumb-item activate" aria-current="page">Servicios Adquiridos</li>
                 </ol>
             </nav>
 
@@ -96,7 +96,7 @@ const InstalledBase = () => {
                             <td>{item.tipo_servicio}</td>
                             <td>{item.descripcion}</td>
                             <td className="text-center">
-                                <button className="btn btn-link text-decoration-none custom-button" onClick={() => handleLinkClick('/cliente/servicio')}>
+                                <button className="btn btn-link text-decoration-none custom-button fw-normal" onClick={() => handleLinkClick('/cliente/servicio')}>
                                     <i className="fas fa-file-lines"></i>
                                     <br />
                                     Abrir

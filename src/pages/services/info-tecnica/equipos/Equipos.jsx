@@ -34,18 +34,18 @@ const Equipos = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/servicio">Servicio</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active" aria-current="page">Equipos</li>
+                    <li className="breadcrumb-item active text-primary" aria-current="page">Equipos</li>
                 </ol>
             </nav>
             <h3>Equipos</h3>
@@ -65,7 +65,7 @@ const Equipos = () => {
                             {equipo.name}
                             </td>
                             <td>
-                                <Link className="custom-button" to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
+                                <Link className="custom-button fw-normal" to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
                                     <i className="fas fa-file-lines"></i>
                                     Abrir                                
                                 </Link>
