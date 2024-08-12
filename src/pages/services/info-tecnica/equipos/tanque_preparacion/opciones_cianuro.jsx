@@ -1,5 +1,7 @@
 import React, { useState } from 'react'; // Importar useState
 import { Link } from 'react-router-dom';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
 import '../../../../../assets/styles/Servicio.css'; // Asegúrate de que el archivo CSS esté correctamente importado
@@ -37,40 +39,49 @@ const OpcionesCianuro = () => {
             <p>Tanque de Almacenamiento de 2m³ para cianuro</p>
             <div className="info-section">
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
-                    </Link>
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con Data Sheet</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
+                            <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
+                        </Link>
+                    </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                    <div className="secondary-container">
-                        <Link
-                            className="btn degradado secondary-btn"
-                            onMouseEnter={() => setIsManualHovered(true)}
-                            onMouseLeave={() => setIsManualHovered(false)}
-                        >
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con manual</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
                             <FontAwesomeIcon icon={faBook} /> Manual
                         </Link>
-                        {isManualHovered && (
-                            <div className="message">
-                                No se cuenta con manual
-                            </div>
-                        )}
-                    </div>
+                    </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faMap} /> Planos
-                    </Link>
+                        <Link className="btn degradado">
+                            <FontAwesomeIcon icon={faMap} /> Planos
+                        </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faHandHoldingDollar} /> Solicitar Oferta
-                    </Link>
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con una oferta</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
+                            <FontAwesomeIcon icon={faHandHoldingDollar} /> Solicitar Oferta
+                        </Link>
+                    </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faScrewdriverWrench} /> Mantenimiento
-                    </Link>
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con mantenimiento</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
+                            <FontAwesomeIcon icon={faScrewdriverWrench} /> Mantenimiento
+                        </Link>
+                    </OverlayTrigger>
                 </div>
             </div>
         </div>

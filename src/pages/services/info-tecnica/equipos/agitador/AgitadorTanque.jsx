@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
 import '../../../../../assets/styles/Servicio.css';
@@ -34,40 +36,49 @@ const AgitadorTanque = () => {
             <p>Agitador para el tanque de Preparación de 2m³</p>
             <div className="info-section">
                 <div className="info-item">
-                    <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/3/datasheet'>
-                        <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
-                    </Link>
+                        <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/3/datasheet'>
+                            <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
+                        </Link>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faBook} /> Manual
-                    </Link>
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con manual</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
+                            <FontAwesomeIcon icon={faBook} /> Manual
+                        </Link>
+                    </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                    <div className="secondary-container">
-                        <Link
-                            className="btn degradado secondary-btn"
-                            onMouseEnter={() => setIsPlanosHovered(true)}
-                            onMouseLeave={() => setIsPlanosHovered(false)}
-                        >
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con planos</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
                             <FontAwesomeIcon icon={faMap} /> Planos
                         </Link>
-                        {isPlanosHovered && (
-                            <div className="message">
-                                No se cuenta con planos
-                            </div>
-                        )}
-                    </div>
+                        </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faHandHoldingDollar} /> Solicitar Oferta
-                    </Link>
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con una oferta</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
+                            <FontAwesomeIcon icon={faHandHoldingDollar} /> Solicitar Oferta
+                        </Link>
+                    </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                    <Link className="btn degradado">
-                        <FontAwesomeIcon icon={faScrewdriverWrench} /> Mantenimiento
-                    </Link>
+                    <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>No se cuenta con mantenimiento</Tooltip>}
+                    >
+                        <Link className="btn degradado secondary-btn">
+                            <FontAwesomeIcon icon={faScrewdriverWrench} /> Mantenimiento
+                        </Link>
+                    </OverlayTrigger>
                 </div>
             </div>
         </div>

@@ -15,10 +15,17 @@
     height: 65px;
 }
 
+.secondary-btn {
+    background: gray;
+    color: white;
+}
+
+/* Desactivar el cambio de color al pasar el puntero */
 .secondary-btn:hover {
     background: gray;
     color: white;
 }
+
 
 .info-item {
     margin-bottom: 10px;
