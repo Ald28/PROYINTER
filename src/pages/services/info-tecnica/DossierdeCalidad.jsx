@@ -92,7 +92,7 @@ const DossierdeCalidad = () => {
                 </table>
             </nav>
 
-            <Modal show={showModal} onHide={handleCloseModal} size="lg">
+            <Modal show={showModal} onHide={handleCloseModal} size="lg" backdrop={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Vista previa del documento</Modal.Title>
                 </Modal.Header>
