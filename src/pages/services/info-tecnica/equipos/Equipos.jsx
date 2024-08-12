@@ -7,10 +7,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Equipos = () => {
     const equiposList = [
-        { id: 1, name: 'Tanque de almacenamiento de 0.5m3' },
-        { id: 2, name: 'Tanque de preparación de 2m3' },
-        { id: 3, name: 'Agitador para tanque de preparación de 2m3' },
-        { id: 4, name: 'Boya para tanque de almacenamiento de 0.5m3' },
+        { id: 1, name: 'Tanque de almacenamiento de 0.5m3 para cianuro' },
+        { id: 2, name: 'Tanque de almacenamiento de 0.5m3 para sulfato' },
+        { id: 3, name: 'Tanque de preparación de 2m3 para cianuro' },
+        { id: 4, name: 'Tanque de preparación de 2m3 para sulfato' },
+        { id: 5, name: 'Agitador para tanque de preparación de 2m3' },
+        { id: 6, name: 'Boya para tanque de almacenamiento de 0.5m3' },
     ];
 
     useEffect(() => {

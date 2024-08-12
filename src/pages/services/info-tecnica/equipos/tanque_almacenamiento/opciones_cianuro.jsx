@@ -4,7 +4,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
-import '../../../../../assets/styles/Servicio.css'; // Asegúrate de crear e importar el archivo CSS
+import '../../../../../assets/styles/Servicio.css';
 
 const OpcionesCianuro = () => {
     return (
@@ -25,9 +25,6 @@ const OpcionesCianuro = () => {
                     </li>
                     <li className="breadcrumb-item">
                         <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
-                    </li>
-                    <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos/1">Tanque de 0.5m3</Link>
                     </li>
                     <li className="breadcrumb-item">
                         Tanque de Cianuro

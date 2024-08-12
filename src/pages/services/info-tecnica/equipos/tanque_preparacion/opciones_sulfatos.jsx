@@ -36,7 +36,7 @@ const OpcionesSulfatos = () => {
                     </li>
                 </ol>
             </nav>
-            <p>Tanque de Almacenamiento de 2m³ para Sulfatos</p>
+            <p>Tanque de Preparación de 2m³ para Sulfatos</p>
             <div className="info-section">
                 <div className="info-item">
                     <OverlayTrigger

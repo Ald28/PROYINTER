@@ -29,9 +29,6 @@ const OpcionesSulfatos = () => {
                         <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos/1">Tanque de 0.5m³</Link>
-                    </li>
-                    <li className="breadcrumb-item">
                         Tanque de Sulfatos
                     </li>
                 </ol>

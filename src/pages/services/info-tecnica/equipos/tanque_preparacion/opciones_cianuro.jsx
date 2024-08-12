@@ -29,14 +29,11 @@ const OpcionesCianuro = () => {
                         <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos/2">Tanque de 0.5m³</Link>
-                    </li>
-                    <li className="breadcrumb-item">
                         Tanque de Cianuro
                     </li>
                 </ol>
             </nav>
-            <p>Tanque de Almacenamiento de 2m³ para cianuro</p>
+            <p>Tanque de Preparación de 2m³ para cianuro</p>
             <div className="info-section">
                 <div className="info-item">
                     <OverlayTrigger
