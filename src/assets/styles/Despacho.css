@@ -1,22 +1,23 @@
 .breadcrumb-nav {
     margin-bottom: 20px;
 }
+
 .despacho-button {
     display: flex;
-    border:solid 1px black;
+    border: solid 1px black;
     align-items: center;
     padding: 15px 20px;
     background: linear-gradient(to bottom, rgb(0,159,235,40%), rgb(0,159,227,100%), rgb(62, 36, 56,80%));
-    background-size:cover;
+    background-size: cover;
     color: white;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-align: left;
-
     height: 65px; /* Ajusta esto según tus necesidades */
 }
+
 .button-container {
     display: flex;
     flex-direction: column; /* Cambiado a columna */
@@ -39,3 +40,24 @@
     color: white;
     font-weight: bold;
 }
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(.active) a {
+    color: #000000;
+    font-weight: bold;
+}
+
+.breadcrumb-item.active {
+    color: #009FE3;
+}
+

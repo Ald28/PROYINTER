@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileCircleCheck, faListUl } from '@fortawesome/free-solid-svg-icons';
@@ -7,21 +7,39 @@ import { Container } from 'react-bootstrap'; // Importamos el componente Contain
 
 const Despacho = () => {
     const navigate = useNavigate();
+    const [isMobile, setIsMobile] = useState(false);
 
     const handleLinkClick = (path) => {
         navigate(path);
     };
 
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 430);
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className="despacho-container">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
-                    </li>
-                    <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
-                    </li>
+                    {!isMobile && (
+                        <>
+                            <li className="breadcrumb-item">
+                                <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                            </li>
+                            <li className="breadcrumb-item">
+                                <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
+                            </li>
+                        </>
+                    )}
                     <li className="breadcrumb-item">
                         <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
                     </li>
@@ -44,4 +62,5 @@ const Despacho = () => {
 };
 
 export default Despacho;
+
 
