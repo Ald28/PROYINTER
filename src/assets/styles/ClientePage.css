@@ -57,9 +57,11 @@
 }
 
 .sidebar button:hover {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #009FE3 !important;
+  color: #FFFFFF !important;
+  border-color: #009FE3 !important;
 }
+
 
 .submenu-links {
   margin-top: 10px;

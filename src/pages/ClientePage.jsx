@@ -48,7 +48,7 @@ const ClientePage = () => {
         <div className={`cliente-page ${sidebarOpen ? 'sidebar-open' : ''}`}>
             <header className="header d-flex align-items-center justify-content-between px-4 py-2">
                 <div className="d-flex align-items-center">
-                    <img src={logo} alt="Proyinter Logo" width="170"/>
+                <img src={logo} alt="Proyinter Logo" width="170" onClick={() => handleLinkClick('/cliente', 'inicio')} />
                     <button className="btn btn-link ms-2" onClick={toggleSidebar} style={{ paddingLeft: '5px' }}>
                         <FaBars className='hamburguesa' size={30} />
                     </button>
