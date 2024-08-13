@@ -43,9 +43,9 @@
 .sidebar button {
   width: 100%;
   text-align: left;
-  color: #ff4400;
   padding: 10px;
   border: 2px solid #007bff;
+  white-space: nowrap;
   border-radius: 25px;
   background: none;
   display: flex;
@@ -53,7 +53,7 @@
   gap: 10px;
   margin-bottom: 10px;
   transition: background-color 0.3s ease, color 0.3s ease;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .sidebar button:hover {
@@ -61,6 +61,7 @@
   color: #FFFFFF !important;
   border-color: #009FE3 !important;
 }
+
 
 
 .submenu-links {
