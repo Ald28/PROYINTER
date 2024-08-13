@@ -26,7 +26,7 @@ const OpcionesCianuro = () => {
                     <li className="breadcrumb-item">
                         <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item">
+                    <li className="breadcrumb-item active text-primary">
                         Tanque de Cianuro
                     </li>
                 </ol>

@@ -64,9 +64,9 @@ const Datasheet = () => {
             <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
           </li>
           <li className="breadcrumb-item">
-          <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos/3">Agitador de tanque de 2m3</Link>
+          <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos/5">Agitador de tanque de 2m3</Link>
           </li>
-          <li className="breadcrumb-item">
+          <li className="breadcrumb-item active text-primary">
             Data Sheet
           </li>
 

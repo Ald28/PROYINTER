@@ -66,7 +66,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="informacion-tecnica-equipos/equipos/4" element={<SulfatosP />} />
           <Route path="informacion-tecnica-equipos/equipos/5" element={<AgitadorTanque />} />
 
-          <Route path="informacion-tecnica-equipos/equipos/3/datasheet" element={<Datasheet />} />
+          <Route path="informacion-tecnica-equipos/equipos/5/datasheet" element={<Datasheet />} />
 
           <Route path="informacion-tecnica-equipos/equipos/1/planos" element={<Planos_Almacenamiento_Cianuro />} />
           <Route path="informacion-tecnica-equipos/equipos/2/planos" element={<Planos_Almacenamiento_Sulfatos/>} />

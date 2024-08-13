@@ -28,7 +28,7 @@ const AgitadorTanque = () => {
                     <li className="breadcrumb-item">
                         <Link className="btn btn-link p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item">
+                    <li className="breadcrumb-item active text-primary">
                         Agitador para el tanque
                     </li>
                 </ol>
@@ -36,7 +36,7 @@ const AgitadorTanque = () => {
             <p>Agitador para el tanque de Preparación de 2m³</p>
             <div className="info-section">
                 <div className="info-item">
-                        <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/3/datasheet'>
+                        <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/5/datasheet'>
                             <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
                         </Link>
                 </div>
