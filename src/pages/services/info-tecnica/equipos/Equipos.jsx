@@ -4,7 +4,7 @@ import $ from 'jquery';
 import '../../../../assets/styles/Equipo.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+ 
 const Equipos = () => {
     const equiposList = [
         { id: 1, name: 'Tanque de almacenamiento de 0.5m3 para cianuro' },

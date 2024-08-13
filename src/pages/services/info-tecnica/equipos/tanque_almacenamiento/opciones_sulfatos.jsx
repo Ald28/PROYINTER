@@ -56,7 +56,7 @@ const OpcionesSulfatos = () => {
                     </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                        <Link className="btn degradado">
+                        <Link className="btn degradado" to={`/cliente/informacion-tecnica-equipos/equipos/2/planos`}>
                             <FontAwesomeIcon icon={faMap} /> Planos
                         </Link>
                 </div>

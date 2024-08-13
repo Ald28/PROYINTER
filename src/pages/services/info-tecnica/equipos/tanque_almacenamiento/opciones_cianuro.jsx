@@ -54,9 +54,9 @@ const OpcionesCianuro = () => {
                     </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                        <Link className="btn degradado">
+                        <Link className="btn degradado" to={`/cliente/informacion-tecnica-equipos/equipos/1/planos`}>
                             <FontAwesomeIcon icon={faMap} /> Planos
-                        </Link>
+                        </Link> 
                 </div>
                 <div className="info-item">
                     <OverlayTrigger
