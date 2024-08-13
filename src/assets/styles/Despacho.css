@@ -54,7 +54,7 @@
 
 .breadcrumb-item:not(.active) a {
     color: #000000;
-    font-weight: bold;
+
 }
 
 .breadcrumb-item.active {

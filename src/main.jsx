@@ -27,8 +27,10 @@ import Sulfatos from './pages/services/info-tecnica/equipos/tanque_almacenamient
 import CianuroP from './pages/services/info-tecnica/equipos/tanque_preparacion/opciones_cianuro';
 import SulfatosP from './pages/services/info-tecnica/equipos/tanque_preparacion/opciones_sulfatos';
 import Datasheet from './pages/services/info-tecnica/equipos/agitador/datasheet';
-import Planos_Cianuro from './pages/services/info-tecnica/equipos/tanque_almacenamiento/planos_cianuro';
-import Planos_Sulfatos from './pages/services/info-tecnica/equipos/tanque_almacenamiento/planos_sulfatos';
+import Planos_Almacenamiento_Cianuro from './pages/services/info-tecnica/equipos/tanque_almacenamiento/planos_cianuro';
+import Planos_Almacenamiento_Sulfatos from './pages/services/info-tecnica/equipos/tanque_almacenamiento/planos_sulfatos';
+import Planos_Preparacion_Cianuro from './pages/services/info-tecnica/equipos/tanque_preparacion/planos_cianuro';
+import Planos_Preparacion_Sulfatos from './pages/services/info-tecnica/equipos/tanque_preparacion/planos_sulfatos';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -66,8 +68,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
           <Route path="informacion-tecnica-equipos/equipos/3/datasheet" element={<Datasheet />} />
 
-          <Route path="informacion-tecnica-equipos/equipos/1/planos" element={<Planos_Cianuro />} />
-          <Route path="informacion-tecnica-equipos/equipos/2/planos" element={<Planos_Sulfatos/>} />
+          <Route path="informacion-tecnica-equipos/equipos/1/planos" element={<Planos_Almacenamiento_Cianuro />} />
+          <Route path="informacion-tecnica-equipos/equipos/2/planos" element={<Planos_Almacenamiento_Sulfatos/>} />
+          <Route path="informacion-tecnica-equipos/equipos/3/planos" element={<Planos_Preparacion_Cianuro />} />
+          <Route path="informacion-tecnica-equipos/equipos/4/planos" element={<Planos_Preparacion_Sulfatos />} />
         </Route>
       </Routes>
     </Router>

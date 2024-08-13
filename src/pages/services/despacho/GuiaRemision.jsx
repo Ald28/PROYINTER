@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../../assets/styles/GuiaRemision.css';
 import { Modal, Button } from 'react-bootstrap';
 
 const GuiaRemision = () => {
