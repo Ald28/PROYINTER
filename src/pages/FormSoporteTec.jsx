@@ -111,55 +111,54 @@ const FormSoporteTec = () => {
             </h1>
 
             <form
-                    className="mx-auto mt-5"
-                    style={{ maxWidth: '800px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
-                    onSubmit={handleSubmit}
-                >
-                <div className="mt-1">
-                    <p className='fw-bold mt-2'>¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
-                    <div className="row align-items-center">
+                className="mx-auto mt-5"
+                style={{ maxWidth: '800px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
+                onSubmit={handleSubmit}
+            >
+                <div className="row align-items-center mb-4">
+                    <div className="col-md-6">
+                        <p className='fw-bold mt-2'>¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
+                        <div className="form-check form-check-inline">
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                name="soporte"
+                                id="soporteSi"
+                                onChange={handleSoporteChange}
+                            />
+                            <label className="form-check-label" htmlFor="soporteSi" style={{ fontWeight: 'bold' }}>
+                                Sí
+                            </label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                name="soporte"
+                                id="soporteNo"
+                                defaultChecked
+                                onChange={handleSoporteChange}
+                            />
+                            <label className="form-check-label" htmlFor="soporteNo" style={{ fontWeight: 'bold' }}>
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    {showSelect && (
                         <div className="col-md-6">
-                            <div className="form-check form-check-inline">
-                                <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    name="soporte"
-                                    id="soporteSi"
-                                    onChange={handleSoporteChange}
-                                />
-                                <label className="form-check-label" htmlFor="soporteSi" style={{ fontWeight: 'bold' }}>
-                                    Sí
-                                </label>
-                            </div>
-                            <div className="form-check form-check-inline">
-                                <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    name="soporte"
-                                    id="soporteNo"
-                                    defaultChecked
-                                    onChange={handleSoporteChange}
-                                />
-                                <label className="form-check-label" htmlFor="soporteNo" style={{ fontWeight: 'bold' }}>
-                                    No
-                                </label>
+                            <div className="mb-3">
+                                <p className='fw-bold'>Selecciona una opción adicional:</p>
+                                <select className="form-select" aria-label="Opciones adicionales">
+                                    <option value="">Seleccione...</option>
+                                    <option value="opcion1">Opción 1</option>
+                                    <option value="opcion2">Opción 2</option>
+                                    <option value="opcion3">Opción 3</option>
+                                </select>
                             </div>
                         </div>
-                        {showSelect && (
-                            <div className="col-md-6">
-                                <div className="mb-3">
-                                    <p className='fw-bold'>Selecciona una opción adicional:</p>
-                                    <select className="form-select" aria-label="Opciones adicionales">
-                                        <option value="">Seleccione...</option>
-                                        <option value="opcion1">Opción 1</option>
-                                        <option value="opcion2">Opción 2</option>
-                                        <option value="opcion3">Opción 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        )}
-                    </div>
+                    )}
                 </div>
+
                 <div className="row mb-4 mt-5">
                     <div className="col-md-6">
                         <p className='fw-bold'>Describa el problema (Máximo 1000 caracteres)</p>
@@ -191,6 +190,7 @@ const FormSoporteTec = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="container d-flex flex-column align-items-center justify-content-center mt-3">
                     <div className="align-items-center text-center">
                         <p className='fw-bold'>Pegue un vínculo de video, nube de archivos u otro contenido si desea detallar el problema</p>

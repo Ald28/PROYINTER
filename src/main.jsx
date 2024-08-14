@@ -33,6 +33,7 @@ import Planos_Preparacion_Cianuro from './pages/services/info-tecnica/equipos/ta
 import Planos_Preparacion_Sulfatos from './pages/services/info-tecnica/equipos/tanque_preparacion/planos_sulfatos';
 import Soporte_tecnico from './pages/SoporteTecnico';
 import FormSoporteTec from './pages/FormSoporteTec';
+import ContSoporteTec from './pages/ContSoporteTec';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -62,6 +63,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="ingieneriaDeDetalle" element={<IngieneriaDetalle />} />
           <Route path="soporte-tecnico" element={<Soporte_tecnico/>}/>
           <Route path="soporte-tecnico/Formulario" element={<FormSoporteTec/>} />
+          <Route path="soporte-tecnico/contacto" element={<ContSoporteTec/>} />
 
           {/* Rutas para los componentes específicos de cada equipo */}
           <Route path="informacion-tecnica-equipos/equipos/1" element={<Cianuro />} />

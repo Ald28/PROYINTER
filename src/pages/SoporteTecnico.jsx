@@ -32,7 +32,7 @@ const Soporte_tecnico = () => {
             <div className='button-grid'>
                 <button 
                     className="grid-button fw-bold degradado espacio"
-                    onClick={() => handleLinkClick('/contacto')}
+                    onClick={() => handleLinkClick('/cliente/soporte-tecnico/contacto')}
                 >
                     <FaHeadset className='icon-size' size={42} />
                     Contactarse <br /> con un asesor
