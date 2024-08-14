@@ -210,7 +210,7 @@
 border: 2px solid #004B70; /* Personaliza el borde */
 }
 .sidebar button.color{
-color: #004B70;
+  color: #004B70 !important;
 }
 .sidebar button.boton-activo{
 background: #009FE3;
@@ -242,4 +242,3 @@ margin-right: 4vw;
 .espacio{
   padding: 3vw  !important;
 }
-

@@ -28,7 +28,7 @@ const AgitadorTanque = () => {
                     <li className="breadcrumb-item">
                         <Link className="btn fw-bold p-0" to="/cliente/informacion-tecnica-equipos/equipos">Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active text-primary">
+                    <li className="breadcrumb-item active">
                         Agitador para el tanque
                     </li>
                 </ol>

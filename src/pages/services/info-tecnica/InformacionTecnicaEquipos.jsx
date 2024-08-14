@@ -13,12 +13,12 @@ const InformacionTecnicaEquipos = () => {
                         <Link className="btn fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn fw-bold p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn fw-bold p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
-                    <li className="breadcrumb-item active text-primary" aria-current="page">Información Técnica de Equipos</li>
+                    <li className="breadcrumb-item active " aria-current="page">Información Técnica de Equipos</li>
                 </ol>
             </nav>
             <h2>Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos</h2>

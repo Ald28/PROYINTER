@@ -66,7 +66,7 @@ const IngieneriaDetalle = () => {
                     <li className="breadcrumb-item">
                         <Link className="btn btn-black fw-bold p-0" to="/cliente/procura-tanque-fibra">Procura Tanque Fibra</Link>
                     </li>
-                    <li className="breadcrumb-item activate" aria-current="page">Ingeniería de Detalle</li>
+                    <li className="breadcrumb-item active" aria-current="page">Ingeniería de Detalle</li>
                 </ol>
             </nav>
             <h4 className="text-center"><b>Planos y Documentos</b></h4>

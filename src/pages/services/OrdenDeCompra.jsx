@@ -57,20 +57,20 @@ const OrdenDeCompra = () => {
                         <Link className="btn btn-black fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black fw-bold p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black fw-bold p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
-                    <li className="breadcrumb-item text text-primary" aria-current="page">Orden de Compra</li>
+                    <li className="breadcrumb-item active" aria-current="page">Orden de Compra</li>
                 </ol>
             </nav>
             <h4>Orden de Compra</h4>
             <table id="orderTable" className="display">
                 <thead>
                     <tr>
-                        <th>Orden</th>
-                        <th>Fechas</th>
+                        <th>Número de Orden</th>
+                        <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -100,19 +100,29 @@ const OrdenDeCompra = () => {
             </table>
 
             {/* Modal para la vista previa del PDF */}
-            <Modal show={showModal} onHide={handleCloseModal} size="lg" backdrop={false}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Vista previa del documento</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <iframe
-                        src={pdfLink}
-                        width="100%"
-                        height="500px"
-                        frameBorder="0"
-                        title="Vista previa del documento"
-                    ></iframe>
-                </Modal.Body>
+            <Modal
+                show={showModal}
+                onHide={handleCloseModal}
+                size="lg"
+                backdrop={false}
+                dialogClassName="custom-modal"
+                aria-labelledby="example-custom-modal-styling-title"
+                style={{ marginTop: '54px', width: '100%', maxWidth: '100%' }}
+            >
+                <div className="modal-content">
+                    <Modal.Header closeButton>
+                        <Modal.Title>Vista previa del documento</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{ padding: 0, marginLeft: -67 }}>
+                        <iframe
+                            src={pdfLink}
+                            width="138%"
+                            height="500px"
+                            frameBorder="0"
+                            title="Vista previa del documento"
+                        ></iframe>
+                    </Modal.Body>
+                </div>
             </Modal>
         </div>
     );

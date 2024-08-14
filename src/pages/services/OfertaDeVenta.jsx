@@ -50,20 +50,20 @@ const OfertaDeVenta = () => {
                         <button className="btn p-0 fw-bold" onClick={() => window.location.href = '/cliente'}>Cliente</button>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn p-0 fw-bold" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn p-0 fw-bold" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn p-0 fw-bold" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn p-0 fw-bold" to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
-                    <li className="breadcrumb-item active text text-primary" aria-current="page">Oferta de Venta</li>
+                    <li className="breadcrumb-item active" aria-current="page">Oferta de Venta</li>
                 </ol>
             </nav>
             <h4>Oferta de Venta</h4>
             <table id="myTable" className="display">
                 <thead>
                     <tr>
-                        <th>Oferta</th>
-                        <th>Fechas</th>
+                        <th>Número de Oferta</th>
+                        <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

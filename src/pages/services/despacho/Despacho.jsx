@@ -33,15 +33,15 @@ const Despacho = () => {
                     {!isMobile && (
                         <>
                             <li className="breadcrumb-item">
-                                <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                                <Link className="btn btn-link p-0 fw-bold" to="/cliente">Cliente</Link>
                             </li>
                             <li className="breadcrumb-item">
-                                <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
+                                <Link className="btn btn-link p-0 fw-bold" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                             </li>
                         </>
                     )}
-                    <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                    <li className="breadcrumb-item fw-bold">
+                        <Link className="btn btn-link p-0 fw-bold" to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">Despacho</li>
                 </ol>

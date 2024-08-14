@@ -50,21 +50,21 @@ const InstalledBase = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <button className="btn btn-black fw-bold p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
+                        <button className="btn  fw-bold p-0" onClick={() => handleLinkClick('/cliente')}>Cliente</button>
                     </li>
-                    <li className="breadcrumb-item activate" aria-current="page">Servicios Adquiridos</li>
+                    <li className="breadcrumb-item active" aria-current="page">Servicios Adquiridos</li>
                 </ol>
             </nav>
 
             <div className="d-flex justify-content-between align-items-center mb-3 vertical">
-                <select value={filter} onChange={handleFilterChange} className="form-select seleccion activate fw-bold">
+                <select value={filter} onChange={handleFilterChange} className="form-select seleccion breadcrumb-item  active fw-bold">
                     <option>Todos los servicios</option>
                     <option>Servicio de Procura</option>  
                     <option>Servicio de Mantenimiento</option>
                     <option>Servicio de Instalación</option>
                 </select>
 
-                <div className="search-container">
+                <div className="search-container ">
                     <input
                         type="text"
                         className="form-control search-input"
@@ -72,7 +72,7 @@ const InstalledBase = () => {
                         value={searchTerm}
                         onChange={handleSearchChange}
                     />
-                    <button className="btn btn-primary search-button">
+                    <button className="btn btn-info  search-button">
                         <i className="fa fa-search"></i>
                     </button>
                 </div>

@@ -68,8 +68,8 @@ flex: 1;
 width: 30%;
 border-top-left-radius: 0 !important; /* Eliminar esquina superior derecha */
 border-bottom-left-radius: 0 !important; /* Eliminar esquina inferior derecha */
-background-color: #00ADEF;
-border-left: 1px solid #ced4da; /* Agregar borde izquierdo */
+background-color: #009FE3 !important;
+ border-left: 1px solid #ced4da; /* Agregar borde izquierdo */
 display: flex;
 align-items: center;
 justify-content: center;
@@ -108,7 +108,7 @@ font-size: 18px;
 }
 /* para que opción donde se está navegando de cliente tenga un color diferente */
 .activate {
-  color: rgb(13, 110, 253);
+  color: #009FE3;
 }
 .icon-estilo{
   border: solid 1px;

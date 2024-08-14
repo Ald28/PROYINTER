@@ -72,7 +72,7 @@ const planos_cianuro = () => {
           <li className="breadcrumb-item">
             <Link className="btn fw-bold p-0" to="/cliente/informacion-tecnica-equipos/equipos/3">Tanque de Cianuro</Link>
           </li>
-          <li className="breadcrumb-item active text-primary">
+          <li className="breadcrumb-item active ">
             Planos
           </li>
         </ol>
@@ -105,14 +105,14 @@ const planos_cianuro = () => {
               <td>{datasheet.fecha}</td>
               <td>
                 <Link
-                  className="custom-button"
+                  className="custom-button fw-normal"
                   onClick={() => handleShowModal(datasheet.link)}
                 >
                   <i className="fas fa-eye"></i>
                   Visualizar
                 </Link>
                 <a
-                  className="custom-button mx-3"
+                  className="custom-button mx-3 fw-normal"
                   href={datasheet.link}
                   download
                   target="_blank"

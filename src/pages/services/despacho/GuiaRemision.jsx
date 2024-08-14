@@ -42,16 +42,16 @@ const GuiaRemision = () => {
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente">Cliente</Link>
+                        <Link className="btn btn-link p-0 fw-bold" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn btn-link p-0 fw-bold" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn btn-link p-0 fw-bold" to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
-                    <li className="breadcrumb-item">
-                        <Link className="btn btn-link p-0" to="/cliente/despacho">Despacho</Link>
+                    <li className="breadcrumb-item ">
+                        <Link className="btn btn-link p-0 fw-bold" to="/cliente/despacho">Despacho</Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">Guía de Remisión</li>
                 </ol>
@@ -59,7 +59,7 @@ const GuiaRemision = () => {
                 <table ref={tableRef} id="remisionTable" className="display">
                     <thead>
                         <tr>
-                            <th>Nombre del Documento</th>
+                            <th>Número de Guía</th>
                             <th>Fecha</th>
                             <th>Acciones</th>
                         </tr>
@@ -77,11 +77,11 @@ const GuiaRemision = () => {
                                 </td>
                                 <td>{remision.fecha}</td>
                                 <td>
-                                    <Link className="custom-button" onClick={() => handleShowModal(remision.link)}>
+                                    <Link className="custom-button fw-normal" onClick={() => handleShowModal(remision.link)}>
                                         <i className="fas fa-eye" ></i>
                                         Visualizar                                  
                                     </Link>
-                                    <a className="custom-button mx-3" href={remision.link} download target="_blank" rel="noopener noreferrer">
+                                    <a className="custom-button mx-3 fw-normal" href={remision.link} download target="_blank" rel="noopener noreferrer">
                                         <i className="fas fa-download"></i> Descargar
                                     </a>
                                 </td>

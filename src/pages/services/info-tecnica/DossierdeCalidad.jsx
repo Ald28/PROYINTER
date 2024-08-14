@@ -45,21 +45,21 @@ const DossierdeCalidad = () => {
                         <Link className="btn fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn fw-bold p-0" to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn fw-bold p-0" to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn fw-bold p-0" to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
                     <li className="breadcrumb-item">
                         <Link className="btn fw-bold p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active text-primary" aria-current="page">Dossier de Calidad</li>
+                    <li className="breadcrumb-item active" aria-current="page">Dossier de Calidad</li>
                 </ol>
                 <h3>Dossier de Calidad</h3>
                 <table id="dossierTable" className="display">
                     <thead>
                         <tr>
-                            <th>Dossier</th>
+                            <th>Código de Dossier</th>
                             <th>Fecha</th>
                             <th>Acciones</th>
                         </tr>

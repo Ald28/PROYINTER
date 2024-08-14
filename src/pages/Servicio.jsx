@@ -15,7 +15,7 @@ const Servicio = () => {
                     <li className="breadcrumb-item ">
                         <Link className="btn btn-black fw-bold p-0 " to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
-                    <li className="breadcrumb-item activate" aria-current="page">Procura Tanque Fibra</li>
+                    <li className="breadcrumb-item active" aria-current="page">Procura Tanque Fibra</li>
                 </ol>
             </nav>
             <p>Servicio de Procura de tanques de fibra de vidrio para cianuro y sulfatos</p>

@@ -45,22 +45,22 @@ const CertificadoGarantia = () => {
                         <Link className="btn fw-bold p-0 " to="/cliente">Cliente</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn fw-bold p-0 " to="/cliente/ver-base-instalada">Base Instalada</Link>
+                        <Link className="btn fw-bold p-0 " to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn fw-bold p-0 " to="/cliente/servicio">Servicio</Link>
+                        <Link className="btn fw-bold p-0 " to="/cliente/servicio">Procura Tanque Fibra</Link>
                     </li>
                     <li className="breadcrumb-item">
                         <Link className="btn fw-bold p-0 " to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active text-primary" aria-current="page">Certificado de Garantia</li>
+                    <li className="breadcrumb-item active" aria-current="page">Certificado de Garantía</li>
                 </ol>
             </nav>
-            <h3>Certificado de Garantia</h3>
+            <h3>Certificado de Garantía</h3>
             <table id="certificadoTable" className="display">
                 <thead>
                     <tr>
-                        <th>Nombre del Certificado</th>
+                        <th>Código del Certificado</th>
                         <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>

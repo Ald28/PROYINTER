@@ -72,7 +72,7 @@ const ClientePage = () => {
             <div className="d-flex">
                 <nav className={`sidebar p-3 ${!sidebarOpen && 'sidebar-hidden'}`}>
                     <button
-                        className={`btn btn-link color borde border-2 ${selectedButton === 'inicio' && 'boton-activo'}`}
+                        className={`btn btn-link color borde border-2  ${selectedButton === 'inicio' && 'boton-activo'}`}
                         onClick={() => handleLinkClick('/cliente', 'inicio')}
                     >
                         <BiHome size={20} /> Inicio
@@ -101,10 +101,11 @@ const ClientePage = () => {
                     </button>
                     <h2 className="sidebar-title ">Usuario</h2>
                     <button 
-                        className={`btn btn-link color borde border-2 ${selectedButton === 'editar' && 'boton-activo'}`}
-                        onClick={() => handleLinkClick('/cliente/editar-perfil','editar')}>
-                        <FaUserCircle size={20} /> Editar perfil
-                    </button>
+                      className={`btn btn-link fw-semibold borde border-2 ${selectedButton ==='editar' && 'boton-activo'}`}
+                      style={{color:'#004B70' }} /* Usa el color específico aquí */
+                     onClick={() => handleLinkClick('/cliente/editar-perfil','editar')}>
+                    <FaUserCircle size={20} /> Editar perfil
+                  </button>
                     <button 
                         className={`btn btn-link color borde border-2 ${selectedButton === 'notificaciones' && 'boton-activo'}`}
                         onClick={() => handleLinkClick('/cliente/notificaciones','notificaciones')}>

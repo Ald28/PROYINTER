@@ -66,7 +66,7 @@ const Datasheet = () => {
           <li className="breadcrumb-item">
           <Link className="btn fw-bold p-0" to="/cliente/informacion-tecnica-equipos/equipos/5">Agitador de tanque de 2m3</Link>
           </li>
-          <li className="breadcrumb-item active text-primary">
+          <li className="breadcrumb-item active">
             Data Sheet
           </li>
 
@@ -100,14 +100,14 @@ const Datasheet = () => {
               <td>{datasheet.fecha}</td>
               <td>
                 <Link
-                  className="custom-button"
+                  className="custom-button fw-normal"
                   onClick={() => handleShowModal(datasheet.link)}
                 >
                   <i className="fas fa-eye"></i>
                   Visualizar
                 </Link>
                 <a
-                  className="custom-button mx-3"
+                  className="custom-button mx-3 fw-normal"
                   href={datasheet.link}
                   download
                   target="_blank"
