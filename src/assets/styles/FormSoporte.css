@@ -1,0 +1,20 @@
+.file-list-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.file-item input {
+    max-width: 200px;
+    margin-right: 8px;
+}
+
+.file-item button {
+    color: red;
+}

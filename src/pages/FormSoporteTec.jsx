@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaTrash, FaPlus } from 'react-icons/fa';
 import Swal from 'sweetalert2';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar Bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/styles/FormSoporte.css';
 
 // Componente para el botón de archivo
 const FileInputButton = ({ onClick, disabled }) => (
@@ -11,35 +12,45 @@ const FileInputButton = ({ onClick, disabled }) => (
         className="btn btn-primary btn-sm"
         onClick={onClick}
         disabled={disabled}
-        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 'bold' }}
+        style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 'bold',
+            borderRadius: '50%',
+            width: '40px', // Ajusta el tamaño del botón
+            height: '40px',
+            display: 'flex',
+            alignItems: 'center',
+            marginLeft: '100px',
+            justifyContent: 'center',
+        }}
     >
-        {disabled ? 'Máximo 3 archivos alcanzado' : <FaPlus />}
+        <FaPlus style={{ fontSize: '25px' }} /> {/* Tamaño del ícono */}
     </button>
 );
 
 // Componente para la lista de archivos
 const FileList = ({ files, onRemoveFile }) => (
-    <>
+    <div className="file-list-container">
         {files.map((file, index) => (
-            <div key={index} className="input-group mb-2 d-flex align-items-center">
+            <div key={index} className="file-item mt-2">
                 <input
                     type="text"
-                    className="form-control form-control-sm flex-grow-1"
+                    className="form-control form-control"
                     value={file.name}
                     readOnly
-                    style={{ marginRight: '8px', fontFamily: 'Inter, sans-serif' }}
+                    style={{ fontFamily: 'Inter, sans-serif', width: '1200px' }}
                 />
                 <button
                     type="button"
-                    className="btn btn-link btn-sm p-0"
+                    className="btn btn-link"
+                    style={{marginRight:'28px'}}
                     onClick={() => onRemoveFile(index)}
-                    style={{ color: 'red' }}
                 >
                     <FaTrash />
                 </button>
             </div>
         ))}
-    </>
+    </div>
 );
 
 const FormSoporteTec = () => {
@@ -107,18 +118,17 @@ const FormSoporteTec = () => {
                 </ol>
             </nav>
             
-
             <form
                 className="mx-auto mt-5"
-                style={{ maxWidth: '800px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
+                style={{ maxWidth: '1000px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
                 onSubmit={handleSubmit}
             >
-                <h2 className="text-center p-3" style={{ fontWeight: 'bold' }}>
-                Formulario de Soporte Técnico
-                </h2>
+                <h1 className="text-center mt-3" style={{ fontWeight: 'bold' }}>
+                    Formulario de Soporte Técnico
+                </h1>
                 <div className="row align-items-center mt-4">
-                    <div className="col-md-6 mt-4">
-                        <p className='fw-bold mt-2'>¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
+                    <div className="col-md-6 mt-4 border-end pe-3">
+                        <p className='fw-bold mt-2'>1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
                         <div className="form-check form-check-inline">
                             <input
                                 className="form-check-input"
@@ -147,8 +157,8 @@ const FormSoporteTec = () => {
                     </div>
                     {showSelect && (
                         <div className="col-md-6">
-                            <div className="mb-3">
-                                <p className='fw-bold'>Selecciona una opción adicional:</p>
+                            <div className="mb-3 mt-4">
+                                <p className='fw-bold'>1.1 Selecciona una opción adicional:</p>
                                 <select className="form-select" aria-label="Opciones adicionales">
                                     <option value="">Seleccione...</option>
                                     <option value="opcion1">Opción 1</option>
@@ -159,26 +169,39 @@ const FormSoporteTec = () => {
                         </div>
                     )}
                 </div>
+                <hr/>
 
-                <div className="row mb-4 mt-5">
-                    <div className="col-md-6">
-                        <p className='fw-bold'>Describa el problema (Máximo 1000 caracteres)</p>
+                <div className="col">
+                    <div className="row p-2">
+                        <p className='fw-bold'>2. Describa el problema (Máximo 1000 caracteres)</p>
                         <div className="form-floating">
                             <textarea
                                 className="form-control"
                                 placeholder="Descripción del problema"
                                 id="problemaDescripcion"
                                 maxLength="1000"
-                                style={{ height: '150px' }}
+                                style={{ height: '100px' }}
                                 required
                             ></textarea>
                             <label htmlFor="problemaDescripcion">Descripción del problema</label>
                         </div>
                     </div>
-                    <div className="col-md-6">
-                        <p className='fw-bold'>Adjunte el archivo si desea ampliar el problema (Máximo 3 archivos de 10MB cada uno)</p>
-                        <FileList files={files} onRemoveFile={handleRemoveFile} />
-                        <div className="input-group mb-2">
+                </div>
+                <hr/>
+                <div className="row p-3">
+                    <div className="col-md-12">
+                        <div className="d-flex align-items-center">
+                            <p className='fw-bold mb-0'>
+                                3. Adjunte el archivo si desea ampliar el problema (Máximo 3 archivos de 10MB cada uno)
+                            </p>
+                            <FileInputButton
+                                onClick={handleAddFileInput}
+                                disabled={files.length >= 3}
+                                className=""
+                            />
+                        </div>
+
+                        <div className="input-group mt-3">
                             <input
                                 type="file"
                                 id="fileInput"
@@ -187,14 +210,17 @@ const FormSoporteTec = () => {
                                 onChange={handleFileChange}
                                 style={{ display: 'none' }}
                             />
-                            <FileInputButton onClick={handleAddFileInput} disabled={files.length >= 3} />
                         </div>
+                    </div>
+                    <div className="ms-1">
+                        <FileList files={files} onRemoveFile={handleRemoveFile} />
                     </div>
                 </div>
 
-                <div className="container d-flex flex-column align-items-center justify-content-center mt-3">
-                    <div className="align-items-center text-center">
-                        <p className='fw-bold'>Pegue un vínculo de video, nube de archivos u otro contenido si desea detallar el problema</p>
+                <hr/>
+                <div className="row mb-4">
+                    <div className="col-md-6 border-end pe-3">
+                        <p className='fw-bold'>4. Pegue un vínculo de video, nube de archivos u otro contenido si desea detallar el problema</p>
                         <input
                             type="text"
                             className="form-control"
@@ -202,7 +228,7 @@ const FormSoporteTec = () => {
                             required
                         />
                     </div>
-                    <div className="text-center mt-4">
+                    <div className="col-md-6 mt-4">
                         <button type="submit" className="btn degradado" style={{ fontWeight: 'bold' }}>
                             Enviar
                         </button>

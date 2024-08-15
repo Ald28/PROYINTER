@@ -80,7 +80,7 @@ const ContSoporteTec = () => {
 
             <form
                 className="mx-auto mt-5"
-                style={{ maxWidth: '800px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
+                style={{ maxWidth: '1000px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
                 onSubmit={handleSubmit}
             >
                 <h1 className="text-center p-3" style={{ fontWeight: 'bold' }}>
@@ -89,8 +89,8 @@ const ContSoporteTec = () => {
                 <div className="row mb-4 mt-5">
                     <div className="col-md-6 border-end pe-3">
                         
-                        <p className='fw-bold'>¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
-                        <div className="form-check form-check-inline">
+                        <p className='fw-bold'>1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
+                        <div className="form-check form-check-inline mt-2">
                             <input
                                 className="form-check-input"
                                 type="radio"
@@ -98,7 +98,7 @@ const ContSoporteTec = () => {
                                 id="soporteSi"
                                 onChange={() => setShowSelect(true)}
                             />
-                            <label className="form-check-label" htmlFor="soporteSi" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="soporteSi">
                                 Sí
                             </label>
                         </div>
@@ -111,7 +111,7 @@ const ContSoporteTec = () => {
                                 defaultChecked
                                 onChange={() => setShowSelect(false)}
                             />
-                            <label className="form-check-label" htmlFor="soporteNo" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="soporteNo">
                                 No
                             </label>
                         </div>
@@ -121,8 +121,8 @@ const ContSoporteTec = () => {
                         <div className="col-md-6 border-start ps-3">
                             
                             <div className="mb-3">
-                                <p className='fw-bold'>Seleccione una opción para su soporte</p>
-                                <select className="form-control" aria-label="Select support option" style={{ width: '100%' }}>
+                                <p className='fw-bold'>1.1 Seleccione una opción para su soporte</p>
+                                <select className="form-control mt-5" aria-label="Select support option" style={{ width: '100%' }}>
                                     <option value="option1">Opción 1</option>
                                     <option value="option2">Opción 2</option>
                                     <option value="option3">Opción 3</option>
@@ -135,7 +135,7 @@ const ContSoporteTec = () => {
                 <div className="row mb-4">
                     <div className="col-md-6 border-end pe-3">
                         <hr />
-                        <p className='fw-bold'>¿Como desea contactarse con su asesor?</p>
+                        <p className='fw-bold'>2. ¿Como desea contactarse con su asesor?</p>
                         <div className="form-check">
                             <input
                                 className="form-check-input"
@@ -146,7 +146,7 @@ const ContSoporteTec = () => {
                                 checked={contactMethod === 'Chat'}
                                 onChange={handleContactMethodChange}
                             />
-                            <label className="form-check-label" htmlFor="contactChat" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="contactChat">
                                 Chat
                             </label>
                         </div>
@@ -160,7 +160,7 @@ const ContSoporteTec = () => {
                                 checked={contactMethod === 'phone'}
                                 onChange={handleContactMethodChange}
                             />
-                            <label className="form-check-label" htmlFor="contactPhone" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="contactPhone">
                                 Llamada Telefonica
                             </label>
                         </div>
@@ -174,7 +174,7 @@ const ContSoporteTec = () => {
                                 checked={contactMethod === 'Reunion'}
                                 onChange={handleContactMethodChange}
                             />
-                            <label className="form-check-label" htmlFor="contactReunion" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="contactReunion">
                                 Reunion Virtual
                             </label>
                         </div>
@@ -188,14 +188,14 @@ const ContSoporteTec = () => {
                                 checked={contactMethod === 'Visita'}
                                 onChange={handleContactMethodChange}
                             />
-                            <label className="form-check-label" htmlFor="contactVisita" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="contactVisita">
                                 Visita Técnica
                             </label>
                         </div>
                     </div>
                     <div className="col-md-6 border-start ps-3">
                         <hr />
-                        <p className='fw-bold'>Seleccione una fecha y hora para su cita</p>
+                        <p className='fw-bold'>3. Seleccione una fecha y hora </p>
                         <input
                             type="date"
                             className="form-control"
@@ -214,27 +214,28 @@ const ContSoporteTec = () => {
                         />
                     </div>
                 </div>
-                <div className="mb-4">
-                    <div className="">
+                <div className="row mb-4">
+                    <div className="col-md-6 border-end pe-3">
                         <hr />
-                        <p className='fw-bold'>Describa el problema (Máximo 1000 caracteres)</p>
+                        <p className='fw-bold'>4. Describa el problema (Máximo 100 caracteres)</p>
                         <div className="form-floating">
                             <textarea
                                 className="form-control"
                                 placeholder="Descripción del problema"
                                 id="problemaDescripcion"
-                                maxLength="1000"
-                                style={{ height: '150px' }}
+                                maxLength="100"
+                                style={{ height: '90px' }}
                                 required
                             ></textarea>
                             <label htmlFor="problemaDescripcion">Descripción del problema</label>
                         </div>
                     </div>
-                </div>
-                <div className="text-center mt-4">
-                    <button type="submit" className="btn degradado" style={{ fontWeight: 'bold' }}>
-                        Enviar
-                    </button>
+                    <div className='col-md-6'>
+                        <hr />
+                        <button type="submit" className="btn degradado mt-5" style={{ fontWeight: 'bold' }}>
+                            Enviar
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
