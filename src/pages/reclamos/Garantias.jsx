@@ -109,12 +109,14 @@ export default function Garantias() {
                             <p>Su servicio de Procura de Suministro de Bomba Dosificadora no cuenta con garantía vigente. Para obtener más información o solicitar una oferta de repuestos o reposición del equipo, haga clic en el siguiente botón.</p>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-success">
-                                Solicitar Oferta
-                            </button>
-                            <button type="button" className="btn btn-warning" onClick={() => setShowWarning(false)}>
-                                Cerrar
-                            </button>
+                            <div className="d-flex justify-content-end w-100">
+                                <button type="button" className="btn btn-danger me-2" onClick={() => setShowWarning(false)}>
+                                    Cerrar
+                                </button>
+                                <button type="button" className="btn btn-success" >
+                                    Solicitar Oferta
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
