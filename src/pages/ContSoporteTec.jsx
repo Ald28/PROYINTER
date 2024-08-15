@@ -25,6 +25,21 @@ const ContSoporteTec = () => {
                     setContactMethod(''); // Si el usuario decide no continuar, reiniciamos la selección
                 }
             });
+        } else if (contactMethod === 'phone') {
+            Swal.fire({
+                title: '¿Desea realizar una llamada telefónica?',
+                text: 'Le proporcionaremos un número de teléfono para que pueda contactarnos.',
+                icon: 'info',
+                confirmButtonText: 'Llamar ahora',
+                cancelButtonText: 'Cancelar',
+                showCancelButton: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'tel:+51999999999'; // Cambia este número por el número de teléfono al que deseas redirigir
+                } else {
+                    setContactMethod(''); // Si el usuario decide no continuar, reiniciamos la selección
+                }
+            });
         }
     }, [contactMethod]);
 
@@ -84,7 +99,7 @@ const ContSoporteTec = () => {
                 onSubmit={handleSubmit}
             >
                 <h1 className="text-center p-3" style={{ fontWeight: 'bold' }}>
-                Contacto con un asesor
+                    Contacto con un asesor
                 </h1>
                 <div className="row mb-4 mt-5">
                     <div className="col-md-6 border-end pe-3">
@@ -135,7 +150,7 @@ const ContSoporteTec = () => {
                 <div className="row mb-4">
                     <div className="col-md-6 border-end pe-3">
                         <hr />
-                        <p className='fw-bold'>2. ¿Como desea contactarse con su asesor?</p>
+                        <p className='fw-bold'>2. ¿Cómo desea contactarse con su asesor?</p>
                         <div className="form-check">
                             <input
                                 className="form-check-input"
@@ -161,7 +176,7 @@ const ContSoporteTec = () => {
                                 onChange={handleContactMethodChange}
                             />
                             <label className="form-check-label" htmlFor="contactPhone">
-                                Llamada Telefonica
+                                Llamada Telefónica
                             </label>
                         </div>
                         <div className="form-check">
@@ -175,7 +190,7 @@ const ContSoporteTec = () => {
                                 onChange={handleContactMethodChange}
                             />
                             <label className="form-check-label" htmlFor="contactReunion">
-                                Reunion Virtual
+                                Reunión Virtual
                             </label>
                         </div>
                         <div className="form-check">
@@ -195,7 +210,7 @@ const ContSoporteTec = () => {
                     </div>
                     <div className="col-md-6 border-start ps-3">
                         <hr />
-                        <p className='fw-bold'>3. Seleccione una fecha y hora </p>
+                        <p className='fw-bold'>3. Seleccione una fecha y hora</p>
                         <input
                             type="date"
                             className="form-control"
