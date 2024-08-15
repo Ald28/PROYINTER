@@ -120,7 +120,7 @@ const FormSoporteTec = () => {
             
             <form
                 className="mx-auto mt-5"
-                style={{ maxWidth: '1000px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
+                style={{ maxWidth: '1000px', border: '3px solid #009FE3', borderRadius: '15px', padding: '20px' }}
                 onSubmit={handleSubmit}
             >
                 <h1 className="text-center mt-3" style={{ fontWeight: 'bold' }}>
