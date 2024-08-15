@@ -3,14 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import '../assets/styles/ClientePage.css';
 import { FaCalendarCheck, FaUserCog, FaBook, FaChartLine  } from 'react-icons/fa';
 
-
 const ClienteWelcome = () => {
     const navigate = useNavigate();
-
     const handleLinkClick = (path) => {
         navigate(path);
     };
-
     return (
       <div className="cliente-welcome text-start ">
       <h2>Bienvenido, {localStorage.getItem('cliente').split('@')[0]}</h2><br />
@@ -29,13 +26,12 @@ const ClienteWelcome = () => {
           <FaUserCog className='icon-size' size={40} />
               Soporte <br /> Técnico
           </button>
-          <button className="grid-button fw-bold degradado espacio" onClick={() => handleLinkClick('/cliente/reclamos')}>
+          <button className="grid-button fw-bold degradado espacio" onClick={() => handleLinkClick('/cliente/garantias-reclamos')}>
           <FaBook className='icon-size' size={33} />
-              Reclamos
+              Garantias y Reclamos
           </button>
       </div>
   </div>
     );
 };
-
 export default ClienteWelcome;

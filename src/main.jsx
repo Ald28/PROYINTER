@@ -34,7 +34,9 @@ import Planos_Preparacion_Sulfatos from './pages/services/info-tecnica/equipos/t
 import Soporte_tecnico from './pages/SoporteTecnico';
 import FormSoporteTec from './pages/FormSoporteTec';
 import ContSoporteTec from './pages/ContSoporteTec';
-
+import Garantias_Reclamos from './pages/reclamos/Garantias_Reclamos';
+import Garantias from './pages/reclamos/Garantias';
+import Reclamos from './pages/reclamos/Reclamos';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
@@ -48,6 +50,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </ProtectedRoute>
           }
         >
+          <Route path="garantias-reclamos" element={<Garantias_Reclamos />} />
+          <Route path="garantias-reclamos/garantias" element={<Garantias />} />
+          <Route path="garantias-reclamos/reclamos" element={<Reclamos />} />
           <Route index element={<ClienteWelcome />} />
           <Route path="ver-base-instalada" element={<InstalledBase />} />
           <Route path="servicio" element={<Servicio />} />
@@ -64,7 +69,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="soporte-tecnico" element={<Soporte_tecnico/>}/>
           <Route path="soporte-tecnico/Formulario" element={<FormSoporteTec/>} />
           <Route path="soporte-tecnico/contacto" element={<ContSoporteTec/>} />
-
           {/* Rutas para los componentes específicos de cada equipo */}
           <Route path="informacion-tecnica-equipos/equipos/1" element={<Cianuro />} />
           <Route path="informacion-tecnica-equipos/equipos/2" element={<Sulfatos />} />
@@ -83,4 +87,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Router>
   </React.StrictMode>
 );
- 
