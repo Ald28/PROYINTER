@@ -21,7 +21,7 @@ const InformacionTecnicaEquipos = () => {
                     <li className="breadcrumb-item active " aria-current="page">Información Técnica de Equipos</li>
                 </ol>
             </nav>
-            <h2>Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos</h2>
+            <h3>Información Técnica de Tanques de Fibra de Vidrio para Cianuro y Sulfatos</h3>
             <div className="info-section">
                 <div className="info-item">
                     <Link to="/cliente/informacion-tecnica-equipos/equipos" className="btn degradado">
@@ -32,7 +32,7 @@ const InformacionTecnicaEquipos = () => {
                 <div className="info-item">
                     <Link to="/cliente/informacion-tecnica-equipos/dossier-de-calidad" className="btn degradado">
                         <FontAwesomeIcon icon={faFileLines} />
-                        Dossier
+                        Dossier de Calidad 
                     </Link>
                 </div>
                 <div className="info-item">

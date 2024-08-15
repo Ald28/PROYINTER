@@ -7,7 +7,7 @@ import { Modal } from 'react-bootstrap';
 
 const CertificadoGarantia = () => {
     const certificadoList = [
-        { id: 1, name: 'Certificado de garantia - Tanques de fibra de vidrio Bateas 2024.pdf', fecha: '11 jul. 2024', link: '/files/Certificado de garantia - Tanques de fibra de vidrio Bateas 2024.pdf' },
+        { id: 1, name: 'Certificado de garantia - Tanques de fibra de vidrio Bateas 2024.pdf', fecha: '07 may. 2024', link: '/files/Certificado de garantia - Tanques de fibra de vidrio Bateas 2024.pdf' },
     ];
 
     const [showModal, setShowModal] = useState(false);
@@ -37,6 +37,28 @@ const CertificadoGarantia = () => {
         setPdfLink(''); // Limpia el enlace PDF cuando se cierra el modal
     };
 
+    const formatDate = (fechaTexto) => {
+        const months = {
+            'ene.': '01',
+            'feb.': '02',
+            'mar.': '03',
+            'abr.': '04',
+            'may.': '05',
+            'jun.': '06',
+            'jul.': '07',
+            'ago.': '08',
+            'sep.': '09',
+            'oct.': '10',
+            'nov.': '11',
+            'dic.': '12'
+        };
+
+        const [day, monthText, year] = fechaTexto.split(' ');
+        const month = months[monthText.toLowerCase()];
+
+        return `${day.padStart(2, '0')}/${month}/${year}`;
+    };
+
     return (
         <div className="installed-base">
             <nav aria-label="breadcrumb">
@@ -61,7 +83,7 @@ const CertificadoGarantia = () => {
                 <thead>
                     <tr>
                         <th>Código del Certificado</th>
-                        <th>Fecha</th>
+                        <th style={{ textAlign: 'center' }}>Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -71,17 +93,16 @@ const CertificadoGarantia = () => {
                             <td>
                                 <div className="info-section">
                                     <div className="info-item">
-                                        {/* Mostrar el nombre del certificado como texto plano */}
                                         {certificado.name}
                                     </div>
                                 </div>
                             </td>
-                            <td>{certificado.fecha}</td>
+                            <td style={{ textAlign: 'center' }}>{formatDate(certificado.fecha)}</td>
                             <td>
                                 <Link className="custom-button fw-normal" onClick={() => handleShowModal(certificado.link)}>
                                     <i className="fas fa-eye"></i> Visualizar                                  
                                 </Link>
-                                <a className="custom-button mx-3 fw-normal" href={certificado.link} download target="_blank" rel="noopener noreferrer ">
+                                <a className="custom-button mx-3 fw-normal" href={certificado.link} download target="_blank" rel="noopener noreferrer">
                                     <i className="fas fa-download"></i> Descargar                                
                                 </a>
                             </td>
@@ -90,7 +111,6 @@ const CertificadoGarantia = () => {
                 </tbody>
             </table>
 
-            {/* Modal para la vista previa del PDF */}
             <Modal show={showModal} onHide={handleCloseModal} size="lg" backdrop={false}>
                 <Modal.Header closeButton>
                     <Modal.Title>Vista previa del documento</Modal.Title>

@@ -24,6 +24,14 @@ const InstalledBase = () => {
         setFilter(event.target.value);
     };
 
+    const handleBackClick = () => {
+        navigate(-1);  // Navega hacia atrás en la historia
+    };
+
+    const handleNextClick = () => {
+        navigate(1);  // Navega hacia adelante en la historia
+    };
+
     const adquiridoList = [
         { id: 1, tipo_servicio: 'Servicio de Procura', descripcion: 'Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos' },
     ];
@@ -56,6 +64,16 @@ const InstalledBase = () => {
                 </ol>
             </nav>
 
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span>Atrás</span>
+                </button>
+                <button className="circle-button-next" onClick={() => handleLinkClick('/cliente/servicio')} >
+                    <i className="fa fa-arrow-right"></i>
+                    <span>Siguiente</span>
+                </button>
+            </div>
             <div className="d-flex justify-content-between align-items-center mb-3 vertical">
                 <select value={filter} onChange={handleFilterChange} className="form-select seleccion breadcrumb-item  active fw-bold">
                     <option>Todos los servicios</option>
@@ -64,7 +82,7 @@ const InstalledBase = () => {
                     <option>Servicio de Instalación</option>
                 </select>
 
-                <div className="search-container ">
+                <div className="search-container">
                     <input
                         type="text"
                         className="form-control search-input"
@@ -72,7 +90,7 @@ const InstalledBase = () => {
                         value={searchTerm}
                         onChange={handleSearchChange}
                     />
-                    <button className="btn btn-info  search-button">
+                    <button className="btn btn-info search-button">
                         <i className="fa fa-search"></i>
                     </button>
                 </div>
@@ -111,4 +129,3 @@ const InstalledBase = () => {
 };
 
 export default InstalledBase;
-

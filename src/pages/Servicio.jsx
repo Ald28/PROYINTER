@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faFileInvoice, faInfoCircle, faCog, faBox,faFileCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { faFileInvoice, faInfoCircle, faCog, faBox, faFileCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import '../assets/styles/Servicio.css';
 
 const Servicio = () => {
@@ -12,13 +12,13 @@ const Servicio = () => {
                     <li className="breadcrumb-item">
                         <Link className="btn btn-black fw-bold p-0" to="/cliente">Cliente</Link>
                     </li>
-                    <li className="breadcrumb-item ">
-                        <Link className="btn btn-black fw-bold p-0 " to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/ver-base-instalada">Servicios Adquiridos</Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">Procura Tanque Fibra</li>
                 </ol>
             </nav>
-            <p>Servicio de Procura de tanques de fibra de vidrio para cianuro y sulfatos</p>
+            <h3>Servicio de Procura de tanques de fibra de vidrio para cianuro y sulfatos</h3>
             <div className="info-section">
                 <div className="info-item">
                     <Link className="btn degradado fw-bold" to='/cliente/ordenDeCompra'>

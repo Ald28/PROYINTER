@@ -37,6 +37,29 @@ const DossierdeCalidad = () => {
         setPdfLink('');
     };
 
+    const formatDate = (fechaTexto) => {
+        const months = {
+            'ene.': '01',
+            'feb.': '02',
+            'mar.': '03',
+            'abr.': '04',
+            'may.': '05',
+            'jun.': '06',
+            'jul.': '07',
+            'ago.': '08',
+            'sep.': '09',
+            'oct.': '10',
+            'nov.': '11',
+            'dic.': '12'
+        };
+
+        const [day, monthText, year] = fechaTexto.split(' ');
+        const month = months[monthText.toLowerCase()];
+        const shortYear = year.slice(-2);
+
+        return `${day}/${month}/${shortYear}`;
+    };
+
     return (
         <div className="installed-base">
             <nav aria-label="breadcrumb">
@@ -70,12 +93,11 @@ const DossierdeCalidad = () => {
                                 <td>
                                     <div className="info-section">
                                         <div className="info-item">
-                                            {/* Mostrar el nombre del dossier como texto plano */}
                                             {dossier.name}
                                         </div>
                                     </div>
                                 </td>
-                                <td>{dossier.fecha}</td>
+                                <td style={{ textAlign: 'center' }}>{formatDate(dossier.fecha)}</td>
                                 <td>
                                     <Link className="custom-button fw-normal" onClick={() => handleShowModal(dossier.link)}>
                                         <i className="fas fa-eye"></i> Visualizar
