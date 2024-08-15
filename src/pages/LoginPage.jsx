@@ -63,7 +63,7 @@ const LoginPage = () => {
                         <button type="submit">Iniciar Sesión</button>
                     </form>
                     <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                    <p>¿No tienes una cuenta? <a href="#">Regístrate</a></p>
+                    <p>¿No tienes una cuenta? <a href="/registro">Regístrate</a></p>
                 </div>
                 <div className="login-image">
                     <img src={derecha} alt="Login" />

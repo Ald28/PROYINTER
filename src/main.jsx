@@ -37,11 +37,13 @@ import ContSoporteTec from './pages/ContSoporteTec';
 import Garantias_Reclamos from './pages/reclamos/Garantias_Reclamos';
 import Garantias from './pages/reclamos/Garantias';
 import Reclamos from './pages/reclamos/Reclamos';
+import Registro from './pages/Registro';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/registro" element={<Registro/>}/>
         <Route 
           path="/cliente" 
           element={

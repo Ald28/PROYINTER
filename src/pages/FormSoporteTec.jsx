@@ -106,17 +106,18 @@ const FormSoporteTec = () => {
                     <li className="breadcrumb-item active" aria-current="page">Formulario</li>
                 </ol>
             </nav>
-            <h1 className="text-center mt-3" style={{ fontWeight: 'bold' }}>
-                Formulario de Soporte Técnico
-            </h1>
+            
 
             <form
                 className="mx-auto mt-5"
                 style={{ maxWidth: '800px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
                 onSubmit={handleSubmit}
             >
-                <div className="row align-items-center mb-4">
-                    <div className="col-md-6">
+                <h2 className="text-center p-3" style={{ fontWeight: 'bold' }}>
+                Formulario de Soporte Técnico
+                </h2>
+                <div className="row align-items-center mt-4">
+                    <div className="col-md-6 mt-4">
                         <p className='fw-bold mt-2'>¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
                         <div className="form-check form-check-inline">
                             <input

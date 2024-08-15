@@ -77,16 +77,16 @@ const ContSoporteTec = () => {
                     <li className="breadcrumb-item active" aria-current="page">Formulario</li>
                 </ol>
             </nav>
-            <h1 className="text-center mt-3" style={{ fontWeight: 'bold' }}>
-                Contacto con un asesor
-            </h1>
 
             <form
                 className="mx-auto mt-5"
                 style={{ maxWidth: '800px', border: '3px solid blue', borderRadius: '15px', padding: '20px' }}
                 onSubmit={handleSubmit}
             >
-                <div className="row mb-4">
+                <h1 className="text-center p-3" style={{ fontWeight: 'bold' }}>
+                Contacto con un asesor
+                </h1>
+                <div className="row mb-4 mt-5">
                     <div className="col-md-6 border-end pe-3">
                         
                         <p className='fw-bold'>¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
