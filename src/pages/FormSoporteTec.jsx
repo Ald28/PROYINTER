@@ -12,6 +12,7 @@ const FileInputButton = ({ onClick, disabled }) => (
         className="btn btn-primary btn-sm file-input-button"
         onClick={onClick}
         disabled={disabled}
+        style={{marginLeft:'45px'}}
     >
         <FaPlus style={{ fontSize: '14px' }} />
     </button>
@@ -33,7 +34,7 @@ const FileList = ({ files, onRemoveFile }) => (
                     className="btn btn-link btn-sm"
                     onClick={() => onRemoveFile(index)}
                 >
-                    <FaTrash style={{ fontSize: '12px' }} />
+                    <FaTrash style={{ fontSize: '12px', color:'red'}} />
                 </button>
             </div>
         ))}
@@ -112,9 +113,9 @@ const FormSoporteTec = () => {
                 </h1>
                 
                 <div className="row align-items-center mt-2">
-                    <div className="col-md-6 border-end pe-2 d-flex align-items-center">
+                    <div className="col-md-6 d-flex align-items-center">
                         <p className='form-label mb-1 me-2'>
-                            1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?
+                            1. Desea recibir soporte técnico sobre algún Servicio Adquirido?
                         </p>
                         <div className="form-check form-check-inline">
                             <input
@@ -210,7 +211,7 @@ const FormSoporteTec = () => {
 
                 <hr/>
                 <div className="row mb-2">
-                    <div className="col-md-10 border-end pe-2">
+                    <div className="col-md-10">
                         <p className='form-label'>
                             4. Pegue un vínculo de video, nube de archivos u otro contenido si desea detallar el problema
                         </p>
