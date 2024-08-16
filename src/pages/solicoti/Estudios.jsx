@@ -1,0 +1,75 @@
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import $ from 'jquery';
+import '../solicoti/TiposCoti.css';
+import 'datatables.net-dt/css/dataTables.dataTables.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+const Estudios = () => {
+    const estudioList = [
+        { id: 1, name: 'Estudio', type: 'Estudio de Prefactibilidad' },
+        { id: 2, name: 'Estudio', type: 'Estudio de Factibilidad' },
+    ];
+
+    useEffect(() => {
+        const table = $('#equiposTable').DataTable({
+            paging: false,
+            searching: false,
+            info: false
+        });
+    
+        return () => {
+            if ($.fn.dataTable.isDataTable('#equiposTable')) {
+                table.destroy();
+            }
+        };
+    }, []);    
+
+    return (
+        <div className="servicio">
+            <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente">Cliente</Link>
+                    </li>
+                    <li className="breadcrumb-item">
+                        <Link className="btn btn-black fw-bold p-0" to="/cliente/solicitar-cotizacion">Solicitar Cotización</Link>
+                    </li>
+                    <li className="breadcrumb-item active" aria-current="page">Estudios</li>
+                </ol>
+            </nav>
+            <h3>Estudios</h3>
+            <table id="equiposTable" className="display">
+                <thead>
+                    <tr>
+                        <th className='text-center'>N°</th>
+                        <th className='text-center'>Tipo de Servicio</th>
+                        <th className='text-center'>Descripción del Servicio</th>
+                        <th className='text-center'>Acciones </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {estudioList.map(estudio => (
+                        <tr key={estudio.id}>
+                            <td className='text-center'>{estudio.id}</td>
+                            <td>
+                            {estudio.name}
+                            </td>
+                            <td>
+                            {estudio.type}
+                            </td>
+                            <td>
+                                <Link className="custom-button fw-normal" to={``}>
+                                    <i className="fas fa-file-lines"></i>
+                                    Solicitar Oferta                                
+                                </Link>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+}
+
+export default Estudios;

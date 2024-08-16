@@ -39,6 +39,12 @@ import Garantias from './pages/reclamos/Garantias';
 import Reclamos from './pages/reclamos/Reclamos';
 import Registro from './pages/Registro';
 import SolicitarCotizacion from './pages/solicoti/SolicitarCotizacion';
+import Asesoria from './pages/solicoti/Asesoria';
+import Estudios from './pages/solicoti/Estudios';
+import Ingenierias from './pages/solicoti/Ingenierias';
+import PersonalCampo from './pages/solicoti/PersonalCampo';
+import Procura from './pages/solicoti/Procura';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
@@ -85,7 +91,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="informacion-tecnica-equipos/equipos/2/planos" element={<Planos_Almacenamiento_Sulfatos/>} />
           <Route path="informacion-tecnica-equipos/equipos/3/planos" element={<Planos_Preparacion_Cianuro />} />
           <Route path="informacion-tecnica-equipos/equipos/4/planos" element={<Planos_Preparacion_Sulfatos />} />
+
           <Route path="solicitar-cotizacion" element={<SolicitarCotizacion />} />
+          <Route path="solicitar-cotizacion/asesoria" element={<Asesoria />} />
+          <Route path="solicitar-cotizacion/estudios" element={<Estudios />} />
+          <Route path="solicitar-cotizacion/ingenierias" element={<Ingenierias />} />
+          <Route path="solicitar-cotizacion/personal-campo" element={<PersonalCampo />} />
+          <Route path="solicitar-cotizacion/procura" element={<Procura />} />
+
+
         </Route>
       </Routes>
     </Router>
