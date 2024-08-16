@@ -18,9 +18,31 @@ const Equipos = () => {
     useEffect(() => {
         const table = $('#equiposTable').DataTable({
             paging: false,
-            searching: false,
-            info: false
+            searching: true,
+            info: false,
+            language: {
+                searchPlaceholder: "Buscar...",
+                zeroRecords: "No hay resultados",
+                search: `
+                    <div style="
+                        margin-right: 15px;
+                        background-color: #009FE3;
+                        border-radius: 4px;
+                        padding: 10px;
+                        display: flex;
+                        align-items: center;
+                        color: white;
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                    ">
+                        <i class="fas fa-search"></i>
+                    </div>
+                `, // Corrección aquí
+            },
         });
+        
+        
+        
+        
     
         return () => {
             if ($.fn.dataTable.isDataTable('#equiposTable')) {
