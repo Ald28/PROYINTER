@@ -38,6 +38,7 @@ import Garantias_Reclamos from './pages/reclamos/Garantias_Reclamos';
 import Garantias from './pages/reclamos/Garantias';
 import Reclamos from './pages/reclamos/Reclamos';
 import Registro from './pages/Registro';
+import SolicitarCotizacion from './pages/solicoti/SolicitarCotizacion';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
@@ -84,6 +85,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="informacion-tecnica-equipos/equipos/2/planos" element={<Planos_Almacenamiento_Sulfatos/>} />
           <Route path="informacion-tecnica-equipos/equipos/3/planos" element={<Planos_Preparacion_Cianuro />} />
           <Route path="informacion-tecnica-equipos/equipos/4/planos" element={<Planos_Preparacion_Sulfatos />} />
+          <Route path="solicitar-cotizacion" element={<SolicitarCotizacion />} />
         </Route>
       </Routes>
     </Router>

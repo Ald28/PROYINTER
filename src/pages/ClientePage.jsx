@@ -79,7 +79,8 @@ const ClientePage = () => {
                     </button>
                     <h2 className="sidebar-title ">Cliente</h2>
                     <button 
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'cotizacion' && 'boton-activo'}`} style={{color:'#004B70' }}
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'cotizacion' && 'boton-activo'}`} 
+                        style={{color:'#004B70' }}
                         onClick={() => handleLinkClick('/cliente/solicitar-cotizacion', 'cotizacion')}>
                         <FaChartLine size={20} /> Solicitar Cotización
                     </button>
