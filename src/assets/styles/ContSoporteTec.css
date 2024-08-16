@@ -1,0 +1,93 @@
+/* Estilos generales del formulario */
+.cont-soporte-tec {
+    max-width: 1000px; /* Mantiene el ancho máximo */
+    border: 2px solid #009FE3; /* Color de borde */
+    border-radius: 8px; /* Radio del borde */
+    padding: 20px; /* Padding más amplio para mejorar la separación */
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f9; /* Fondo suave para el formulario */
+    margin: 0 auto; /* Centrar el formulario horizontalmente */
+}
+
+/* Estilo del encabezado */
+.cont-soporte-tec h1 {
+    font-weight: bold;
+    font-size: 1.25rem; /* Tamaño de fuente más grande para el encabezado */
+    margin-bottom: 1rem; /* Espacio debajo del encabezado */
+}
+
+/* Estilo de las etiquetas */
+.cont-soporte-tec .form-label,
+.cont-soporte-tec .fw-bold {
+    font-weight: bold;
+    font-size: 0.875rem; /* Tamaño de fuente ligeramente mayor */
+}
+
+/* Estilo de los controles de formulario */
+.cont-soporte-tec .form-control {
+    font-size: 0.875rem; /* Tamaño de fuente para los controles */
+}
+
+/* Ajustes para los inputs de fecha y hora */
+.date-time-input {
+    margin-top: 0.5rem;
+}
+
+/* Estilo del botón de enviar */
+.btn-enviar {
+    font-weight: bold;
+    font-size: 0.875rem; /* Tamaño de fuente para el botón */
+    padding: 10px 20px; /* Padding para un botón más grande y fácil de clicar */
+}
+
+/* Ajuste del botón de enviar a la derecha */
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem; /* Espacio superior para el botón */
+}
+
+/* Ajustes para márgenes y espacios */
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mt-5 {
+    margin-top: 1.5rem; /* Ajustado para distribución vertical */
+}
+
+hr {
+    margin: 1rem 0; /* Espacio vertical más amplio alrededor de las líneas */
+}
+
+/* Ajustes para las columnas */
+.col-md-6 {
+    padding: 0.5rem; /* Padding uniforme para las columnas */
+}
+
+/* Estilo de las opciones de radio y sus etiquetas */
+.cont-soporte-tec .form-check-label {
+    font-size: 0.875rem; /* Tamaño de fuente para las etiquetas de radio */
+    font-weight: normal; /* Peso de fuente normal para etiquetas */
+}
+
+/* Opcional: Estilo para los inputs de radio */
+.cont-soporte-tec .form-check-input {
+    margin-right: 0.5rem; /* Espacio entre el input y la etiqueta */
+}
+
+/* Opcional: Ajuste de margen entre opciones */
+.cont-soporte-tec .form-check {
+    margin-bottom: 0.5rem; /* Espacio entre opciones de radio */
+}
+
+/* Ajuste de la visibilidad en dispositivos móviles */
+@media (max-width: 768px) {
+    .cont-soporte-tec {
+        padding: 15px; /* Reduce el padding en pantallas más pequeñas */
+    }
+    .btn-enviar {
+        font-size: 0.75rem; /* Reduce el tamaño del botón en pantallas pequeñas */
+        padding: 8px 16px; /* Reduce el padding del botón en pantallas pequeñas */
+    }
+}

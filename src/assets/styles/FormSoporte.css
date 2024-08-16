@@ -1,20 +1,68 @@
-.file-list-container {
+/* Estilos generales del formulario */
+.form-soporte {
+    max-width: 1000px;
+    border: 2px solid #009FE3;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-soporte h1 {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.form-soporte .form-label {
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.form-soporte .form-control-sm {
+    font-size: 0.75rem;
+}
+
+.form-soporte .btn {
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+/* Estilo del botón de archivo */
+.file-input-button {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Estilo de la lista de archivos */
+.file-list-container {
+    margin-top: 10px;
 }
 
 .file-item {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-top: 5px;
 }
 
-.file-item input {
-    max-width: 200px;
-    margin-right: 8px;
+.file-item .btn-link {
+    margin-left: 5px;
 }
 
-.file-item button {
-    color: red;
+/* Estilos para el botón de enviar */
+.btn-enviar {
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+/* Ajuste del botón de enviar a la derecha */
+.btn-container {
+    display: flex;
+    align-items: end;
+    justify-content: end;
 }

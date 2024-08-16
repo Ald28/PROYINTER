@@ -9,22 +9,11 @@ import '../assets/styles/FormSoporte.css';
 const FileInputButton = ({ onClick, disabled }) => (
     <button
         type="button"
-        className="btn btn-primary btn-sm"
+        className="btn btn-primary btn-sm file-input-button"
         onClick={onClick}
         disabled={disabled}
-        style={{
-            fontFamily: 'Inter, sans-serif',
-            fontWeight: 'bold',
-            borderRadius: '50%',
-            width: '40px', // Ajusta el tamaño del botón
-            height: '40px',
-            display: 'flex',
-            alignItems: 'center',
-            marginLeft: '100px',
-            justifyContent: 'center',
-        }}
     >
-        <FaPlus style={{ fontSize: '25px' }} /> {/* Tamaño del ícono */}
+        <FaPlus style={{ fontSize: '14px' }} />
     </button>
 );
 
@@ -32,21 +21,19 @@ const FileInputButton = ({ onClick, disabled }) => (
 const FileList = ({ files, onRemoveFile }) => (
     <div className="file-list-container">
         {files.map((file, index) => (
-            <div key={index} className="file-item mt-2">
+            <div key={index} className="file-item d-flex align-items-center mt-1">
                 <input
                     type="text"
-                    className="form-control form-control"
+                    className="form-control form-control-sm"
                     value={file.name}
                     readOnly
-                    style={{ fontFamily: 'Inter, sans-serif', width: '1200px' }}
                 />
                 <button
                     type="button"
-                    className="btn btn-link"
-                    style={{marginRight:'28px'}}
+                    className="btn btn-link btn-sm"
                     onClick={() => onRemoveFile(index)}
                 >
-                    <FaTrash />
+                    <FaTrash style={{ fontSize: '12px' }} />
                 </button>
             </div>
         ))}
@@ -79,7 +66,6 @@ const FormSoporteTec = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Validación
         const problemaDescripcion = document.getElementById('problemaDescripcion').value;
         const vinculoContenido = document.querySelector('input[placeholder="Vínculo del contenido"]').value;
 
@@ -92,7 +78,6 @@ const FormSoporteTec = () => {
             return;
         }
 
-        // Aquí podrías agregar la lógica para enviar el formulario
         Swal.fire({
             icon: 'success',
             title: 'Éxito',
@@ -101,16 +86,16 @@ const FormSoporteTec = () => {
     };
 
     return (
-        <div className="container" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <div className="container">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black" to="/cliente">
+                        <Link className="btn btn-black btn-sm" to="/cliente">
                             Cliente
                         </Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black" to="/cliente/soporte-tecnico">
+                        <Link className="btn btn-black btn-sm" to="/cliente/soporte-tecnico">
                             Servicio Técnico
                         </Link>
                     </li>
@@ -119,16 +104,18 @@ const FormSoporteTec = () => {
             </nav>
             
             <form
-                className="mx-auto mt-5"
-                style={{ maxWidth: '1000px', border: '3px solid #009FE3', borderRadius: '15px', padding: '20px' }}
+                className="form-soporte mx-auto mt-2"
                 onSubmit={handleSubmit}
             >
-                <h1 className="text-center mt-3" style={{ fontWeight: 'bold' }}>
+                <h1 className="text-center mt-1">
                     Formulario de Soporte Técnico
                 </h1>
-                <div className="row align-items-center mt-4">
-                    <div className="col-md-6 mt-4 border-end pe-3">
-                        <p className='fw-bold mt-2'>1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
+                
+                <div className="row align-items-center mt-2">
+                    <div className="col-md-6 border-end pe-2 d-flex align-items-center">
+                        <p className='form-label mb-1 me-2'>
+                            1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?
+                        </p>
                         <div className="form-check form-check-inline">
                             <input
                                 className="form-check-input"
@@ -137,11 +124,11 @@ const FormSoporteTec = () => {
                                 id="soporteSi"
                                 onChange={handleSoporteChange}
                             />
-                            <label className="form-check-label" htmlFor="soporteSi" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="soporteSi">
                                 Sí
                             </label>
                         </div>
-                        <div className="form-check form-check-inline">
+                        <div className="form-check form-check-inline ms-2">
                             <input
                                 className="form-check-input"
                                 type="radio"
@@ -150,16 +137,19 @@ const FormSoporteTec = () => {
                                 defaultChecked
                                 onChange={handleSoporteChange}
                             />
-                            <label className="form-check-label" htmlFor="soporteNo" style={{ fontWeight: 'bold' }}>
+                            <label className="form-check-label" htmlFor="soporteNo">
                                 No
                             </label>
                         </div>
                     </div>
+
                     {showSelect && (
                         <div className="col-md-6">
-                            <div className="mb-3 mt-4">
-                                <p className='fw-bold'>1.1 Selecciona una opción adicional:</p>
-                                <select className="form-select" aria-label="Opciones adicionales">
+                            <div className="d-flex align-items-center mb-2 mt-2">
+                                <p className='form-label mb-0 me-2'>
+                                    Selecciona una opción adicional:
+                                </p>
+                                <select className="form-select form-select-sm" aria-label="Opciones adicionales">
                                     <option value="">Seleccione...</option>
                                     <option value="opcion1">Opción 1</option>
                                     <option value="opcion2">Opción 2</option>
@@ -169,71 +159,75 @@ const FormSoporteTec = () => {
                         </div>
                     )}
                 </div>
-                <hr/>
+
+                <hr />
 
                 <div className="col">
-                    <div className="row p-2">
-                        <p className='fw-bold'>2. Describa el problema (Máximo 1000 caracteres)</p>
+                    <div className="row p-1">
+                        <p className='form-label'>
+                            2. Describa el problema (Máximo 1000 caracteres)
+                        </p>
                         <div className="form-floating">
                             <textarea
-                                className="form-control"
-                                placeholder="Descripción del problema"
+                                className="form-control form-control-sm"
                                 id="problemaDescripcion"
                                 maxLength="1000"
-                                style={{ height: '100px' }}
+                                style={{ height: '50px' }}
                                 required
                             ></textarea>
-                            <label htmlFor="problemaDescripcion">Descripción del problema</label>
                         </div>
                     </div>
                 </div>
                 <hr/>
-                <div className="row p-3">
-                    <div className="col-md-12">
-                        <div className="d-flex align-items-center">
-                            <p className='fw-bold mb-0'>
+                <div className="row p-1 justify-content-center">
+                    <div className="col-md-12 d-flex flex-column align-items-center">
+                        <div className="d-flex align-items-center mb-2">
+                            <p className='form-label mb-0'>
                                 3. Adjunte el archivo si desea ampliar el problema (Máximo 3 archivos de 10MB cada uno)
                             </p>
                             <FileInputButton
                                 onClick={handleAddFileInput}
                                 disabled={files.length >= 3}
-                                className=""
                             />
                         </div>
 
-                        <div className="input-group mt-3">
+                        <div className="input-group mt-1">
                             <input
                                 type="file"
                                 id="fileInput"
-                                className="form-control"
+                                className="form-control form-control-sm"
                                 multiple
                                 onChange={handleFileChange}
                                 style={{ display: 'none' }}
                             />
                         </div>
-                    </div>
-                    <div className="ms-1">
-                        <FileList files={files} onRemoveFile={handleRemoveFile} />
+
+                        <div className="mt-1">
+                            <FileList files={files} onRemoveFile={handleRemoveFile} />
+                        </div>
                     </div>
                 </div>
 
                 <hr/>
-                <div className="row mb-4">
-                    <div className="col-md-6 border-end pe-3">
-                        <p className='fw-bold'>4. Pegue un vínculo de video, nube de archivos u otro contenido si desea detallar el problema</p>
+                <div className="row mb-2">
+                    <div className="col-md-10 border-end pe-2">
+                        <p className='form-label'>
+                            4. Pegue un vínculo de video, nube de archivos u otro contenido si desea detallar el problema
+                        </p>
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control form-control-sm"
                             placeholder="Vínculo del contenido"
                             required
                         />
                     </div>
-                    <div className="col-md-6 mt-4">
-                        <button type="submit" className="btn degradado" style={{ fontWeight: 'bold' }}>
+                    <div className="col-md-2 btn-container">
+                        <button type="submit" className="btn degradado">
                             Enviar
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
     );

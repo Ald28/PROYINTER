@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/styles/ContSoporteTec.css'; // Asegúrate de que la ruta sea correcta
 
 const ContSoporteTec = () => {
     const [contactMethod, setContactMethod] = useState('');
@@ -76,7 +77,7 @@ const ContSoporteTec = () => {
     };
 
     return (
-        <div className="container" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <div className="container">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
@@ -94,18 +95,16 @@ const ContSoporteTec = () => {
             </nav>
 
             <form
-                className="mx-auto mt-5"
-                style={{ maxWidth: '1000px', border: '3px solid #009FE3', borderRadius: '15px', padding: '20px' }}
+                className="cont-soporte-tec mx-auto"
                 onSubmit={handleSubmit}
             >
-                <h1 className="text-center p-3" style={{ fontWeight: 'bold' }}>
-                    Contacto con un asesor
-                </h1>
-                <div className="row mb-4 mt-5">
-                    <div className="col-md-6 border-end pe-3">
-                        
-                        <p className='fw-bold'>1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?</p>
-                        <div className="form-check form-check-inline mt-2">
+                <h1>Contacto con un asesor</h1>
+                <div className="row align-items-center mt-2">
+                    <div className="col-md-6 border-end pe-2 d-flex align-items-center">
+                        <p className='form-label mb-1 me-2'>
+                            1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?
+                        </p>
+                        <div className="form-check form-check-inline">
                             <input
                                 className="form-check-input"
                                 type="radio"
@@ -133,14 +132,16 @@ const ContSoporteTec = () => {
                     </div>
 
                     {showSelect && (
-                        <div className="col-md-6 border-start ps-3">
-                            
-                            <div className="mb-3">
-                                <p className='fw-bold'>1.1 Seleccione una opción para su soporte</p>
-                                <select className="form-control mt-5" aria-label="Select support option" style={{ width: '100%' }}>
-                                    <option value="option1">Opción 1</option>
-                                    <option value="option2">Opción 2</option>
-                                    <option value="option3">Opción 3</option>
+                        <div className="col-md-6">
+                            <div className="d-flex align-items-center mb-2 mt-2">
+                                <p className='form-label mb-0 me-2'>
+                                    Selecciona una opción adicional:
+                                </p>
+                                <select className="form-select form-select-sm" aria-label="Opciones adicionales">
+                                    <option value="">Seleccione...</option>
+                                    <option value="opcion1">Opción 1</option>
+                                    <option value="opcion2">Opción 2</option>
+                                    <option value="opcion3">Opción 3</option>
                                 </select>
                             </div>
                         </div>
@@ -150,7 +151,9 @@ const ContSoporteTec = () => {
                 <div className="row mb-4">
                     <div className="col-md-6 border-end pe-3">
                         <hr />
-                        <p className='fw-bold'>2. ¿Cómo desea contactarse con su asesor?</p>
+                        <p className='fw-bold'>
+                            2. ¿Cómo desea contactarse con su asesor?
+                        </p>
                         <div className="form-check">
                             <input
                                 className="form-check-input"
@@ -210,10 +213,12 @@ const ContSoporteTec = () => {
                     </div>
                     <div className="col-md-6 border-start ps-3">
                         <hr />
-                        <p className='fw-bold'>3. Seleccione una fecha y hora</p>
+                        <p className='fw-bold'>
+                            3. Seleccione una fecha y hora
+                        </p>
                         <input
                             type="date"
-                            className="form-control"
+                            className="form-control date-time-input"
                             id="appointmentDate"
                             value={appointmentDate}
                             onChange={handleDateChange}
@@ -221,7 +226,7 @@ const ContSoporteTec = () => {
                         />
                         <input
                             type="time"
-                            className="form-control mt-2"
+                            className="form-control mt-2 date-time-input"
                             id="appointmentTime"
                             value={appointmentTime}
                             onChange={handleTimeChange}
@@ -232,7 +237,9 @@ const ContSoporteTec = () => {
                 <div className="row mb-4">
                     <div className="col-md-6 border-end pe-3">
                         <hr />
-                        <p className='fw-bold'>4. Describa el problema (Máximo 100 caracteres)</p>
+                        <p className='fw-bold'>
+                            4. Describa el problema (Máximo 100 caracteres)
+                        </p>
                         <div className="form-floating">
                             <textarea
                                 className="form-control"
@@ -242,12 +249,11 @@ const ContSoporteTec = () => {
                                 style={{ height: '90px' }}
                                 required
                             ></textarea>
-                            <label htmlFor="problemaDescripcion">Descripción del problema</label>
+                            
                         </div>
                     </div>
-                    <div className='col-md-6'>
-                        <hr />
-                        <button type="submit" className="btn degradado mt-5" style={{ fontWeight: 'bold' }}>
+                    <div className='col-md-2 btn-container'>
+                        <button type="submit" className="btn degradado">
                             Enviar
                         </button>
                     </div>
