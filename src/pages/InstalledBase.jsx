@@ -67,11 +67,11 @@ const InstalledBase = () => {
             <div className="d-flex justify-content-between mb-3">
                 <button className="circle-button-back" onClick={handleBackClick}>
                     <i className="fa fa-arrow-left"></i>
-                    <span>Atrás</span>
+                    <span className='text-black'>Atrás</span>
                 </button>
                 <button className="circle-button-next" onClick={() => handleLinkClick('/cliente/servicio')} >
                     <i className="fa fa-arrow-right"></i>
-                    <span>Siguiente</span>
+                    <span className='text-black'>Siguiente</span>
                 </button>
             </div>
             <div className="d-flex justify-content-between align-items-center mb-3 vertical">

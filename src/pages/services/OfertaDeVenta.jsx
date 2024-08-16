@@ -3,7 +3,7 @@ import 'datatables.net-dt/css/dataTables.dataTables.css';
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const OfertaDeVenta = () => {
     const offers = [
@@ -17,6 +17,7 @@ const OfertaDeVenta = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [pdfLink, setPdfLink] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const table = $('#myTable').DataTable({
@@ -42,6 +43,10 @@ const OfertaDeVenta = () => {
         setPdfLink('');
     };
 
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
+    };
+
     return (
         <div className="installed-base">
             <nav aria-label="breadcrumb">
@@ -58,6 +63,14 @@ const OfertaDeVenta = () => {
                     <li className="breadcrumb-item active" aria-current="page">Oferta de Venta</li>
                 </ol>
             </nav>
+
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
+
             <h4>Oferta de Venta</h4>
             <table id="myTable" className="display">
                 <thead>
@@ -73,7 +86,6 @@ const OfertaDeVenta = () => {
                             <td>
                                 <div className="info-section">
                                     <div className="info-item">
-                                        {/* Mostrar el título como texto plano */}
                                         {offer.title}
                                     </div>
                                 </div>

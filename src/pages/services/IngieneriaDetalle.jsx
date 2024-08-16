@@ -4,7 +4,7 @@ import 'datatables.net-dt/css/dataTables.dataTables.css';
 import 'datatables.net-dt';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/styles/IngieneriaDetalle.css';
 
 const IngieneriaDetalle = () => {
@@ -27,6 +27,7 @@ const IngieneriaDetalle = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [pdfLink, setPdfLink] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const table = $('#orderTable').DataTable({
@@ -36,7 +37,6 @@ const IngieneriaDetalle = () => {
         });
 
         return () => {
-            // Destruye la instancia de DataTable cuando el componente se desmonte
             if ($.fn.dataTable.isDataTable('#orderTable')) {
                 table.destroy();
             }
@@ -53,9 +53,13 @@ const IngieneriaDetalle = () => {
         setPdfLink('');
     };
 
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
+    };
+
     return (
         <div className="installed-base">
-             <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
                         <Link className="btn btn-black fw-bold p-0" to="/cliente">Cliente</Link>
@@ -69,7 +73,15 @@ const IngieneriaDetalle = () => {
                     <li className="breadcrumb-item active" aria-current="page">Ingeniería de Detalle</li>
                 </ol>
             </nav>
-            <h4 className="text-center"><b>Planos y Documentos</b></h4>
+
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
+
+            <h4 className="text-center">Planos y Documentos</h4>
             <table id="orderTable" className="display">
                 <thead>
                     <tr className="header-row">
@@ -86,9 +98,9 @@ const IngieneriaDetalle = () => {
                             <td>{order.descripcion}</td>
                             <td>{order.fecha}</td>
                             <td>
-                                <Link className="custom-button color" onClick={() => handleShowModal(order.link)}>
+                                <button className="custom-button color" onClick={() => handleShowModal(order.link)}>
                                     <i className="fas fa-eye"></i> Visualizar
-                                </Link>
+                                </button>
                                 <a className="custom-button color mx-3" href={order.link} download target="_blank" rel="noopener noreferrer">
                                     <i className="fas fa-download"></i> Descargar
                                 </a>
