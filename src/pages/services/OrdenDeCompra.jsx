@@ -3,7 +3,7 @@ import 'datatables.net-dt/css/dataTables.dataTables.css';
 import $ from 'jquery';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const OrdenDeCompra = () => {
     const orders = [
@@ -23,6 +23,7 @@ const OrdenDeCompra = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [pdfLink, setPdfLink] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const table = $('#orderTable').DataTable({
@@ -49,6 +50,14 @@ const OrdenDeCompra = () => {
         setPdfLink(''); // Limpia el enlace PDF cuando se cierra el modal
     };
 
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
+    };
+
+    const handleLinkClick = (path) => {
+        navigate(path); // Navega hacia la ruta especificada
+    };
+
     return (
         <div className="installed-base">
             <nav aria-label="breadcrumb">
@@ -65,6 +74,13 @@ const OrdenDeCompra = () => {
                     <li className="breadcrumb-item active" aria-current="page">Orden de Compra</li>
                 </ol>
             </nav>
+
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
             <h4>Orden de Compra</h4>
             <table id="orderTable" className="display">
                 <thead>
@@ -80,18 +96,21 @@ const OrdenDeCompra = () => {
                             <td>
                                 <div className="info-section">
                                     <div className="info-item">
-                                        {/* Mostrar el título como texto plano */}
                                         {order.title}
                                     </div>
                                 </div>
                             </td>
                             <td>{order.fecha}</td>
-                            <td>
+                            <td className='d-flex justify-content-around' >
                                 <Link className="custom-button fw-normal" onClick={() => handleShowModal(order.link)}>
-                                    <i className="fas fa-eye"></i> Visualizar
+                                    <i className="fas fa-eye"></i> 
+                                    <div className='d-flex justify-content-center'>Visualizar
+                                    </div>
                                 </Link>
                                 <a className="custom-button mx-3 fw-normal" href={order.link} download target="_blank" rel="noopener noreferrer">
-                                    <i className="fas fa-download"></i> Descargar
+                                    <i className="fas fa-download"></i> 
+                                    <div className='d-flex justify-content-center'>Descargar
+                                    </div>
                                 </a>
                             </td>
                         </tr>

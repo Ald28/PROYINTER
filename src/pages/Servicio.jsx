@@ -1,10 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileInvoice, faInfoCircle, faCog, faBox, faFileCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import '../assets/styles/Servicio.css';
 
 const Servicio = () => {
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
+    };
+
+    const handleLinkClick = (path) => {
+        navigate(path); // Navega hacia la ruta especificada
+    };
+
     return (
         <div className="servicio">
             <nav aria-label="breadcrumb">
@@ -18,6 +28,13 @@ const Servicio = () => {
                     <li className="breadcrumb-item active" aria-current="page">Procura Tanque Fibra</li>
                 </ol>
             </nav>
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+                
+            </div>
             <h3>Servicio de Procura de tanques de fibra de vidrio para cianuro y sulfatos</h3>
             <div className="info-section">
                 <div className="info-item">
