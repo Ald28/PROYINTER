@@ -30,17 +30,18 @@ const ContSoporteTec = () => {
             });
         } else if (contactMethod === 'phone') {
             Swal.fire({
-                title: '¿Desea realizar una llamada telefónica?',
-                text: 'Le proporcionaremos un número de teléfono para que pueda contactarnos.',
+                title: 'Si desea llamar a su asesor marque al número +51 999 999 999',
+                text: 'Si desea agendar una llamada de su asesor haga clic en REGRESAR:',
                 icon: 'info',
                 confirmButtonText: 'Llamar ahora',
-                cancelButtonText: 'Cancelar',
+                cancelButtonText: 'Regresar',
                 showCancelButton: true,
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'tel:+51999999999'; // Cambia este número por el número de teléfono al que deseas redirigir
                 } else {
-                    setContactMethod(''); // Si el usuario decide no continuar, reiniciamos la selección
+                    // Si el usuario decide regresar, no reiniciamos contactMethod
+                    // Esto permite que el usuario complete el formulario
                 }
             });
         }
@@ -54,6 +55,12 @@ const ContSoporteTec = () => {
 
     const handleContactMethodChange = (e) => {
         setContactMethod(e.target.value);
+        // Si el método de contacto es "Llamada Telefónica", se muestra el formulario de selección de fecha y hora
+        if (e.target.value === 'phone') {
+            setShowSelect(true);
+        } else {
+            setShowSelect(false);
+        }
     };
 
     const handleDateChange = (e) => {
@@ -112,7 +119,7 @@ const ContSoporteTec = () => {
                 <div className="row align-items-center mt-2">
                     <div className="col-md-6 d-flex align-items-center">
                         <p className='form-label mb-1 me-2'>
-                            1. ¿Desea contactar a un asesor para recibir soporte técnico sobre algún Servicio Adquirido?
+                            1. ¿Desea contactar a un asesor para recibir soporte técnico sobre algún Servicio Adquirido?
                         </p>
                         <div className="form-check form-check-inline">
                             <input
@@ -235,7 +242,7 @@ const ContSoporteTec = () => {
                             id="appointmentDate"
                             value={appointmentDate}
                             onChange={handleDateChange}
-                            required
+                            required={contactMethod === 'phone'}
                         />
                         <input
                             type="time"
@@ -243,7 +250,7 @@ const ContSoporteTec = () => {
                             id="appointmentTime"
                             value={appointmentTime}
                             onChange={handleTimeChange}
-                            required
+                            required={contactMethod === 'phone'}
                         />
                     </div>
                 </div>
