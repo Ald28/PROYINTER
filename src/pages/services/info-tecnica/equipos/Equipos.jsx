@@ -25,16 +25,16 @@ const Equipos = () => {
                 zeroRecords: "No hay resultados",
                 search: `
                     <div style="
-                        margin-right: 15px;
+                        
                         background-color: #009FE3;
                         border-radius: 4px;
                         padding: 10px;
                         display: flex;
                         align-items: center;
                         color: white;
-                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                        
                     ">
-                        <i class="fas fa-search"></i>
+                        <i class="fas fa-search" style="justify-content: flex-end;"></i>
                     </div>
                 `, // Corrección aquí
             },
