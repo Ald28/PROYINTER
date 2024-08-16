@@ -1,0 +1,48 @@
+.skid-dosificacion-page {
+    padding: 20px;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    background-color: #009FE3;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.btn-acciones {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.icono-acciones {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.btn-acciones:hover {
+    text-decoration: underline;
+    color: #009FE3;
+}

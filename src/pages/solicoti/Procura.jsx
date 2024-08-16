@@ -4,6 +4,7 @@ import $ from 'jquery';
 import '../solicoti/TiposCoti.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 const Procura = () => {
     const procuraList = [
         { id: 1, name: 'Procura', type: 'Suministro y/o Fabricación' },
@@ -21,7 +22,7 @@ const Procura = () => {
                 table.destroy();
             }
         };
-    }, []);    
+    }, []);
 
     return (
         <div className="servicio">
@@ -50,16 +51,12 @@ const Procura = () => {
                     {procuraList.map(procu => (
                         <tr key={procu.id}>
                             <td className='text-center'>{procu.id}</td>
+                            <td>{procu.name}</td>
+                            <td>{procu.type}</td>
                             <td>
-                            {procu.name}
-                            </td>
-                            <td>
-                            {procu.type}
-                            </td>
-                            <td>
-                                <Link className="custom-button fw-normal" to={``}>
+                                <Link className="custom-button fw-normal" to="/cliente/solicitar-cotizacion/procura/oferta">
                                     <i className="fas fa-file-lines"></i>
-                                    Solicitar Oferta                                
+                                    Solicitar Oferta
                                 </Link>
                             </td>
                         </tr>

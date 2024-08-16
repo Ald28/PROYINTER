@@ -1,0 +1,59 @@
+.breadcrumb-item a {
+    color: #007bff;  /* Color por defecto para los enlaces */
+    text-decoration: none;  /* Sin subrayado */
+  }
+  
+  .breadcrumb-item a:hover {
+    text-decoration: none;  /* Sin subrayado en hover */
+  }
+  
+  .breadcrumb-item:last-child {
+    color: #007bff !important;  /* Cambia el color del último ítem del breadcrumb */
+    font-weight: bold;  /* Puedes hacer que sea más destacado si lo prefieres */
+  }
+  
+  .breadcrumb-item.active {
+    color: #007bff !important;  /* Asegúrate de que el último ítem siempre sea celeste */
+    text-decoration: none;
+  }
+  
+  .breadcrumb-item:last-child {
+    color: #009FE3;  /* Color azul */
+    pointer-events: none;
+    text-decoration: none;
+  }
+
+  .degradado {
+    border: solid 1px black;
+    background: linear-gradient(to bottom, rgba(0, 159, 235, 0.4), rgba(0, 159, 227, 1), rgba(62, 36, 56, 0.8));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%; /* El ancho será el 100% del contenedor */
+    max-width: 450px; /* Ancho máximo ajustado para pantallas grandes */
+    height: 75px; /* Altura ajustada */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  }
+  
+  .breadcrumb {
+    background-color: #f5f5f5; /* Fondo claro */
+    padding: 10px 20px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espaciado inferior */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Ajuste del tamaño de la fuente */
+}
+
+.breadcrumb-item a {
+    color: #009FE3; /* Color celeste */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.breadcrumb-item.active {
+    color: #333; /* Color del texto activo */
+    font-weight: bold;
+}

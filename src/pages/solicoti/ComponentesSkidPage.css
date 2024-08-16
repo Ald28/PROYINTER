@@ -1,0 +1,19 @@
+.componentes-skid-page {
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  thead th {
+    background-color: #009FE3;
+    color: white;
+  }
+  

@@ -20,7 +20,6 @@ import Equipos from './pages/services/info-tecnica/equipos/Equipos';
 import DossierdeCalidad from './pages/services/info-tecnica/DossierdeCalidad';
 import CertificadoGarantia from './pages/services/info-tecnica/CertificadoGarantia';
 import ProtectedRoute from './Routes/PrivateRoute';
-// Importar los componentes específicos para cada equipo
 import AgitadorTanque from './pages/services/info-tecnica/equipos/agitador/AgitadorTanque';
 import Cianuro from './pages/services/info-tecnica/equipos/tanque_almacenamiento/opciones_cianuro';
 import Sulfatos from './pages/services/info-tecnica/equipos/tanque_almacenamiento/opciones_sulfatos';
@@ -44,6 +43,13 @@ import Estudios from './pages/solicoti/Estudios';
 import Ingenierias from './pages/solicoti/Ingenierias';
 import PersonalCampo from './pages/solicoti/PersonalCampo';
 import Procura from './pages/solicoti/Procura';
+import SolicitarOfertaPage from './pages/solicoti/SolicitarOfertaPage';
+import FormularioMenu from './pages/solicoti/FormularioMenu';  
+import SkidDosificacionPage from './pages/solicoti/SkidDosificacionPage';
+
+// Nuevos componentes para manejar las rutas de "Abrir sección"
+import DatosOperacionPage from './pages/solicoti/DatosOperacionPage';
+import ComponentesSkidPage from './pages/solicoti/ComponentesSkidPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -78,15 +84,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="soporte-tecnico" element={<Soporte_tecnico/>}/>
           <Route path="soporte-tecnico/Formulario" element={<FormSoporteTec/>} />
           <Route path="soporte-tecnico/contacto" element={<ContSoporteTec/>} />
+
           {/* Rutas para los componentes específicos de cada equipo */}
           <Route path="informacion-tecnica-equipos/equipos/1" element={<Cianuro />} />
           <Route path="informacion-tecnica-equipos/equipos/2" element={<Sulfatos />} />
           <Route path="informacion-tecnica-equipos/equipos/3" element={<CianuroP />} />
           <Route path="informacion-tecnica-equipos/equipos/4" element={<SulfatosP />} />
           <Route path="informacion-tecnica-equipos/equipos/5" element={<AgitadorTanque />} />
-
           <Route path="informacion-tecnica-equipos/equipos/5/datasheet" element={<Datasheet />} />
-
           <Route path="informacion-tecnica-equipos/equipos/1/planos" element={<Planos_Almacenamiento_Cianuro />} />
           <Route path="informacion-tecnica-equipos/equipos/2/planos" element={<Planos_Almacenamiento_Sulfatos/>} />
           <Route path="informacion-tecnica-equipos/equipos/3/planos" element={<Planos_Preparacion_Cianuro />} />
@@ -98,8 +103,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="solicitar-cotizacion/ingenierias" element={<Ingenierias />} />
           <Route path="solicitar-cotizacion/personal-campo" element={<PersonalCampo />} />
           <Route path="solicitar-cotizacion/procura" element={<Procura />} />
+          
+          {/* Nueva ruta para la página que muestra las opciones de solicitud de oferta */}
+          <Route path="solicitar-cotizacion/procura/oferta" element={<SolicitarOfertaPage />} /> 
+          {/* Nueva ruta para el formulario del menú */}
+          <Route path="solicitar-cotizacion/procura/oferta/formulario" element={<FormularioMenu />} />
+          <Route path="solicitar-cotizacion/procura/oferta/skid-dosificacion" element={<SkidDosificacionPage />} />
 
-
+          {/* Nuevas rutas para las secciones de datos de operación y componentes del Skid */}
+          <Route path="solicitar-cotizacion/procura/oferta/datos-operacion" element={<DatosOperacionPage />} />
+          <Route path="solicitar-cotizacion/procura/oferta/componentes-skid" element={<ComponentesSkidPage />} />
         </Route>
       </Routes>
     </Router>
