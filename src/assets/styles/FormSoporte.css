@@ -39,19 +39,18 @@
     padding: 0;
 }
 
-/* Estilo de la lista de archivos */
+
+/* Alinear los elementos de carga de archivos horizontalmente */
 .file-list-container {
-    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre archivos */
 }
 
 .file-item {
     display: flex;
     align-items: center;
-    margin-top: 5px;
-}
-
-.file-item .btn-link {
-    margin-left: 5px;
+    margin: 0;
 }
 
 /* Estilos para el botón de enviar */
