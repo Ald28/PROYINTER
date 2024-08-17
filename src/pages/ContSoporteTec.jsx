@@ -9,6 +9,8 @@ const ContSoporteTec = () => {
     const [appointmentDate, setAppointmentDate] = useState('');
     const [appointmentTime, setAppointmentTime] = useState('');
     const [showSelect, setShowSelect] = useState(false);
+    const [problemaDescripcion, setProblemaDescripcion] = useState('');
+    const [soporteSeleccionado, setSoporteSeleccionado] = useState('No');
 
     useEffect(() => {
         if (contactMethod === 'Chat') {
@@ -28,24 +30,37 @@ const ContSoporteTec = () => {
             });
         } else if (contactMethod === 'phone') {
             Swal.fire({
-                title: '¿Desea realizar una llamada telefónica?',
-                text: 'Le proporcionaremos un número de teléfono para que pueda contactarnos.',
+                title: 'Si desea llamar a su asesor marque al número +51 999 999 999',
+                text: 'Si desea agendar una llamada de su asesor haga clic en REGRESAR:',
                 icon: 'info',
                 confirmButtonText: 'Llamar ahora',
-                cancelButtonText: 'Cancelar',
+                cancelButtonText: 'Regresar',
                 showCancelButton: true,
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'tel:+51999999999'; // Cambia este número por el número de teléfono al que deseas redirigir
                 } else {
-                    setContactMethod(''); // Si el usuario decide no continuar, reiniciamos la selección
+                    // Si el usuario decide regresar, no reiniciamos contactMethod
+                    // Esto permite que el usuario complete el formulario
                 }
             });
         }
     }, [contactMethod]);
 
+    const handleSoporteChange = (e) => {
+        const value = e.target.value;
+        setSoporteSeleccionado(value);
+        setShowSelect(value === 'Sí');
+    };
+
     const handleContactMethodChange = (e) => {
         setContactMethod(e.target.value);
+        // Si el método de contacto es "Llamada Telefónica", se muestra el formulario de selección de fecha y hora
+        if (e.target.value === 'phone') {
+            setShowSelect(true);
+        } else {
+            setShowSelect(false);
+        }
     };
 
     const handleDateChange = (e) => {
@@ -56,9 +71,12 @@ const ContSoporteTec = () => {
         setAppointmentTime(e.target.value);
     };
 
+    const handleProblemaDescripcionChange = (e) => {
+        setProblemaDescripcion(e.target.value);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        const problemaDescripcion = document.getElementById('problemaDescripcion').value;
 
         if (!problemaDescripcion || !contactMethod || !appointmentDate || !appointmentTime) {
             Swal.fire({
@@ -94,15 +112,14 @@ const ContSoporteTec = () => {
                 </ol>
             </nav>
 
-            <form
-                className="cont-soporte-tec mx-auto"
-                onSubmit={handleSubmit}
-            >
-                <h1>Contacto con un asesor</h1>
+            <form className="cont-soporte-tec mx-auto" onSubmit={handleSubmit}>
+                <h1 className="text-center mt-1 titulo">
+                    Contactar a un Asesor
+                </h1>
                 <div className="row align-items-center mt-2">
-                    <div className="col-md-6 border-end pe-2 d-flex align-items-center">
+                    <div className="col-md-6 d-flex align-items-center">
                         <p className='form-label mb-1 me-2'>
-                            1. ¿Desea recibir soporte técnico sobre algún servicio adquirido?
+                            1. ¿Desea contactar a un asesor para recibir soporte técnico sobre algún Servicio Adquirido?
                         </p>
                         <div className="form-check form-check-inline">
                             <input
@@ -110,20 +127,23 @@ const ContSoporteTec = () => {
                                 type="radio"
                                 name="soporte"
                                 id="soporteSi"
-                                onChange={() => setShowSelect(true)}
+                                value="Sí"
+                                checked={soporteSeleccionado === 'Sí'}
+                                onChange={handleSoporteChange}
                             />
                             <label className="form-check-label" htmlFor="soporteSi">
                                 Sí
                             </label>
                         </div>
-                        <div className="form-check form-check-inline">
+                        <div className="form-check form-check-inline ms-2">
                             <input
                                 className="form-check-input"
                                 type="radio"
                                 name="soporte"
                                 id="soporteNo"
-                                defaultChecked
-                                onChange={() => setShowSelect(false)}
+                                value="No"
+                                checked={soporteSeleccionado === 'No'}
+                                onChange={handleSoporteChange}
                             />
                             <label className="form-check-label" htmlFor="soporteNo">
                                 No
@@ -148,7 +168,7 @@ const ContSoporteTec = () => {
                     )}
                 </div>
 
-                <div className="row mb-4">
+                <div className="row mb-4 ">
                     <div className="col-md-6 border-end pe-3">
                         <hr />
                         <p className='fw-bold'>
@@ -211,7 +231,7 @@ const ContSoporteTec = () => {
                             </label>
                         </div>
                     </div>
-                    <div className="col-md-6 border-start ps-3">
+                    <div className="col-md-6">
                         <hr />
                         <p className='fw-bold'>
                             3. Seleccione una fecha y hora
@@ -222,7 +242,7 @@ const ContSoporteTec = () => {
                             id="appointmentDate"
                             value={appointmentDate}
                             onChange={handleDateChange}
-                            required
+                            required={contactMethod === 'phone'}
                         />
                         <input
                             type="time"
@@ -230,13 +250,13 @@ const ContSoporteTec = () => {
                             id="appointmentTime"
                             value={appointmentTime}
                             onChange={handleTimeChange}
-                            required
+                            required={contactMethod === 'phone'}
                         />
                     </div>
                 </div>
-                <div className="row mb-4">
-                    <div className="col-md-6 border-end pe-3">
-                        <hr />
+                <hr />
+                <div className="row mb-2">
+                    <div className="col-md-10">
                         <p className='fw-bold'>
                             4. Describa el problema (Máximo 100 caracteres)
                         </p>
@@ -245,18 +265,20 @@ const ContSoporteTec = () => {
                                 className="form-control"
                                 placeholder="Descripción del problema"
                                 id="problemaDescripcion"
+                                value={problemaDescripcion}
+                                onChange={handleProblemaDescripcionChange}
                                 maxLength="100"
-                                style={{ height: '90px' }}
                                 required
                             ></textarea>
-                            
                         </div>
+                        
                     </div>
                     <div className='col-md-2 btn-container'>
                         <button type="submit" className="btn degradado">
                             Enviar
                         </button>
                     </div>
+
                 </div>
             </form>
         </div>
@@ -264,3 +286,4 @@ const ContSoporteTec = () => {
 };
 
 export default ContSoporteTec;
+    

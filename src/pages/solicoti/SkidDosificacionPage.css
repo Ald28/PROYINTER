@@ -4,8 +4,9 @@
 
 .form-title {
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 28px; /* Aumenta el tamaño del título */
     font-weight: bold;
+    text-align: left; /* Mueve el título más a la izquierda */
 }
 
 .table {
@@ -18,13 +19,14 @@
     background-color: #009FE3;
     color: white;
     padding: 10px;
-    text-align: left;
+    text-align: center; /* Alinea los títulos en celeste al centro */
     border: 1px solid #ddd;
 }
 
 .table tbody td {
     padding: 10px;
     border: 1px solid #ddd;
+    text-align: left; /* Alinea el contenido de las celdas a la izquierda */
 }
 
 .btn-acciones {

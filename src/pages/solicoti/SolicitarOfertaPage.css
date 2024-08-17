@@ -21,14 +21,6 @@
     background-color: rgba(0, 159, 227, 1); /* Cambia el color de fondo al pasar el ratón */
   }
   
-  /* Ajuste del título alineado a la izquierda */
-  .form-title {
-    text-align: left;
-    margin-left: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
   /* Asegura que los elementos se alineen correctamente */
   .info-section {
     display: flex;
@@ -36,6 +28,18 @@
     align-items: flex-start;  /* Alinea los elementos al inicio */
   }
   
+  /* Estilo centrado para el primer botón */
+  .centrado {
+    margin: 0 auto;
+  }
+
+  /* Iconos ajustados */
+  .icono-boton {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
   /* Ajustes responsivos */
   @media (max-width: 768px) {
     .solicitar-oferta-btn {
@@ -51,12 +55,4 @@
     .info-section {
       align-items: center;
     }
-  }
-  
-  .solicitar-oferta-btn:last-child {
-    min-width: 400px;  /* Asegura que el botón tenga al menos 400px de ancho */
-    max-width: 450px;  /* Establece un ancho máximo para mantener consistencia */
-    font-size: 20px;
-    padding: 15px;
-    white-space: nowrap;  /* Evita que el texto se divida en varias líneas */
   }
