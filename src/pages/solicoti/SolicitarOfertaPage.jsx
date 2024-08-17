@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileCircleCheck, faPen, faUserGroup, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faUserGroup, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import Breadcrumb from './Breadcrumb';
 import './Breadcrumb.css';  // Estilos para el breadcrumb
 import './SolicitarOfertaPage.css';  // El nuevo archivo CSS exclusivo para SolicitarOfertaPage
@@ -26,7 +26,7 @@ const SolicitarOfertaPage = () => {
       <div className="info-section">
         <div className="info-item">
           <Link className="solicitar-oferta-btn fw-bold" to='#'>
-            <FontAwesomeIcon icon={faFileCircleCheck} /> Seleccionar modelo
+            Seleccionar modelo
           </Link>
         </div>
         <div className="info-item">
@@ -51,7 +51,3 @@ const SolicitarOfertaPage = () => {
 };
 
 export default SolicitarOfertaPage;
-
-
-
-

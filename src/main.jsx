@@ -50,6 +50,10 @@ import SkidDosificacionPage from './pages/solicoti/SkidDosificacionPage';
 // Nuevos componentes para manejar las rutas de "Abrir sección"
 import DatosOperacionPage from './pages/solicoti/DatosOperacionPage';
 import ComponentesSkidPage from './pages/solicoti/ComponentesSkidPage';
+import CabinaProtectoraPage from './pages/solicoti/CabinaProtectoraPage';
+import Tanques from './pages/solicoti/TanquesPage';
+import EquiposDosificacionPage from './pages/solicoti/EquiposDosificacionPage';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -113,6 +117,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           {/* Nuevas rutas para las secciones de datos de operación y componentes del Skid */}
           <Route path="solicitar-cotizacion/procura/oferta/datos-operacion" element={<DatosOperacionPage />} />
           <Route path="solicitar-cotizacion/procura/oferta/componentes-skid" element={<ComponentesSkidPage />} />
+
+          {/* Rutas agregadas para los componentes específicos */}
+          <Route path="solicitar-cotizacion/procura/oferta/componentes-skid/equipos-dosificacion" element={<EquiposDosificacionPage />} />
+          <Route path="solicitar-cotizacion/procura/oferta/componentes-skid/cabina-protectora" element={<CabinaProtectoraPage />} />
+          <Route path="solicitar-cotizacion/procura/oferta/componentes-skid/tanques" element={<Tanques />} />
+
         </Route>
       </Routes>
     </Router>
