@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,6 +7,12 @@ import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook,
 import '../../../../../assets/styles/Servicio.css';
 
 const OpcionesCianuro = () => {
+    const navigate = useNavigate(); // Hook para la navegación
+
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
+    };
+
     return (
         <div className="servicio">
             <nav aria-label="breadcrumb">
@@ -31,6 +37,12 @@ const OpcionesCianuro = () => {
                     </li>
                 </ol>
             </nav>
+
+            <button className="circle-button-back mb-3" onClick={handleBackClick}>
+                <i className="fa fa-arrow-left"></i>
+                <span className='text-black'>Atrás</span>
+            </button>
+
             <p>Tanque de Almacenamiento de 0.5m³ para cianuro</p>
             <div className="info-section">
                 <div className="info-item">
@@ -54,9 +66,9 @@ const OpcionesCianuro = () => {
                     </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                        <Link className="btn degradado" to={`/cliente/informacion-tecnica-equipos/equipos/1/planos`}>
-                            <FontAwesomeIcon icon={faMap} /> Planos
-                        </Link> 
+                    <Link className="btn degradado" to={`/cliente/informacion-tecnica-equipos/equipos/1/planos`}>
+                        <FontAwesomeIcon icon={faMap} /> Planos
+                    </Link> 
                 </div>
                 <div className="info-item">
                     <OverlayTrigger

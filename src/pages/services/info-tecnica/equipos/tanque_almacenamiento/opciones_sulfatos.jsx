@@ -1,13 +1,18 @@
-import React, { useState } from 'react'; // Importar useState
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'; 
+import { Link, useNavigate } from 'react-router-dom'; // Importar useNavigate para navegación
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandHoldingDollar, faScrewdriverWrench, faSquarePollVertical, faBook, faMap } from '@fortawesome/free-solid-svg-icons';
-import '../../../../../assets/styles/Servicio.css'; // Asegúrate de que el archivo CSS esté correctamente importado
+import '../../../../../assets/styles/Servicio.css';
 
 const OpcionesSulfatos = () => {
-    const [isManualHovered, setIsManualHovered] = useState(false); // Definir el estado para hover
+    const [isManualHovered, setIsManualHovered] = useState(false); 
+    const navigate = useNavigate(); // Hook para la navegación
+
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
+    };
 
     return (
         <div className="servicio">
@@ -33,6 +38,12 @@ const OpcionesSulfatos = () => {
                     </li>
                 </ol>
             </nav>
+
+            <button className="circle-button-back mb-3" onClick={handleBackClick}>
+                <i className="fa fa-arrow-left"></i>
+                <span className='text-black'>Atrás</span>
+            </button>
+
             <p>Tanque de Almacenamiento de 0.5m³ para Sulfatos</p>
             <div className="info-section">
                 <div className="info-item">
@@ -56,9 +67,9 @@ const OpcionesSulfatos = () => {
                     </OverlayTrigger>
                 </div>
                 <div className="info-item">
-                        <Link className="btn degradado" to={`/cliente/informacion-tecnica-equipos/equipos/2/planos`}>
-                            <FontAwesomeIcon icon={faMap} /> Planos
-                        </Link>
+                    <Link className="btn degradado" to={`/cliente/informacion-tecnica-equipos/equipos/2/planos`}>
+                        <FontAwesomeIcon icon={faMap} /> Planos
+                    </Link>
                 </div>
                 <div className="info-item">
                     <OverlayTrigger

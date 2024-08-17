@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +12,8 @@ const DossierdeCalidad = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [pdfLink, setPdfLink] = useState('');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const table = $('#dossierTable').DataTable({
@@ -35,6 +37,10 @@ const DossierdeCalidad = () => {
     const handleCloseModal = () => {
         setShowModal(false);
         setPdfLink('');
+    };
+
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia
     };
 
     const formatDate = (fechaTexto) => {
@@ -78,7 +84,14 @@ const DossierdeCalidad = () => {
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">Dossier de Calidad</li>
                 </ol>
-                <h3>Dossier de Calidad</h3>
+
+                <button className="circle-button-back mb-3" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+
+                <h3 className="text-center">Dossier de Calidad</h3>
+
                 <table id="dossierTable" className="display">
                     <thead>
                         <tr>

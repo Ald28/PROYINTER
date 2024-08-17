@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,6 +8,11 @@ import '../../../../../assets/styles/Servicio.css';
 
 const AgitadorTanque = () => {
     const [isPlanosHovered, setIsPlanosHovered] = useState(false);
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia de navegación del usuario
+    };
 
     return (
         <div className="servicio">
@@ -33,12 +38,18 @@ const AgitadorTanque = () => {
                     </li>
                 </ol>
             </nav>
+
+            <button className="circle-button-back mb-3" onClick={handleBackClick}>
+                <i className="fa fa-arrow-left"></i>
+                <span className='text-black'>Atrás</span>
+            </button>
+
             <p>Agitador para el tanque de Preparación de 2m³</p>
             <div className="info-section">
                 <div className="info-item">
-                        <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/5/datasheet'>
-                            <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
-                        </Link>
+                    <Link className="btn degradado" to='/cliente/informacion-tecnica-equipos/equipos/5/datasheet'>
+                        <FontAwesomeIcon icon={faSquarePollVertical} /> Data Sheet
+                    </Link>
                 </div>
                 <div className="info-item">
                     <OverlayTrigger
@@ -58,7 +69,7 @@ const AgitadorTanque = () => {
                         <Link className="btn degradado secondary-btn">
                             <FontAwesomeIcon icon={faMap} /> Planos
                         </Link>
-                        </OverlayTrigger>
+                    </OverlayTrigger>
                 </div>
                 <div className="info-item">
                     <OverlayTrigger
