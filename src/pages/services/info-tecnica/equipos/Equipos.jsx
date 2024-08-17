@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import '../../../../assets/styles/Equipo.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
- 
+
 const Equipos = () => {
+    const navigate = useNavigate();
+    
     const equiposList = [
         { id: 1, name: 'Tanque de almacenamiento de 0.5m3 para cianuro' },
         { id: 2, name: 'Tanque de almacenamiento de 0.5m3 para sulfato' },
@@ -25,31 +27,29 @@ const Equipos = () => {
                 zeroRecords: "No hay resultados",
                 search: `
                     <div style="
-                        
                         background-color: #009FE3;
                         border-radius: 4px;
                         padding: 10px;
                         display: flex;
                         align-items: center;
                         color: white;
-                        
                     ">
                         <i class="fas fa-search" style="justify-content: flex-end;"></i>
                     </div>
-                `, // Corrección aquí
+                `,
             },
         });
-        
-        
-        
-        
-    
+
         return () => {
             if ($.fn.dataTable.isDataTable('#equiposTable')) {
                 table.destroy();
             }
         };
     }, []);    
+
+    const handleBackClick = () => {
+        navigate(-1); // Navega hacia atrás en la historia de navegación del usuario
+    };
 
     return (
         <div className="installed-base">
@@ -67,9 +67,15 @@ const Equipos = () => {
                     <li className="breadcrumb-item">
                         <Link className="btn fw-bold p-0" to="/cliente/InformacionTec">Información Técnica de Equipos</Link>
                     </li>
-                    <li className="breadcrumb-item active " aria-current="page">Equipos</li>
+                    <li className="breadcrumb-item active" aria-current="page">Equipos</li>
                 </ol>
             </nav>
+
+            <button className="circle-button-back mb-3" onClick={handleBackClick}>
+                <i className="fa fa-arrow-left"></i>
+                <span className='text-black'>Atrás</span>
+            </button>
+
             <h3>Equipos</h3>
             <table id="equiposTable" className="display">
                 <thead>
@@ -83,9 +89,7 @@ const Equipos = () => {
                     {equiposList.map(equipo => (
                         <tr key={equipo.id}>
                             <td className='text-center'>{equipo.id}</td>
-                            <td>
-                            {equipo.name}
-                            </td>
+                            <td>{equipo.name}</td>
                             <td>
                                 <Link className="custom-button fw-normal" to={`/cliente/informacion-tecnica-equipos/equipos/${equipo.id}`}>
                                     <i className="fas fa-file-lines"></i>

@@ -69,10 +69,6 @@ const InstalledBase = () => {
                     <i className="fa fa-arrow-left"></i>
                     <span className='text-black'>Atrás</span>
                 </button>
-                <button className="circle-button-next" onClick={() => handleLinkClick('/cliente/servicio')} >
-                    <i className="fa fa-arrow-right"></i>
-                    <span className='text-black'>Siguiente</span>
-                </button>
             </div>
             <div className="d-flex justify-content-between align-items-center mb-3 vertical">
                 <select value={filter} onChange={handleFilterChange} className="form-select seleccion breadcrumb-item  active fw-bold">

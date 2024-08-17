@@ -84,6 +84,7 @@
 .activate {
     color: rgb(13, 110, 253);
 }
+<<<<<<< HEAD
  /* Botón de "Atrás" con margen a la izquierda */
  .circle-button-back {
   margin-left: 10px; /* Ajusta este valor según sea necesario */
@@ -118,4 +119,9 @@
 
   
   
+=======
+/*Buscador*/
+
+
+>>>>>>> 917b5b7b9e4b8ea4ac42ad336074cf7cf579fc15
 
