@@ -120,6 +120,11 @@ p a:hover {
     }
 }
 
+.toast-message-single-line {
+    white-space: nowrap; /* Evitar el salto de línea */
+    max-width: none;     /* Asegurar que el ancho no se limite */
+}
+
 .Toastify__toast {
     min-height: 50px;
     border-radius: 20px;

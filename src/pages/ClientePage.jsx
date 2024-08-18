@@ -39,16 +39,35 @@ const ClientePage = () => {
         navigate(path);
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem('cliente');
-        navigate('/');
+    const handleLogout = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/api/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+                credentials: 'include',
+            });
+
+            if (response.ok) {
+                localStorage.removeItem('cliente');
+                localStorage.removeItem('token');
+                
+                navigate('/');
+            } else {
+                console.error("Error al cerrar sesión");
+            }
+        } catch (error) {
+            console.error("Error al realizar la solicitud de logout:", error);
+        }
     };
 
     return (
         <div className={`cliente-page ${sidebarOpen ? 'sidebar-open' : ''}`}>
             <header className="header d-flex align-items-center justify-content-between px-4 py-2">
                 <div className="d-flex align-items-center">
-                <img src={logo} alt="Proyinter Logo" width="170" onClick={() => handleLinkClick('/cliente', 'inicio')} />
+                    <img src={logo} alt="Proyinter Logo" width="170" onClick={() => handleLinkClick('/cliente', 'inicio')} />
                     <button className="btn btn-link ms-2" onClick={toggleSidebar} style={{ paddingLeft: '5px' }}>
                         <FaBars className='hamburguesa' size={30} />
                     </button>
@@ -58,13 +77,13 @@ const ClientePage = () => {
                         <BiBell size={35} className='notificaciones' />
                     </button>
                     <button className="btn btn-link" onClick={toggleMenu}>
-                        <FaUserCircle size={35} className="icon-gray"/>
+                        <FaUserCircle size={35} className="icon-gray" />
                     </button>
                     {menuOpen && (
                         <div className="dropdown-menu dropdown-menu-end show">
                             <button className="dropdown-item">Ver mi perfil</button>
                             <button className="dropdown-item text-danger" onClick={handleLogout}>Cerrar sesión</button>
-                            <button className="dropdown-item ">Editar mi perfil</button>
+                            <button className="dropdown-item">Editar mi perfil</button>
                         </div>
                     )}
                 </div>
@@ -72,49 +91,57 @@ const ClientePage = () => {
             <div className="d-flex">
                 <nav className={`sidebar p-3 ${!sidebarOpen && 'sidebar-hidden'}`}>
                     <button
-                        className={`btn btn-link fw-semibold borde border-2  ${selectedButton === 'inicio' && 'boton-activo'}`} style={{color:'#004B70' }}
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'inicio' && 'boton-activo'}`} style={{ color: '#004B70' }}
                         onClick={() => handleLinkClick('/cliente', 'inicio')}
                     >
                         <BiHome size={20} /> Inicio
                     </button>
-                    <h2 className="sidebar-title ">Cliente</h2>
-                    <button 
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'cotizacion' && 'boton-activo'}`} 
-                        style={{color:'#004B70' }}
-                        onClick={() => handleLinkClick('/cliente/solicitar-cotizacion', 'cotizacion')}>
+                    <h2 className="sidebar-title">Cliente</h2>
+                    <button
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'cotizacion' && 'boton-activo'}`}
+                        style={{ color: '#004B70' }}
+                        onClick={() => handleLinkClick('/cliente/solicitar-cotizacion', 'cotizacion')}
+                    >
                         <FaChartLine size={20} /> Solicitar Cotización
                     </button>
                     <button
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'servicios' && 'boton-activo'} `} style={{color:'#004B70' }}
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'servicios' && 'boton-activo'} `}
+                        style={{ color: '#004B70' }}
                         onClick={() => handleLinkClick('/cliente/ver-base-instalada', 'servicios')}
                     >
                         <FaCalendarCheck size={20} /> Servicios Adquiridos
                     </button>
-                    <button 
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'soporte' && 'boton-activo'}`} style={{color:'#004B70' }}
-                        onClick={() => handleLinkClick('/cliente/soporte-tecnico', 'soporte')}>
+                    <button
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'soporte' && 'boton-activo'}`} style={{ color: '#004B70' }}
+                        onClick={() => handleLinkClick('/cliente/soporte-tecnico', 'soporte')}
+                    >
                         <FaUserCog size={20} /> Soporte Técnico
                     </button>
-                    <button 
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'garantias' && 'boton-activo'} `} style={{color:'#004B70' }}
-                        onClick={() => handleLinkClick('/cliente/reclamos','garantias')}>
+                    <button
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'garantias' && 'boton-activo'} `}
+                        style={{ color: '#004B70' }}
+                        onClick={() => handleLinkClick('/cliente/reclamos', 'garantias')}
+                    >
                         <FaBook size={20} /> Garantías y Reclamos
                     </button>
-                    <h2 className="sidebar-title ">Usuario</h2>
-                    <button 
-                      className={`btn btn-link fw-semibold borde border-2 ${selectedButton ==='editar' && 'boton-activo'}`}
-                      style={{color:'#004B70' }} /* Usa el color específico aquí */
-                     onClick={() => handleLinkClick('/cliente/editar-perfil','editar')}>
-                    <FaUserCircle size={20} /> Editar perfil
-                  </button>
-                    <button 
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'notificaciones' && 'boton-activo'}`} style={{color:'#004B70' }}
-                        onClick={() => handleLinkClick('/cliente/notificaciones','notificaciones')}>
+                    <h2 className="sidebar-title">Usuario</h2>
+                    <button
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'editar' && 'boton-activo'}`}
+                        style={{ color: '#004B70' }} /* Usa el color específico aquí */
+                        onClick={() => handleLinkClick('/cliente/editar-perfil', 'editar')}
+                    >
+                        <FaUserCircle size={20} /> Editar perfil
+                    </button>
+                    <button
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'notificaciones' && 'boton-activo'}`} style={{ color: '#004B70' }}
+                        onClick={() => handleLinkClick('/cliente/notificaciones', 'notificaciones')}
+                    >
                         <BiBell size={20} /> Notificaciones
                     </button>
-                    <button 
-                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'ayuda' && 'boton-activo'}`} style={{color:'#004B70' }}
-                        onClick={() => handleLinkClick('/cliente/ayuda','ayuda')}>
+                    <button
+                        className={`btn btn-link fw-semibold borde border-2 ${selectedButton === 'ayuda' && 'boton-activo'}`} style={{ color: '#004B70' }}
+                        onClick={() => handleLinkClick('/cliente/ayuda', 'ayuda')}
+                    >
                         <BiCog size={20} /> Ayuda
                     </button>
                 </nav>

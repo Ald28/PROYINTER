@@ -12,24 +12,53 @@ const LoginPage = () => {
     const [contraseña, setContraseña] = useState('');
     const navigate = useNavigate();
 
-    const manejarLogin = (e) => {
+    const manejarLogin = async (e) => {
         e.preventDefault();
-
-        // Verificar las credenciales
-        if (correo === 'proyinter@gmail.com' && contraseña === '123') {
-            localStorage.setItem('cliente', correo);
-            toast.success('Bienvenido', {
-                position: "top-right",
-                autoClose: 600,  // Aumenta la duración a 2 segundos
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                onClose: () => navigate('/cliente')  // Redirigir después de la alerta
+    
+        try {
+            const response = await fetch('http://localhost:8000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: correo,
+                    password: contraseña,
+                }),
             });
-        } else {
-            toast.error('Correo o contraseña incorrectos', {
+    
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token);  // Guardar el token de autenticación
+                localStorage.setItem('cliente', correo);     // Guardar el correo del cliente
+                localStorage.setItem('nombreUsuario', data.nombre);  // Guardar el nombre del usuario
+    
+                toast.success('Bienvenido', {
+                    position: "top-right",
+                    autoClose: 600,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    onClose: () => navigate('/cliente'),  // Redirigir a la página de cliente
+                    className: 'toast-message-single-line'
+                });
+                
+            } else {
+                toast.error('Correo o contraseña incorrectos', {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    className: 'toast-message-single-line'
+                });
+            }
+        } catch (error) {
+            toast.error('Error al conectar con el servidor', {
                 position: "top-right",
                 autoClose: 2000,
                 hideProgressBar: false,
@@ -39,7 +68,7 @@ const LoginPage = () => {
                 progress: undefined,
             });
         }
-    };
+    };    
 
     return (
         <div className="login-page">

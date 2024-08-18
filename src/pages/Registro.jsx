@@ -18,7 +18,7 @@ const Registro = () => {
     const [confirmarContraseña, setConfirmarContraseña] = useState('');
     const navigate = useNavigate();
 
-    const manejarRegistro = (e) => {
+    const manejarRegistro = async (e) => {
         e.preventDefault();
 
         if (contraseña !== confirmarContraseña) {
@@ -29,32 +29,69 @@ const Registro = () => {
                 timer: 2000,
                 timerProgressBar: true,
                 showConfirmButton: false,
-                didClose: () => {
-                    // Optionally do something on close
-                }
+                
             });
             return;
         }
+        
+        const datosRegistro = {
+            name: nombreCompleto,
+            lastname: apellidos,
+            country: pais,
+            name_empresa: nombreEmpresa,
+            rubro_empresa: rubro,
+            email: correo,
+            phone: telefono,
+            charge: cargoArea,
+            password: contraseña,
+            password_confirmation: confirmarContraseña
+        };
 
-        // Aquí se puede añadir la lógica para enviar los datos al servidor o almacenarlos
-        // Por ahora, solo muestra un mensaje de éxito
-
-        Swal.fire({
-            icon: 'success',
-            title: 'Registro exitoso',
-            text: 'Has sido registrado exitosamente.',
-            timer: 2000,
-            timerProgressBar: true,
-            showConfirmButton: false,
-            didClose: () => navigate('/cliente')  // Redirigir después de la alerta
-        });
+        try {
+            
+            const response = await fetch('http://localhost:8000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosRegistro)
+            });
+            
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro exitoso',
+                    text: 'Has sido registrado exitosamente.',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    didClose: () => navigate('/') 
+                });
+            } else {
+                const errorData = await response.json();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error en el registro',
+                    text: errorData.message || 'Hubo un problema en el registro.',
+                    timer: 3000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error en el servidor',
+                text: 'No se pudo completar el registro. Inténtalo de nuevo más tarde.',
+                timer: 3000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+            });
+        }
     };
 
     const manejarTelefonoChange = (e) => {
-        // Eliminar caracteres no numéricos
         const valor = e.target.value.replace(/\D/g, '');
-
-        // Limitar a 9 dígitos
         if (valor.length <= 9) {
             setTelefono(valor);
         }

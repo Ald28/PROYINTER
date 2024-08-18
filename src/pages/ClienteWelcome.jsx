@@ -9,9 +9,11 @@ const ClienteWelcome = () => {
         navigate(path);
     };
 
+    const nombreUsuario = localStorage.getItem('nombreUsuario');
+
     return (
         <div className="cliente-welcome">
-            <h2>Bienvenido, {localStorage.getItem('cliente').split('@')[0]}</h2><br />
+            <h2>Bienvenido, {nombreUsuario ? nombreUsuario : 'Usuario'}</h2><br />
             <div className="container">
                 <div className="button-grid">
                     <button className="grid-button fw-bold degradado" onClick={() => handleLinkClick('/cliente/solicitar-cotizacion')}>
