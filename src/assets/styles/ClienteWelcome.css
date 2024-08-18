@@ -1,0 +1,74 @@
+.container {
+  padding: 0 20px; /* Márgenes de 20px en los lados izquierdo y derecho */
+  display: flex;
+  justify-content:space-between; /* Centra el contenedor de la cuadrícula horizontalmente */
+  width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas de igual tamaño */
+  gap: 30px; /* Espacio de 20px entre las columnas */
+  max-width: 1400px; /* Ancho máximo del contenedor de la cuadrícula */
+  width: 100%; /* Asegura que el contenedor de la cuadrícula ocupe el ancho completo del contenedor */
+  justify-items: center; /* Centra los elementos de la cuadrícula horizontalmente */
+}
+
+.grid-button {
+  border-radius: 20px !important;
+  display: flex; /* Usa Flexbox para alinear el contenido */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  width: 100% !important;/* Asegura que el botón use el 100% del ancho de la columna */
+  height: 30vh; /* Altura automática para que el botón crezca con el contenido */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 3.5em; /* Tamaño del texto más grande */
+  padding: 1.5em; /* Espacio interno del botón aumentado */
+  box-sizing: border-box; /* Incluye padding en el ancho total del botón */
+  text-align: center; /* Centra el texto dentro del botón */
+}
+
+.grid-button .icon-size {
+  margin-right: 1em; /* Espacio entre el icono y el texto */
+  font-size: 3.5em; /* Tamaño del icono más grande */
+}
+
+.grid-button:hover {
+  background-color: #0056b3;
+}
+button.grid-button{
+  font-size: 1.7rem;
+  padding: 25px;
+}
+.degradado {
+  border: solid 1px black;
+  background: linear-gradient(to bottom, rgb(0, 159, 235, 40%), rgb(0, 159, 227, 100%), rgb(62, 36, 56, 80%));
+}
+
+.grid-button .icon-size {
+  font-size: 2em; /* Tamaño del icono ajustado para pantallas pequeñas */
+  margin-right: 1em; /* Ajuste del espacio entre el icono y el texto */
+}
+
+@media (max-width: 768px) {
+  .button-grid {
+    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    gap: 20px;
+  }
+
+  .grid-button {
+    height: auto; /* Altura automática para que el botón crezca con el contenido */
+    font-size: 2em; /* Tamaño del texto ajustado para pantallas pequeñas */
+  }
+
+  .grid-button .icon-size {
+    font-size: 2em; /* Tamaño del icono ajustado para pantallas pequeñas */
+    margin-right: 0.5em; /* Ajuste del espacio entre el icono y el texto */
+  }
+  
+}

@@ -1,0 +1,31 @@
+.tabla-componentes-skid {
+  padding: 20px;
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+th.text-left, td.text-left {
+  text-align: left;
+}
+
+th.text-center, td.text-center {
+  text-align: center;
+}
+
+thead th {
+  background-color: #009FE3;
+  color: white;
+}

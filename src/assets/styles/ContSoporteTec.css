@@ -1,0 +1,37 @@
+/* Estilos generales del formulario */
+.cont-soporte-tec {
+    max-width: 1000px;
+    border: 2px solid #009FE3;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+/* Estilo de las etiquetas del formulario */
+.cont-soporte-tec .form-label,
+.cont-soporte-tec .fw-bold {
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+
+
+
+/* Ajuste de etiquetas y campos dentro de cada pregunta */
+.cont-soporte-tec .form-label,
+.cont-soporte-tec .fw-bold {
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+.form-check-label {
+    font-size: 0.75rem;
+}
+.date-time-input{
+    font-size: 0.75rem;
+
+}
+.titulo{
+    font-weight: bold;
+    font-size: 1rem;
+}

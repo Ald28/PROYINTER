@@ -1,0 +1,120 @@
+.order-page {
+  padding: 20px;
+}
+
+.header-row th {
+  background-color: rgb(13, 110, 253); /* Cambia esto al color del encabezado que desees */
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+#orderTable {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+#orderTable th, #orderTable td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+/* Estilo de los botones de acción */
+.custom-button {
+  color: rgb(13, 110, 253); /* Color de los iconos y texto de los botones */
+  display: inline-block;
+  width: 70px; /* Ancho del botón */
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.custom-button i {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.custom-button:hover {
+  text-decoration: none;
+  color: #0056b3; /* Cambia esto al color que desees para el hover */
+}
+
+/* Estilo de la imagen dentro del botón */
+.action-icon {
+  width: 34px; /* Ajusta el tamaño de la imagen */
+  height: 34px; /* Ajusta el tamaño de la imagen */
+  display: block;
+  margin: 0 auto 5px; /* Centrando la imagen y añadiendo margen inferior */
+  border: solid rgb(13, 110, 253);
+  border-radius: 25px;
+  padding: 5px;
+}
+
+/* Estilo del breadcrumb */
+.breadcrumb {
+  background-color: transparent;
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  border-radius: 0.25rem;
+}
+
+.breadcrumb .btn-link {
+  color: rgb(13, 110, 253); /* Color del breadcrumb */
+  text-decoration: none;
+}
+
+.breadcrumb .btn-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+  color: #6c757d;
+  padding: 0 5px;
+}
+
+/* para que opción donde se está navegando tenga un color diferente */
+.activate {
+  color: rgb(13, 110, 253);
+}
+.color{
+  font-weight:400 !important;
+}
+
+ /* Botón de "Atrás" con margen a la izquierda */
+ .circle-button-back {
+  margin-left: 10px; /* Ajusta este valor según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent; /* Color de fondo */
+  color: #009FE3; /* Color del ícono y texto */
+  text-align: center;
+}
+
+.circle-button-back i {
+  font-size: 24px;
+}
+
+.circle-button-back span {
+  margin-top: 5px;
+  font-size: 9px;
+  color: #009FE3; /* Color del texto */
+}
+/* Eliminar el efecto hover */
+.circle-button-back:hover {
+  background-color: transparent; /* Mantener el fondo transparente */
+  color: #009FE3; /* Mantener el color del ícono y texto */
+  border-color: #009FE3; /* Mantener el color del borde */
+  transition: none; /* Desactivar transiciones */
+}
+
+  
+  

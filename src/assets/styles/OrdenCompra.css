@@ -1,0 +1,50 @@
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #000; /* Ajusta el color del texto según sea necesario */
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    background-color: #e9ecef; /* Ajusta el color de fondo según sea necesario */
+    border: 1px solid transparent; /* Agrega borde transparente para evitar el cambio de tamaño al pasar el cursor */
+}
+
+.button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-button i {
+    margin-right: 0.5rem; /* Espacio entre el icono y el texto */
+}
+
+
+.custom-button:hover {
+    background-color: #dee2e6; /* Color de fondo al pasar el cursor por encima */
+}
+
+.circle-button-back i {
+  font-size: 24px;
+}
+
+.circle-button-back span {
+  margin-top: 5px;
+  font-size: 9px;
+  color: #009FE3; /* Color del texto */
+}
+/* Eliminar el efecto hover */
+.circle-button-back:hover {
+  background-color: transparent; /* Mantener el fondo transparente */
+  color: #009FE3; /* Mantener el color del ícono y texto */
+  border-color: #009FE3; /* Mantener el color del borde */
+  transition: none; /* Desactivar transiciones */
+}

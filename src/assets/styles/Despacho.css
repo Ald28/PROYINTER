@@ -1,0 +1,98 @@
+.breadcrumb-nav {
+    margin-bottom: 20px;
+}
+
+.despacho-button {
+    display: flex;
+    border: solid 1px black;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(to bottom, rgb(0,159,235,40%), rgb(0,159,227,100%), rgb(62, 36, 56,80%));
+    background-size: cover;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    height: 65px; /* Ajusta esto según tus necesidades */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna */
+    align-items: center; /* Centrado horizontalmente */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.despacho-button:hover {
+    opacity: 0.9;
+}
+
+.button-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: white;
+}
+
+.despacho-button span {
+    color: white;
+    font-weight: bold;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item:not(.active) a {
+    color: #000000;
+
+}
+
+.breadcrumb-item.active {
+    color: #009FE3;
+}
+
+ /* Botón de "Atrás" con margen a la izquierda */
+ .circle-button-back {
+  margin-left: 10px; /* Ajusta este valor según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent; /* Color de fondo */
+  color: #009FE3; /* Color del ícono y texto */
+  text-align: center;
+}
+
+.circle-button-back i {
+  font-size: 24px;
+}
+
+.circle-button-back span {
+  margin-top: 5px;
+  font-size: 9px;
+  color: #009FE3; /* Color del texto */
+}
+/* Eliminar el efecto hover */
+.circle-button-back:hover {
+  background-color: transparent; /* Mantener el fondo transparente */
+  color: #009FE3; /* Mantener el color del ícono y texto */
+  border-color: #009FE3; /* Mantener el color del borde */
+  transition: none; /* Desactivar transiciones */
+}
+
+  
+  
+

@@ -1,0 +1,50 @@
+.skid-dosificacion-page {
+    padding: 20px;
+}
+
+.form-title {
+    margin-bottom: 20px;
+    font-size: 28px; /* Aumenta el tamaño del título */
+    font-weight: bold;
+    text-align: left; /* Mueve el título más a la izquierda */
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.table thead th {
+    background-color: #009FE3;
+    color: white;
+    padding: 10px;
+    text-align: center; /* Alinea los títulos en celeste al centro */
+    border: 1px solid #ddd;
+}
+
+.table tbody td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left; /* Alinea el contenido de las celdas a la izquierda */
+}
+
+.btn-acciones {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.icono-acciones {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.btn-acciones:hover {
+    text-decoration: underline;
+    color: #009FE3;
+}

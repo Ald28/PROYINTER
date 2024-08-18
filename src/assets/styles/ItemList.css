@@ -1,0 +1,34 @@
+.item-list-container {
+    padding: 20px;
+  }
+  
+  .display {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .display th, .display td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .display th {
+    background-color: #00aaff; /* Celeste más fuerte */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centrar el texto */
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #00aaff;
+  }
+  
+  .icon-button:hover {
+    color: #00aaff;
+  }
+  
+  
+  

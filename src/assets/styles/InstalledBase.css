@@ -1,0 +1,180 @@
+.installed-base {
+  text-align: center;
+}
+
+.installed-base h2 {
+  margin-bottom: 20px;
+}
+
+.installed-base table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.installed-base th, .installed-base td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.installed-base th {
+  background-color: #007bff;
+  color: white;
+}
+
+.installed-base td {
+  background-color: #f8f9fa;
+}
+
+.installed-base tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.installed-base tr:hover {
+  background-color: #ddd;
+}
+
+.installed-base th {
+  background-color: #007bff;
+
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+/* para que opción donde se está navegando tenga un color diferente */
+.activate {
+color: rgb(13, 110, 253);
+}
+/* Estilos del contenedor de búsqueda */
+.search-container {
+display: flex;
+align-items: center;
+width: 100%;
+max-width: 400px;
+}
+
+/* Estilos para el input de búsqueda */
+.search-input {
+width: 70%;
+border-top-right-radius: 0 !important; /* Eliminar esquina superior derecha */
+border-bottom-right-radius: 0 !important; /* Eliminar esquina inferior derecha */
+border-right: none; /* Eliminar borde derecho */
+flex: 1;
+}
+
+
+/* Estilos para el botón de búsqueda */
+.search-button {
+width: 30%;
+border-top-left-radius: 0 !important; /* Eliminar esquina superior derecha */
+border-bottom-left-radius: 0 !important; /* Eliminar esquina inferior derecha */
+background-color: #009FE3 !important;
+ border-left: 1px solid #ced4da; /* Agregar borde izquierdo */
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0 12px;
+}
+
+.search-button i {
+color: white;
+font-size: 18px;
+}
+
+/* estilos del select */
+.seleccion {
+  width: 30% !important; /* Asegura que el ancho se aplique */
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 556px) {
+  .vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente si es necesario */
+  }
+
+  .search-container {
+    margin-top: 2vh;
+  }
+
+  .seleccion {
+    width: 80% !important; /* Asegura que el ancho se aplique */
+    margin-bottom: 10px; /* Agrega margen si es necesario para separación */
+  }
+  option{
+    font-size: 0.7rem;
+  }
+}
+/* para que opción donde se está navegando de cliente tenga un color diferente */
+.activate {
+  color: #009FE3;
+}
+.icon-estilo{
+  border: solid 1px;
+  width: 1vw;
+  height: 1vw;
+  padding: 10px;
+  border-radius: 29px;
+}
+
+.custom-button {
+  color: rgb(0, 0, 0); /* Color del ícono y texto del botón */
+  font-weight: bold;
+  text-decoration: none;
+  padding: 5px 10px; /* Ajuste del padding */
+  border: 1px solid transparent; /* Borde transparente para evitar desplazamientos en el hover */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: color 0.3s, background-color 0.3s; /* Transiciones suaves */
+  background-color: transparent; /* Fondo transparente */
+}
+
+/* Botón de "Atrás" con margen a la izquierda */
+.circle-button-back {
+  margin-left: 10px; /* Ajusta este valor según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent; /* Color de fondo */
+  color: #009FE3; /* Color del ícono y texto */
+  text-align: center;
+}
+
+/* Botón de "Siguiente" con margen a la derecha */
+.circle-button-next {
+  margin-right: 10px; /* Ajusta este valor según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent; /* Color de fondo */
+  color: #009FE3; /* Color del ícono y texto */
+  text-align: center;
+}
+
+.circle-button-back i,
+.circle-button-next i {
+  font-size: 24px;
+}
+
+.circle-button-back span,
+.circle-button-next span {
+  margin-top: 5px;
+  font-size: 9px;
+  color: #009FE3; /* Color del texto */
+}
+/* Eliminar el efecto hover */
+.circle-button-back:hover,
+.circle-button-next:hover {
+  background-color: transparent; /* Mantener el fondo transparente */
+  color: #009FE3; /* Mantener el color del ícono y texto */
+  border-color: #009FE3; /* Mantener el color del borde */
+  transition: none; /* Desactivar transiciones */
+}

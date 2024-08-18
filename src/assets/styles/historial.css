@@ -1,0 +1,87 @@
+header {
+    background-image: url('istockphoto-1247728289-1024x1024-transformed (1).jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 10px 20px;
+  }
+
+  nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  main {
+    padding: 20px;
+  }
+
+  h2 {
+    color: #007bff;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    background: white;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90%;
+  }
+
+  .custom-margin {
+    margin: 0 auto;
+    width: 60%;
+    margin-bottom: 5vh; /* Ajuste para dar espacio a la nota */
+  }
+
+  p {
+    margin: 18vw 0;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    .custom-margin {
+      width: 90%;
+    }
+
+    p {
+      width: 90%;
+    }
+  }
+
+  .note {
+    margin-top: 30vh; /* Ajuste para mover la nota más abajo */
+  }

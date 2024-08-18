@@ -1,0 +1,60 @@
+.order-page, .offer-page {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-list, .offer-list {
+    margin-top: 20px;
+}
+
+.order-item, .offer-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-item a, .offer-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.order-item a:hover, .offer-item a:hover {
+    text-decoration: underline;
+}
+
+/* Botón de "Atrás" con margen a la izquierda */
+.circle-button-back {
+  margin-left: 10px; /* Ajusta este valor según sea necesario */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent; /* Color de fondo */
+  color: #009FE3; /* Color del ícono y texto */
+  text-align: center;
+}
+
+.circle-button-back i {
+  font-size: 24px;
+}
+
+.circle-button-back span {
+  margin-top: 5px;
+  font-size: 9px;
+  color: #009FE3; /* Color del texto */
+}
+/* Eliminar el efecto hover */
+.circle-button-back:hover {
+  background-color: transparent; /* Mantener el fondo transparente */
+  color: #009FE3; /* Mantener el color del ícono y texto */
+  border-color: #009FE3; /* Mantener el color del borde */
+  transition: none; /* Desactivar transiciones */
+}

@@ -1,0 +1,21 @@
+.packing-list-page {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.document-list {
+    margin-top: 20px;
+}
+
+.document-list a {
+    display: block;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.document-list a:hover {
+    text-decoration: underline;
+}
