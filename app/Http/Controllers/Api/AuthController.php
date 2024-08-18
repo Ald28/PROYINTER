@@ -64,19 +64,9 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-        // Revoca el token actual del usuario
         $user = Auth::user();
-    
-        // Si estás usando Laravel Sanctum, puedes hacer:
-        $user->currentAccessToken()->delete();  // Revoca solo el token actual
-    
-        // O si deseas revocar todos los tokens del usuario:
-        // $user->tokens()->delete();  // Revoca todos los tokens del usuario
-    
-        // Elimina la cookie del token
+        $user->currentAccessToken()->delete();
         $cookie = Cookie::forget('cookie_token');
-        
-        // Devuelve la respuesta
         return response(["message" => "Cierre de sesión hecho, token revocado"], Response::HTTP_OK)->withCookie($cookie);
     }
 
