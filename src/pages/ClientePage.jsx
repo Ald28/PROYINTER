@@ -81,7 +81,7 @@ const ClientePage = () => {
                     </button>
                     {menuOpen && (
                         <div className="dropdown-menu dropdown-menu-end show">
-                            <button className="dropdown-item">Ver mi perfil</button>
+                            <button className="dropdown-item" onClick={() => handleLinkClick('/cliente/perfil', 'perfil')}>Ver mi perfil</button>
                             <button className="dropdown-item text-danger" onClick={handleLogout}>Cerrar sesión</button>
                             <button className="dropdown-item">Editar mi perfil</button>
                         </div>

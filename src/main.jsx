@@ -54,6 +54,8 @@ import CabinaProtectoraPage from './pages/solicoti/CabinaProtectoraPage';
 import Tanques from './pages/solicoti/TanquesPage';
 import EquiposDosificacionPage from './pages/solicoti/EquiposDosificacionPage';
 
+import Perfil from './pages/Perfil';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -69,6 +71,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </ProtectedRoute>
           }
         >
+          <Route path="perfil" element={<Perfil/>}/>
           <Route path="garantias-reclamos" element={<Garantias_Reclamos />} />
           <Route path="garantias-reclamos/garantias" element={<Garantias />} />
           <Route path="garantias-reclamos/reclamos" element={<Reclamos />} />
