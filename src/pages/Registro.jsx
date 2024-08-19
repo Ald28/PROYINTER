@@ -51,11 +51,10 @@ const Registro = () => {
                 timer: 2000,
                 timerProgressBar: true,
                 showConfirmButton: false,
-                
             });
             return;
         }
-        
+
         const datosRegistro = {
             name: nombreCompleto,
             lastname: apellidos,
@@ -70,7 +69,6 @@ const Registro = () => {
         };
 
         try {
-            
             const response = await fetch('http://localhost:8000/api/register', {
                 method: 'POST',
                 headers: {
@@ -78,7 +76,7 @@ const Registro = () => {
                 },
                 body: JSON.stringify(datosRegistro)
             });
-            
+
             if (response.ok) {
                 Swal.fire({
                     icon: 'success',
@@ -87,7 +85,7 @@ const Registro = () => {
                     timer: 2000,
                     timerProgressBar: true,
                     showConfirmButton: false,
-                    didClose: () => navigate('/') 
+                    didClose: () => navigate('/')
                 });
             } else {
                 const errorData = await response.json();
@@ -128,7 +126,7 @@ const Registro = () => {
                     <form onSubmit={manejarRegistro}>
                         <p className="texto">Datos de la Empresa:</p>
                         <div className="row">
-                        <div className="col">
+                            <div className="col">
                                 <select 
                                     className="form-control"
                                     value={pais}
