@@ -5,6 +5,28 @@ import logo from '../assets/images/Logo_proyinter.png';
 import derecha from '../assets/images/login.png';
 import '../assets/styles/registro.css';
 
+const paises = [
+    "Argentina",
+    "Bolivia",
+    "Brasil",
+    "Chile",
+    "Colombia",
+    "Costa Rica",
+    "Cuba",
+    "Ecuador",
+    "El Salvador",
+    "Guatemala",
+    "Honduras",
+    "México",
+    "Nicaragua",
+    "Panamá",
+    "Paraguay",
+    "Perú",
+    "República Dominicana",
+    "Uruguay",
+    "Venezuela"
+];
+
 const Registro = () => {
     const [pais, setPais] = useState('');
     const [nombreEmpresa, setNombreEmpresa] = useState('');
@@ -106,15 +128,18 @@ const Registro = () => {
                     <form onSubmit={manejarRegistro}>
                         <p className="texto">Datos de la Empresa:</p>
                         <div className="row">
-                            <div className="col">
-                                <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    placeholder='País'
+                        <div className="col">
+                                <select 
+                                    className="form-control"
                                     value={pais}
                                     onChange={(e) => setPais(e.target.value)}
                                     required
-                                />
+                                >
+                                    <option value="" disabled>Selecciona un país</option>
+                                    {paises.map((pais, index) => (
+                                        <option key={index} value={pais}>{pais}</option>
+                                    ))}
+                                </select>
                             </div>
                             <div className="col">
                                 <input
