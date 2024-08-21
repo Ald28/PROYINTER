@@ -10,6 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Ensure Bootstrap JS is in
 export default function Garantias() {
 
     const [showWarning, setShowWarning] = useState(false); // State for modal
+    
 
     const orders = [
         {
@@ -44,6 +45,10 @@ export default function Garantias() {
         navigate(path);
     };
 
+    const handleBackClick = () => {
+      navigate(-1);  // Navega hacia atrás en la historia
+      };
+
     const handleRequestGuarantee = (id) => {
         if (id === 2) {
             setShowWarning(true); // Show warning modal for ID 2
@@ -63,6 +68,14 @@ export default function Garantias() {
                     <li className="breadcrumb-item activate" aria-current="page">Garantias</li>
                 </ol>
             </nav>
+
+              {/* botón de atrás  */}
+              <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
 
             <h4>Servicios de procura adquiridos</h4>
             <table id="orderTable" className="display">
