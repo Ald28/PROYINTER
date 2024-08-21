@@ -83,7 +83,7 @@ font-size: 18px;
 
 /* estilos del select */
 .seleccion {
-  width: 30% !important; /* Asegura que el ancho se aplique */
+  width: 20% !important; /* Asegura que el ancho se aplique */
 }
 
 /* Media Query para pantallas más pequeñas */
@@ -99,7 +99,7 @@ font-size: 18px;
   }
 
   .seleccion {
-    width: 80% !important; /* Asegura que el ancho se aplique */
+    width: 20% !important; /* Asegura que el ancho se aplique */
     margin-bottom: 10px; /* Agrega margen si es necesario para separación */
   }
   option{
@@ -177,6 +177,14 @@ font-size: 18px;
   color: #009FE3; /* Mantener el color del ícono y texto */
   border-color: #009FE3; /* Mantener el color del borde */
   transition: none; /* Desactivar transiciones */
+}
+
+/*Buscador */
+.dt-input{
+  
+}
+.dt-search{
+  margin-bottom: ;
 }
 
 

@@ -23,8 +23,24 @@ const CertificadoGarantia = () => {
     useEffect(() => {
         const table = $('#certificadoTable').DataTable({
             paging: false,
-            searching: false,
+            searching: true,
             info: false,
+            language: {
+                searchPlaceholder: "Buscar",
+                zeroRecords: "No se encontraron resultados",
+                search: `
+                    <div style="
+                        background-color: #009FE3;
+                        border-radius: 4px;
+                        padding: 10px;
+                        display: flex;
+                        align-items: center;
+                        color: white;
+                    ">
+                        <i class="fas fa-search" style="justify-content: flex-end;"></i>
+                    </div>
+                `,
+            },
         });
 
         return () => {

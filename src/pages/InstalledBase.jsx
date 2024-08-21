@@ -86,29 +86,16 @@ const InstalledBase = () => {
                     <span className='text-black'>Atrás</span>
                 </button>
             </div>
-            <div className="d-flex justify-content-between align-items-center mb-3 vertical">
-                <select value={filter} onChange={handleFilterChange} className="form-select seleccion breadcrumb-item  active fw-bold">
+
+            <h3>Servicios atendidos o en curso de atención</h3>
+            <div className="d-flex align-items-center mt-3 vertical">
+                <select value={filter} onChange={handleFilterChange} className="form-select seleccion  active fw-bold">
                     <option>Todos los servicios</option>
                     <option>Servicio de Procura</option>  
                     <option>Servicio de Mantenimiento</option>
                     <option>Servicio de Instalación</option>
                 </select>
-
-                <div className="search-container">
-                    <input
-                        type="text"
-                        className="form-control search-input"
-                        placeholder="Buscar"
-                        value={searchTerm}
-                        onChange={handleSearchChange}
-                    />
-                    <button className="btn btn-info search-button">
-                        <i className="fa fa-search"></i>
-                    </button>
-                </div>
             </div>
-
-            <h3>Servicios atendidos o en curso de atención</h3>
 
             <table ref={tableRef} id="myTable" className="display">
                 <thead>
