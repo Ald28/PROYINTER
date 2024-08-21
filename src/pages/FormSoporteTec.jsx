@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaTrash, FaPlus } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,7 +12,7 @@ const FileInputButton = ({ onClick, disabled }) => (
         className="btn btn-primary btn-sm file-input-button"
         onClick={onClick}
         disabled={disabled}
-        style={{marginLeft:'45px'}}
+        style={{ marginLeft: '45px' }}
     >
         <FaPlus style={{ fontSize: '14px' }} />
     </button>
@@ -34,7 +34,7 @@ const FileList = ({ files, onRemoveFile }) => (
                     className="btn btn-link btn-sm"
                     onClick={() => onRemoveFile(index)}
                 >
-                    <FaTrash style={{ fontSize: '12px', color:'red'}} />
+                    <FaTrash style={{ fontSize: '12px', color: 'red' }} />
                 </button>
             </div>
         ))}
@@ -44,6 +44,7 @@ const FileList = ({ files, onRemoveFile }) => (
 const FormSoporteTec = () => {
     const [files, setFiles] = useState([]);
     const [showSelect, setShowSelect] = useState(false);
+    const navigate = useNavigate();
 
     const handleFileChange = (e) => {
         if (files.length < 3) {
@@ -86,36 +87,54 @@ const FormSoporteTec = () => {
         });
     };
 
+    const handleBackClick = () => {
+        navigate(-1);  // Navega hacia atrás en la historia
+    };
+
     return (
-        <div className="container">
+        <div>
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black btn-sm" to="/cliente">
+                        <Link className="btn btn-black btn-sm fw-bold" to="/cliente">
                             Cliente
                         </Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black btn-sm" to="/cliente/soporte-tecnico">
+                        <Link className="btn btn-black btn-sm fw-bold" to="/cliente/soporte-tecnico">
                             Servicio Técnico
                         </Link>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">Formulario</li>
                 </ol>
             </nav>
-            
+
+            {/* Botón de atrás */}
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className="text-black">Atrás</span>
+                </button>
+            </div>
+
             <form
                 className="form-soporte mx-auto mt-2"
                 onSubmit={handleSubmit}
             >
-                <h1 className="text-center mt-1">
+               <div className="position-relative">
+                    <h1 className="text-center mt-1 titulo">
                     Formulario de Soporte Técnico
-                </h1>
-                
+                    </h1>
+                   <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                   </button>
+                </div>
+
                 <div className="row align-items-center mt-2">
                     <div className="col-md-6 d-flex align-items-center">
                         <p className='form-label mb-1 me-2'>
-                            1. Desea recibir soporte técnico sobre algún Servicio Adquirido?
+                            1. ¿Desea recibir soporte técnico sobre algún Servicio Adquirido?
                         </p>
                         <div className="form-check form-check-inline">
                             <input
@@ -179,7 +198,7 @@ const FormSoporteTec = () => {
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className="row p-1 justify-content-center">
                     <div className="col-md-12 d-flex flex-column align-items-center">
                         <div className="d-flex align-items-center mb-2">
@@ -209,7 +228,7 @@ const FormSoporteTec = () => {
                     </div>
                 </div>
 
-                <hr/>
+                <hr />
                 <div className="row mb-2">
                     <div className="col-md-10">
                         <p className='form-label'>
@@ -222,8 +241,8 @@ const FormSoporteTec = () => {
                             required
                         />
                     </div>
-                    <div className="col-md-2 btn-container">
-                        <button type="submit" className="btn degradado">
+                    <div className="col-md-2 btn-container ">
+                        <button type="submit " className="btn degradado">
                             Enviar
                         </button>
                     </div>

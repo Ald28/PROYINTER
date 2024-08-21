@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/styles/ContSoporteTec.css'; // Asegúrate de que la ruta sea correcta
@@ -11,6 +12,11 @@ const ContSoporteTec = () => {
     const [showSelect, setShowSelect] = useState(false);
     const [problemaDescripcion, setProblemaDescripcion] = useState('');
     const [soporteSeleccionado, setSoporteSeleccionado] = useState('No');
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+      navigate(-1);  // Navega hacia atrás en la historia
+      };
 
     useEffect(() => {
         if (contactMethod === 'Chat') {
@@ -95,16 +101,16 @@ const ContSoporteTec = () => {
     };
 
     return (
-        <div className="container">
+        <div>
             <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
+                <ol className="breadcrumb bg-transparent">
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black" to="/cliente">
+                        <Link className="btn btn-black fw-bold" to="/cliente">
                             Cliente
                         </Link>
                     </li>
                     <li className="breadcrumb-item">
-                        <Link className="btn btn-black" to="/cliente/soporte-tecnico">
+                        <Link className="btn btn-black fw-bold" to="/cliente/soporte-tecnico">
                             Servicio Técnico
                         </Link>
                     </li>
@@ -112,10 +118,17 @@ const ContSoporteTec = () => {
                 </ol>
             </nav>
 
+
             <form className="cont-soporte-tec mx-auto" onSubmit={handleSubmit}>
-                <h1 className="text-center mt-1 titulo">
-                    Contactar a un Asesor
-                </h1>
+                <div className="position-relative">
+                    <h1 className="text-center mt-1 titulo">
+                        Contactar a un Asesor
+                    </h1>
+                   <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                   </button>
+                </div>
                 <div className="row align-items-center mt-2">
                     <div className="col-md-6 d-flex align-items-center">
                         <p className='form-label mb-1 me-2'>

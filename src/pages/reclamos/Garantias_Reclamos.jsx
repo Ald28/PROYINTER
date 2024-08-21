@@ -33,11 +33,11 @@ export default function Reclamos() {
             </div>
             <h2 className='text-center'>Garantías y Reclamos </h2>
             <Container className="d-flex flex-column align-items-center mx-auto mt-4" style={{ maxWidth: '360px' }}>
-                <button className="despacho-button fw-bold mb-3 w-100" onClick={() => handleLinkClick('/cliente/garantias-reclamos/garantias')}>
+                <button className="despacho-button fw-bold mb-3 w-100 p-4" onClick={() => handleLinkClick('/cliente/garantias-reclamos/garantias')}>
                     <FontAwesomeIcon icon={faFileShield} className='button-icon' />
                     <span>Garantías</span>
                 </button>
-                <button className="despacho-button mb-3 w-100" onClick={() => handleLinkClick('/cliente/garantias-reclamos/reclamos')}>
+                <button className="despacho-button mb-3 w-100 p-4" onClick={() => handleLinkClick('/cliente/garantias-reclamos/reclamos')}>
                     <FontAwesomeIcon icon={faPersonCircleExclamation} className='button-icon' />
                     <span>Reclamos</span>
                 </button>
