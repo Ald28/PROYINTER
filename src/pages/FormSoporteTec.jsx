@@ -108,15 +108,6 @@ const FormSoporteTec = () => {
                     <li className="breadcrumb-item active" aria-current="page">Formulario</li>
                 </ol>
             </nav>
-
-            {/* Botón de atrás */}
-            <div className="d-flex justify-content-between mb-3">
-                <button className="circle-button-back" onClick={handleBackClick}>
-                    <i className="fa fa-arrow-left"></i>
-                    <span className="text-black">Atrás</span>
-                </button>
-            </div>
-
             <form
                 className="form-soporte mx-auto mt-2"
                 onSubmit={handleSubmit}

@@ -20,6 +20,17 @@
   position: relative;
 }
 
+
+
+.circle-button-back .fa-arrow-left {
+  margin-right: 5px;
+}
+/* ----------------------------------------------
+----------------------------------------------
+problema por solucionar hace que todos los botones desaparezcan
+----------------------------------------------
+---------------------------------------------- */
+/* 
 .circle-button-back {
   position: absolute;
   top: 50%;
@@ -32,12 +43,7 @@
   align-items: center;
   padding: 5px;
   /* Estilo del botón */
-}
-
-.circle-button-back .fa-arrow-left {
-  margin-right: 5px;
-}
-
+/* } */ 
 
 
 /* Ajuste de etiquetas y campos dentro de cada pregunta */
