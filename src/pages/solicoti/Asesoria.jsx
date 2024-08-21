@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import '../solicoti/TiposCoti.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Asesoria = () => {
+    const navigate = useNavigate();
     const AsesoriaList = [
         { id: 1, name: 'Asesoria', type: 'Consultoria de estudios,ingenieria,procura y personal de campo' },
     ];
+
+    const handleBackClick = () => {
+      navigate(-1);  // Navega hacia atrás en la historia
+    };
 
     useEffect(() => {
         const table = $('#equiposTable').DataTable({
@@ -37,6 +43,12 @@ const Asesoria = () => {
                     <li className="breadcrumb-item active" aria-current="page">Asesoria</li>
                 </ol>
             </nav>
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
             <h3>Servicio de Asesoria</h3>
             <table id="equiposTable" className="display">
                 <thead>

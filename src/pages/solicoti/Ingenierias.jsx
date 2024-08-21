@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import '../solicoti/TiposCoti.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
@@ -7,6 +8,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 const Ingenierias = () => {
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+      navigate(-1);  // Navega hacia atrás en la historia
+      };
+
     const ingeniList = [
         { id: 1, name: 'Ingenieria', type: 'Ingenieria de Conceptual' },
         { id: 2, name: 'Ingenieria', type: 'Ingenieria de Basica' },
@@ -40,6 +47,14 @@ const Ingenierias = () => {
                     <li className="breadcrumb-item active" aria-current="page">Ingenierías</li>
                 </ol>
             </nav>
+
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
+            
             <h3>Ingenierías</h3>
             <table id="equiposTable" className="display">
                 <thead>

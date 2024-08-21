@@ -28,10 +28,6 @@ const InstalledBase = () => {
         navigate(-1);  // Navega hacia atrás en la historia
     };
 
-    const handleNextClick = () => {
-        navigate(1);  // Navega hacia adelante en la historia
-    };
-
     const adquiridoList = [
         { id: 1, tipo_servicio: 'Servicio de Procura', descripcion: 'Servicio de Procura de Tanques de Fibra de Vidrio para Cianuro y Sulfatos' },
     ];

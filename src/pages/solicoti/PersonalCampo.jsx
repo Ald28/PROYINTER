@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import '../solicoti/TiposCoti.css';
 import 'datatables.net-dt/css/dataTables.dataTables.css';
@@ -7,6 +8,12 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 const PersonalCampo = () => {
+    const navigate = useNavigate();
+
+    const handleBackClick = () => {
+    navigate(-1);  // Navega hacia atrás en la historia
+    };
+
     const personList = [
         { id: 1, name: 'Personal de Campo', type: 'Instalación' },
         { id: 2, name: 'Personal de Campo', type: 'Operación' },
@@ -40,6 +47,14 @@ const PersonalCampo = () => {
                     <li className="breadcrumb-item active" aria-current="page">Personal de Campo</li>
                 </ol>
             </nav>
+            {/* botón de atrás  */}
+            <div className="d-flex justify-content-between mb-3">
+                <button className="circle-button-back" onClick={handleBackClick}>
+                    <i className="fa fa-arrow-left"></i>
+                    <span className='text-black'>Atrás</span>
+                </button>
+            </div>
+
             <h3>Personal de Campo</h3>
             <table id="equiposTable" className="display">
                 <thead>
