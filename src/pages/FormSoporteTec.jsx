@@ -9,35 +9,57 @@ import '../assets/styles/FormSoporte.css';
 const FileInputButton = ({ onClick, disabled }) => (
     <button
         type="button"
-        className="btn btn-primary btn-sm file-input-button"
+        className="btn btn-outline-primary btn-sm file-input-button"
         onClick={onClick}
         disabled={disabled}
-        style={{ marginLeft: '45px' }}
+        style={{
+            borderRadius: '50%',
+            display: 'flex',
+            width: '40px',
+            height: '30px',
+            marginLeft: '25px',
+            color: '#009FE3'
+        }}
     >
         <FaPlus style={{ fontSize: '14px' }} />
     </button>
 );
 
 // Componente para la lista de archivos
-const FileList = ({ files, onRemoveFile }) => (
+const FileList = ({ files, onRemoveFile, onAddFileClick, canAddMoreFiles }) => (
     <div className="file-list-container">
         {files.map((file, index) => (
             <div key={index} className="file-item d-flex align-items-center mt-1">
                 <input
                     type="text"
-                    className="form-control form-control-sm"
+                    className="form-control form-control-sm me-0"
                     value={file.name}
                     readOnly
                 />
-                <button
-                    type="button"
-                    className="btn btn-link btn-sm"
+                <span
                     onClick={() => onRemoveFile(index)}
+                    style={{
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        padding: '2',
+                        marginLeft: '5px',
+                        
+                        
+                    }}
                 >
-                    <FaTrash style={{ fontSize: '12px', color: 'red' }} />
-                </button>
+                    <FaTrash style={{ fontSize: '16px', color: 'red' }} />
+                </span>
+
+                {index === files.length - 1 && canAddMoreFiles && (
+                    <FileInputButton onClick={onAddFileClick} disabled={files.length >= 3} />
+                )}
             </div>
         ))}
+        {files.length === 0 && canAddMoreFiles && (
+            <FileInputButton onClick={onAddFileClick} disabled={files.length >= 3} />
+        )}
     </div>
 );
 
@@ -76,6 +98,7 @@ const FormSoporteTec = () => {
                 icon: 'error',
                 title: 'Error',
                 text: 'Por favor, complete todos los campos obligatorios.',
+                confirmButtonColor: '#009FE3'
             });
             return;
         }
@@ -84,6 +107,7 @@ const FormSoporteTec = () => {
             icon: 'success',
             title: 'Éxito',
             text: 'Formulario enviado correctamente.',
+            confirmButtonColor: '#009FE3'
         });
     };
 
@@ -112,14 +136,14 @@ const FormSoporteTec = () => {
                 className="form-soporte mx-auto mt-2"
                 onSubmit={handleSubmit}
             >
-               <div className="position-relative">
+                <div className="position-relative">
                     <h1 className="text-center mt-1 titulo">
-                    Formulario de Soporte Técnico
+                        Formulario de Soporte Técnico
                     </h1>
-                   <button className="circle-button-back" onClick={handleBackClick}>
-                    <i className="fa fa-arrow-left"></i>
-                    <span className='text-black'>Atrás</span>
-                   </button>
+                    <button className="circle-button-back" onClick={handleBackClick}>
+                        <i className="fa fa-arrow-left"></i>
+                        <span className='text-black'>Atrás</span>
+                    </button>
                 </div>
 
                 <div className="row align-items-center mt-2">
@@ -196,10 +220,6 @@ const FormSoporteTec = () => {
                             <p className='form-label mb-0'>
                                 3. Adjunte el archivo si desea ampliar el problema (Máximo 3 archivos de 10MB cada uno)
                             </p>
-                            <FileInputButton
-                                onClick={handleAddFileInput}
-                                disabled={files.length >= 3}
-                            />
                         </div>
 
                         <div className="input-group mt-1">
@@ -214,7 +234,12 @@ const FormSoporteTec = () => {
                         </div>
 
                         <div className="mt-1">
-                            <FileList files={files} onRemoveFile={handleRemoveFile} />
+                            <FileList
+                                files={files}
+                                onRemoveFile={handleRemoveFile}
+                                onAddFileClick={handleAddFileInput}
+                                canAddMoreFiles={files.length < 3}
+                            />
                         </div>
                     </div>
                 </div>
@@ -229,11 +254,11 @@ const FormSoporteTec = () => {
                             type="text"
                             className="form-control form-control-sm"
                             placeholder="Vínculo del contenido"
-                            required
+                            
                         />
                     </div>
-                    <div className="col-md-2 btn-container ">
-                        <button type="submit " className="btn degradado">
+                    <div className="col-md-2 btn-container">
+                        <button type="submit" className="btn degradado">
                             Enviar
                         </button>
                     </div>

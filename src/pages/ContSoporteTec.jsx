@@ -22,11 +22,14 @@ const ContSoporteTec = () => {
         if (contactMethod === 'Chat') {
             Swal.fire({
                 title: '¿Desea contactarse por WhatsApp?',
-                text: 'Se le redirigirá a WhatsApp para iniciar el chat.',
-                icon: 'info',
+                text: 'Si desea conversar con un asesor, haga click en aceptar',
+                imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg', // URL del ícono de WhatsApp
+                imageWidth: 50, // Ajusta el tamaño del ícono
+                imageHeight: 50,
                 showCancelButton: true,
                 confirmButtonText: 'Sí, redirigirme',
                 cancelButtonText: 'No, volver',
+                confirmButtonColor: '#009FE3',
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'https://wa.me/1234567890'; // Cambia este número por el número de WhatsApp al que deseas redirigir
@@ -36,12 +39,16 @@ const ContSoporteTec = () => {
             });
         } else if (contactMethod === 'phone') {
             Swal.fire({
-                title: 'Si desea llamar a su asesor marque al número +51 999 999 999',
+                title: 'Si desea llamar a su asesor marque al número 911 922 933',
                 text: 'Si desea agendar una llamada de su asesor haga clic en REGRESAR:',
                 icon: 'info',
-                confirmButtonText: 'Llamar ahora',
-                cancelButtonText: 'Regresar',
                 showCancelButton: true,
+                showConfirmButton: false, // Oculta el botón "OK"
+                cancelButtonText: 'Regresar',
+                iconHtml: '<i class="fa fa-phone" style="color:#009FE3"></i>', // Ícono de teléfono personalizado
+                customClass: {
+                    icon: 'custom-icon', // Clase personalizada para el ícono
+                }
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'tel:+51999999999'; // Cambia este número por el número de teléfono al que deseas redirigir
@@ -83,22 +90,48 @@ const ContSoporteTec = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+    
         if (!problemaDescripcion || !contactMethod || !appointmentDate || !appointmentTime) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
                 text: 'Por favor, complete todos los campos obligatorios.',
+                confirmButtonColor: '#009FE3',
             });
             return;
         }
-
+    
+        let contactMethodText = '';
+        switch (contactMethod) {
+            case 'phone':
+                contactMethodText = 'Llamada Telefónica';
+                break;
+            case 'Reunion':
+                contactMethodText = 'Reunión Virtual';
+                break;
+            case 'Visita':
+                contactMethodText = 'Visita Técnica';
+                break;
+            default:
+                contactMethodText = 'Contacto';
+                break;
+        }
+    
         Swal.fire({
             icon: 'success',
-            title: 'Éxito',
-            text: 'Formulario enviado correctamente.',
+            title: `Se ha registrado su Solicitud de ${contactMethodText}`,
+            text: 'Por favor, espere hasta que su asesor le confirme la agenda o le proponga una alternativa',
+            confirmButtonColor: '#009FE3',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Recarga la página
+                window.location.reload();
+            }
         });
+        
     };
+    
+  
 
     return (
         <div>
