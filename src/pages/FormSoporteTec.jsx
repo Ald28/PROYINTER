@@ -108,7 +108,13 @@ const FormSoporteTec = () => {
             title: 'Éxito',
             text: 'Formulario enviado correctamente.',
             confirmButtonColor: '#009FE3'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirige a la ruta /cliente
+                navigate('/cliente');
+            }
         });
+        
     };
 
     const handleBackClick = () => {

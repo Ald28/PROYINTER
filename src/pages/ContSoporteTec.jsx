@@ -124,8 +124,8 @@ const ContSoporteTec = () => {
             confirmButtonColor: '#009FE3',
         }).then((result) => {
             if (result.isConfirmed) {
-                // Recarga la página
-                window.location.reload();
+                // Redirige a la ruta /cliente
+                navigate('/cliente');
             }
         });
         
