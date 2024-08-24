@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Cliente; // Cambiado de User a Cliente
+use App\Models\Cliente;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
@@ -13,67 +14,92 @@ use Illuminate\Support\Facades\Cookie;
 class AuthController extends Controller
 {
     public function register(Request $request){
-        //Validacion de datos
         $request->validate([
             'name' => 'required',
             'lastname' => 'required',
-            'country'=>'required',
+            'country' => 'required',
             'name_empresa' => 'required',
             'rubro_empresa' => 'required',
-            'email' => 'required|email|unique:clientes',
             'phone' => 'required|unique:clientes',
-            'charge'=>'required',
+            'charge' => 'required',
+            'email' => 'required|email|unique:usuarios',
             'password' => 'required|confirmed',
         ]);
-        // Alta del cliente
-        $cliente = new Cliente(); 
-        $cliente->name = $request->name;
-        $cliente->lastname = $request->lastname;
-        $cliente->country = $request->country;
-        $cliente->name_empresa = $request->name_empresa;
-        $cliente->rubro_empresa = $request->rubro_empresa;
-        $cliente->email = $request->email;
-        $cliente->phone = $request->phone;
-        $cliente->charge = $request->charge;
-        $cliente->password = Hash::make($request->password);
-        $cliente->save();
-        // Respuesta
-        return response($cliente, Response::HTTP_CREATED);
-    }
+    
+        try {
+            $cliente = Cliente::create([
+                'name' => $request->name,
+                'lastname' => $request->lastname,
+                'country' => $request->country,
+                'name_empresa' => $request->name_empresa,
+                'rubro_empresa' => $request->rubro_empresa,
+                'phone' => $request->phone,
+                'charge' => $request->charge,
+            ]);
+            
+            $usuario = Usuario::create([
+                'email' => $request->email,
+                'usuario' => $request->name,
+                'password' => Hash::make($request->password),
+                'perfil' => 'Cliente',
+                'clientes_ID_Cliente' => $cliente->id,
+            ]);
+            
+            return response($usuario, Response::HTTP_CREATED);
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response(["message" => "Error en el servidor, inténtelo más tarde"], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }        
 
     public function login(Request $request){
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        if(Auth::attempt($credentials)){
-            $cliente = Auth::user();
-            $token = $cliente->createToken('token')->plainTextToken;
-            $cookie = cookie('cookie_token', $token, 60*24);
-            return response(["token" => $token, "nombre" => $cliente->name], Response::HTTP_OK)->withoutCookie($cookie);
-        }else{
-            return response(["message"=>"Credenciales invalidas"],Response::HTTP_UNAUTHORIZED);
+    
+        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
+            $usuario = Auth::user();
+    
+            if ($usuario->clientes_ID_Cliente) {
+                $token = $usuario->createToken('token')->plainTextToken;
+                return response(["token" => $token, "nombre" => $usuario->usuario], Response::HTTP_OK);
+            } else {
+                return response(["message" => "No cuenta con perfil de cliente"], Response::HTTP_FORBIDDEN);
+            }
+        } else {
+            return response(["message" => "Credenciales inválidas"], Response::HTTP_UNAUTHORIZED);
         }
     }
+    
 
-    public function userProfile(Request $request){
+    public function userProfile(Request $request) {
+        $user = auth()->user();
+        $cliente = $user->cliente; 
+    
         return response()->json([
-            "message"=>"Perfil de usuario OK",
-            "userData"=>auth()->user()
+            "message" => "Perfil de usuario OK",
+            "userData" => [
+                'name' => $user->usuario,
+                'email' => $user->email,
+                'perfil' => $user->perfil,
+                'puntaje' => $user->puntaje,
+                'cliente' => $cliente, 
+            ]
         ], Response::HTTP_OK);
     }
 
     public function logout(Request $request){
-        $cliente = Auth::user();
-        $cliente->currentAccessToken()->delete();
+        $usuario = Auth::user();
+        $usuario->currentAccessToken()->delete();
         $cookie = Cookie::forget('cookie_token');
         return response(["message" => "Cierre de sesión hecho, token revocado"], Response::HTTP_OK)->withCookie($cookie);
-    }
+    }    
 
     public function allUsers(){
-        $clientes = Cliente::all();
+        $usuarios = Usuario::all();
         return response()->json([
-            "users"=>$clientes
+            "users" => $usuarios
         ]);
-    }
+    }    
 }

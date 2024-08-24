@@ -7,24 +7,25 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+
     protected $fillable = [
-        'name',
-        'lastname',
-        'country',
-        'name_empresa',
-        'rubro_empresa',
         'email',
-        'phone',
-        'charge',
+        'usuario',
         'password',
+        'perfil',
+        'puntaje',
+        'clientes_ID_Cliente',
     ];
     
     protected $hidden = [
         'password',
     ];
-    
+
+    public function cliente()
+    {
+        return $this->belongsTo(Cliente::class, 'clientes_ID_Cliente');
+    }
 }

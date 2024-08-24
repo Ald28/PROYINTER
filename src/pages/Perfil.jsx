@@ -6,7 +6,6 @@ export default function Perfil() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    
     fetch('http://localhost:8000/api/user-profile', {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -37,13 +36,20 @@ export default function Perfil() {
       {userData && (
         <div>
           <p><strong>Nombre:</strong> {userData.name}</p>
-          <p><strong>Apellido:</strong> {userData.lastname}</p>
-          <p><strong>País:</strong> {userData.country}</p>
-          <p><strong>Empresa:</strong> {userData.name_empresa}</p>
-          <p><strong>Rubro:</strong> {userData.rubro_empresa}</p>
           <p><strong>Email:</strong> {userData.email}</p>
-          <p><strong>Teléfono:</strong> {userData.phone}</p>
-          <p><strong>Cargo:</strong> {userData.charge}</p>
+          <p><strong>Perfil:</strong> {userData.perfil}</p>
+          {userData.cliente && (
+            <div>
+              <h2>Datos del Cliente</h2>
+              <p><strong>Nombre:</strong> {userData.cliente.name}</p>
+              <p><strong>Apellido:</strong> {userData.cliente.lastname}</p>
+              <p><strong>País:</strong> {userData.cliente.country}</p>
+              <p><strong>Empresa:</strong> {userData.cliente.name_empresa}</p>
+              <p><strong>Rubro:</strong> {userData.cliente.rubro_empresa}</p>
+              <p><strong>Teléfono:</strong> {userData.cliente.phone}</p>
+              <p><strong>Cargo:</strong> {userData.cliente.charge}</p>
+            </div>
+          )}
         </div>
       )}
     </div>

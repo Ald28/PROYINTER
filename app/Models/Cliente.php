@@ -17,13 +17,7 @@ class Cliente extends Authenticatable
         'country',
         'name_empresa',
         'rubro_empresa',
-        'email',
         'phone',
         'charge',
-        'password',
-    ];
-    
-    protected $hidden = [
-        'password',
     ];
 }

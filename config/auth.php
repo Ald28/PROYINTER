@@ -4,32 +4,37 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'clientes',
+        'passwords' => 'usuarios',
     ],
 
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'clientes',
+            'provider' => 'usuarios',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'clientes',
+            'provider' => 'usuarios',
             'hash' => false,
         ],
     ],
 
     'providers' => [
-        'clientes' => [ 
+        'usuarios' => [ 
+            'driver' => 'eloquent',
+            'model' => App\Models\Usuario::class,
+        ],
+
+        'clientes' => [
             'driver' => 'eloquent',
             'model' => App\Models\Cliente::class,
         ],
     ],
 
     'passwords' => [
-        'clientes' => [
-            'provider' => 'clientes',
+        'usuarios' => [
+            'provider' => 'usuarios',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
@@ -39,4 +44,3 @@ return [
     'password_timeout' => 10800,
 
 ];
-

@@ -18,10 +18,8 @@ return new class extends Migration
             $table->string('country');
             $table->string('name_empresa');
             $table->string('rubro_empresa');
-            $table->string('email')->unique();
             $table->string('phone');
             $table->string('charge');
-            $table->string('password');
             $table->timestamps();
         });
     }
