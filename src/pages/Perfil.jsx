@@ -23,7 +23,7 @@ export default function Perfil() {
     })
       .then(response => response.json())
       .then(data => {
-        // Asegúrate de que `data.userData.cliente` existe antes de asignarlo
+        
         if (data.userData) {
           const clienteData = data.userData.cliente || {};
           setUserData(data.userData);
