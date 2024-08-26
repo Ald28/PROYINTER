@@ -102,4 +102,53 @@ class AuthController extends Controller
             "users" => $usuarios
         ]);
     }    
+
+    public function updateUser(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'lastname' => 'required',
+            'country' => 'required',
+            'name_empresa' => 'required',
+            'rubro_empresa' => 'required',
+            'phone' => 'required',
+            'charge' => 'required',
+        ]);
+
+        // Obtener el usuario autenticado
+        $user = Auth::user();
+        
+        if (!$user || !$user->cliente) {
+            return response()->json([
+                'message' => 'El usuario o el cliente no existen.',
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $cliente = $user->cliente;
+
+        // Actualizar los datos del cliente
+        $cliente->update([
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'country' => $request->country,
+            'name_empresa' => $request->name_empresa,
+            'rubro_empresa' => $request->rubro_empresa,
+            'phone' => $request->phone,
+            'charge' => $request->charge,
+        ]);
+
+        // Devolver la respuesta
+        return response()->json([
+            'message' => 'Información del cliente actualizada correctamente',
+            'userData' => [
+                'name' => $cliente->name,
+                'lastname' => $cliente->lastname,
+                'country' => $cliente->country,
+                'name_empresa' => $cliente->name_empresa,
+                'rubro_empresa' => $cliente->rubro_empresa,
+                'phone' => $cliente->phone,
+                'charge' => $cliente->charge,
+            ],
+        ], Response::HTTP_OK);
+        }
+
 }
