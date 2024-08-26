@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 export default function Perfil() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -40,7 +40,7 @@ export default function Perfil() {
         setLoading(false);
       })
       .catch(error => {
-        setError('Error al cargar los datos del usuario');
+        setError(error);
         setLoading(false);
       });
   }, []);
