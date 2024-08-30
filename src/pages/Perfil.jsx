@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import '../assets/styles/Perfil.css';
 
 export default function Perfil() {
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [isEditing, setIsEditing] = useState(false);
@@ -23,7 +25,6 @@ export default function Perfil() {
     })
       .then(response => response.json())
       .then(data => {
-        
         if (data.userData) {
           const clienteData = data.userData.cliente || {};
           setUserData(data.userData);
@@ -40,7 +41,7 @@ export default function Perfil() {
         setLoading(false);
       })
       .catch(error => {
-        setError(error);
+        setError(error.message);
         setLoading(false);
       });
   }, []);
@@ -78,100 +79,110 @@ export default function Perfil() {
         setError('Error al actualizar los datos: ' + error.message);
       });
   };
- 
+
   if (loading) {
-    return <div>Cargando...</div>;
+    return <div className="container">Cargando...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="container"><p className="error">{error}</p></div>;
   }
 
   return (
-    <div>
-      <h1>Perfil de Usuario</h1>
+    <div className="container">
       {userData && (
-        <div>
-          {isEditing ? (
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label>Nombre:</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Apellido:</label>
-                <input
-                  type="text"
-                  name="lastname"
-                  value={formData.lastname}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>País:</label>
-                <input
-                  type="text"
-                  name="country"
-                  value={formData.country}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Nombre de la Empresa:</label>
-                <input
-                  type="text"
-                  name="name_empresa"
-                  value={formData.name_empresa}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Rubro de la Empresa:</label>
-                <input
-                  type="text"
-                  name="rubro_empresa"
-                  value={formData.rubro_empresa}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Teléfono:</label>
-                <input
-                  type="text"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Cargo:</label>
-                <input
-                  type="text"
-                  name="charge"
-                  value={formData.charge}
-                  onChange={handleChange}
-                />
-              </div>
-              <button type="submit">Actualizar</button>
-              <button type="button" onClick={() => setIsEditing(false)}>Cancelar</button>
-            </form>
-          ) : (
-            <div>
-              <p><strong>Nombre:</strong> {userData.cliente.name}</p>
-              <p><strong>Apellido:</strong> {userData.cliente.lastname}</p>
-              <p><strong>País:</strong> {userData.cliente.country}</p>
-              <p><strong>Nombre de la Empresa:</strong> {userData.cliente.name_empresa}</p>
-              <p><strong>Rubro de la Empresa:</strong> {userData.cliente.rubro_empresa}</p>
-              <p><strong>Teléfono:</strong> {userData.cliente.phone}</p>
-              <p><strong>Cargo:</strong> {userData.cliente.charge}</p>
-              <button onClick={() => setIsEditing(true)}>Editar</button>
-            </div>
-          )}
+        <div className="profile-container">
+          <h1 className="title">Perfil de Usuario</h1>
+          <div className="profile-content">
+            {isEditing ? (
+              <Modal
+                isOpen={isEditing}
+                onRequestClose={() => setIsEditing(false)}
+                contentLabel="Editar Perfil"
+                className="modal-content"
+              >
+                <form onSubmit={handleSubmit}>
+                  {Object.keys(formData).map((key, index) => {
+                    let label = "";
+                    switch (key) {
+                      case "name":
+                        label = "Nombre";
+                        break;
+                      case "lastname":
+                        label = "Apellido";
+                        break;
+                      case "country":
+                        label = "País";
+                        break;
+                      case "name_empresa":
+                        label = "Nombre de la Empresa";
+                        break;
+                      case "rubro_empresa":
+                        label = "Rubro de la Empresa";
+                        break;
+                      case "phone":
+                        label = "Celular";
+                        break;
+                      case "charge":
+                        label = "Cargo";
+                        break;
+                      default:
+                        label = key.replace('_', ' ').toUpperCase();
+                    }
+                    return (
+                      <div className="form-field" key={key}>
+                        <label className="label">{label}:</label>
+                        <input
+                          type="text"
+                          name={key}
+                          value={formData[key]}
+                          onChange={handleChange}
+                          className="input"
+                        />
+                      </div>
+                    );
+                  })}
+
+                  <button className="button" type="submit">Actualizar</button>
+                  <button className="button" type="button" onClick={() => setIsEditing(false)}>Cancelar</button>
+                </form>
+              </Modal>
+            ) : (
+              <>
+                {Object.keys(userData.cliente).filter(key => key !== 'id' && key !== 'created_at' && key !== 'updated_at').map((key) => {
+                  let label = "";
+                  switch (key) {
+                    case "name":
+                      label = "Nombre";
+                      break;
+                    case "lastname":
+                      label = "Apellido";
+                      break;
+                    case "country":
+                      label = "País";
+                      break;
+                    case "name_empresa":
+                      label = "Nombre de la Empresa";
+                      break;
+                    case "rubro_empresa":
+                      label = "Rubro de la Empresa";
+                      break;
+                    case "phone":
+                      label = "Celular";
+                      break;
+                    case "charge":
+                      label = "Cargo";
+                      break;
+                    default:
+                      label = key.replace('_', ' ').toUpperCase();
+                  }
+                  return <p className="profile-item" key={key}><strong>{label}:</strong> {userData.cliente[key]}</p>
+                })}
+
+                <button className="button" onClick={() => setIsEditing(true)}>Editar</button>
+              </>
+            )}
+          </div>
         </div>
       )}
     </div>
